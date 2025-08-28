@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 10 Chemistry - Quick Revision Q&A Table</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+	<script src="protection.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .qa-row {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .qa-row:hover {
+            background-color: #f8fafc;
+            border-left-color: #3b82f6;
+            transform: translateX(4px);
+        }
+        
+        .qa-row.mastered {
+            background-color: #f0fdf4;
+            border-left-color: #22c55e;
+        }
+        
+        .equation {
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            color: #1e40af;
+            background: #eff6ff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        
+        .reaction-type {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        
+        .combination { background: #dcfce7; color: #166534; }
+        .decomposition { background: #fef3c7; color: #92400e; }
+        .displacement { background: #fecaca; color: #991b1b; }
+        .precipitation { background: #dbeafe; color: #1e40af; }
+        .redox { background: #e9d5ff; color: #7c2d12; }
+        .neutralization { background: #f3e8ff; color: #6b21a8; }
+        
+        .answer-hidden {
+            filter: blur(4px);
+            cursor: pointer;
+            transition: filter 0.3s ease;
+        }
+        
+        .answer-hidden:hover {
+            filter: blur(2px);
+        }
+        
+        .search-highlight {
+            background-color: #fef08a;
+            padding: 1px 2px;
+            border-radius: 2px;
+        }
+        
+        .stats-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+        
+        @media print {
+            .no-print { display: none !important; }
+            .qa-row { border: 1px solid #e5e7eb; }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+ <!-- Navigation Tabs -->
+		<script>function navigateTo(page) {
+            // Simulate navigation - in real implementation, these would link to actual pages
+            const pageNames = {
+                'ncert-solutions': 'ncert_solutions_chap_1',
+                'chemical-reactions': 'Chemical Reactions',
+                'quick-revision': 'Quick Revision',
+                'activities': 'Activities',
+                'mock-test-1': 'Mock Test 1',
+                'mock-test-2': 'Mock Test 2',
+                'mock-test-3': 'Mock Test 3 (Very Short Answer)',
+                'mock-test-4': 'Mock Test 4 (Short/Long Answer)',
+                'mock-test-5': 'Mock Test 5 (Case Study)'
+            };
+         
+            // In a real implementation, you would use:
+			window.location.href = `${page}.html`;
+            // or for single page application:
+            // loadPage(page);
+        }</script>
+        <div class="bg-white rounded-2xl shadow-xl p-6 mb-8">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">📚 Study Resources</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <button onclick="navigateTo('ncert_solutions_chap_1')" class="tab-button bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📖 NCERT Solutions
+                </button>
+                <button onclick="navigateTo('All_Chemical_reaction_chap_1')" class="tab-button bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    ⚗️ Chemical Reactions
+                </button>
+                <button onclick="navigateTo('Quick_revision_chap_1')" class="tab-button bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    ⚡ Quick Revision
+                </button>
+                <button onclick="navigateTo('activity_chap_1')" class="tab-button bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    🧪 Activities
+                </button>
+                <button onclick="navigateTo('Mock_Test_1_Chap_1')" class="tab-button bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 1
+                </button>
+                <button onclick="navigateTo('Mock_Test_2_Chap_1')" class="tab-button bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 2
+                </button>
+                <button onclick="navigateTo('Practice_Very_Short_Chap_1')" class="tab-button bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 3 (VSA)
+                </button>
+                <button onclick="navigateTo('Short_Long_Practice_Chap_1')" class="tab-button bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 4 (SA/LA)
+                </button>
+                <button onclick="navigateTo('Case_Study_Chap_1')" class="tab-button bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 5 (Case Study)
+                </button>
+            </div>
+        </div>
+
+
+
+    <!-- Header -->
+    <div class="bg-white shadow-lg border-b-4 border-indigo-500 mb-6">
+        <div class="max-w-7xl mx-auto px-6 py-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold text-gray-800 mb-2">📚 Quick Revision Q&A Table</h1>
+                <h2 class="text-2xl font-semibold text-indigo-600 mb-4">Class 10 Science - Chapter 1: Chemical Reactions and Equations</h2>
+                <p class="text-gray-600 mb-6">Complete chapter revision in minutes with interactive Q&A format</p>
+                
+                <!-- Controls -->
+                <div class="flex flex-wrap justify-center gap-4 mb-6 no-print">
+                    <input type="text" id="searchInput" placeholder="🔍 Search questions or topics..." 
+                           class="px-4 py-2 border border-gray-300 rounded-lg w-64 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    
+                    <select id="categoryFilter" class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="all">All Categories</option>
+                        <option value="combination">Combination Reactions</option>
+                        <option value="decomposition">Decomposition Reactions</option>
+                        <option value="displacement">Displacement Reactions</option>
+                        <option value="precipitation">Precipitation Reactions</option>
+                        <option value="redox">Redox Reactions</option>
+                        <option value="neutralization">Neutralization</option>
+                        <option value="balancing">Balancing Equations</option>
+                    </select>
+                    
+                    <button onclick="togglePracticeMode()" id="practiceBtn" 
+                            class="bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                        🎯 Practice Mode
+                    </button>
+                    
+                    <button onclick="resetProgress()" 
+                            class="bg-gray-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gray-700 transition-colors">
+                        🔄 Reset
+                    </button>
+                    
+                    <button onclick="window.print()" 
+                            class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 transition-colors">
+                        🖨️ Print
+                    </button>
+                </div>
+                
+                <!-- Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-4xl mx-auto no-print">
+                    <div class="stats-card">
+                        <div class="text-2xl font-bold" id="totalQuestions">28</div>
+                        <div class="text-sm opacity-90">Total Questions</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="text-2xl font-bold" id="masteredCount">0</div>
+                        <div class="text-sm opacity-90">Mastered</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="text-2xl font-bold" id="progressPercent">0%</div>
+                        <div class="text-sm opacity-90">Progress</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="text-2xl font-bold" id="visibleQuestions">28</div>
+                        <div class="text-sm opacity-90">Showing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Q&A Table -->
+    <div class="max-w-7xl mx-auto px-6 pb-8">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+                        <tr>
+                            <th class="px-4 py-4 text-left font-semibold w-16">Q.No.</th>
+                            <th class="px-4 py-4 text-left font-semibold">Question</th>
+                            <th class="px-4 py-4 text-left font-semibold">Answer (in short)</th>
+                            <th class="px-4 py-4 text-center font-semibold w-20 no-print">✓</th>
+                        </tr>
+                    </thead>
+                    <tbody id="qaTableBody">
+                        <!-- Questions will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Legend -->
+        <div class="mt-6 bg-white rounded-xl p-6 shadow-lg no-print">
+            <h3 class="text-lg font-bold mb-4">🏷️ Reaction Type Legend</h3>
+            <div class="flex flex-wrap gap-3">
+                <span class="reaction-type combination">Combination</span>
+                <span class="reaction-type decomposition">Decomposition</span>
+                <span class="reaction-type displacement">Displacement</span>
+                <span class="reaction-type precipitation">Precipitation</span>
+                <span class="reaction-type redox">Redox</span>
+                <span class="reaction-type neutralization">Neutralization</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const qaData = [
+            {
+                no: "1",
+                question: "Why clean magnesium ribbon before burning?",
+                answer: "To remove oxide layer for easy burning.",
+                category: "combination",
+                keywords: ["magnesium", "clean", "oxide", "burning"]
+            },
+            {
+                no: "2(i)",
+                question: "H₂ + Cl₂ → ?",
+                answer: '<span class="equation">H₂ + Cl₂ → 2HCl</span> <span class="reaction-type combination">Combination</span>',
+                category: "combination",
+                keywords: ["hydrogen", "chlorine", "HCl", "balance"]
+            },
+            {
+                no: "2(ii)",
+                question: "BaCl₂ + Al₂(SO₄)₃ → ?",
+                answer: '<span class="equation">3BaCl₂ + Al₂(SO₄)₃ → 3BaSO₄ + 2AlCl₃</span> <span class="reaction-type precipitation">Precipitation</span>',
+                category: "precipitation",
+                keywords: ["barium", "aluminum", "sulfate", "balance"]
+            },
+            {
+                no: "2(iii)",
+                question: "Na + H₂O → ?",
+                answer: '<span class="equation">2Na + 2H₂O → 2NaOH + H₂</span> <span class="reaction-type displacement">Displacement</span>',
+                category: "displacement",
+                keywords: ["sodium", "water", "hydroxide", "hydrogen"]
+            },
+            {
+                no: "3(i)",
+                question: "BaCl₂ + Na₂SO₄ → ?",
+                answer: '<span class="equation">BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s) + 2NaCl(aq)</span> <span class="reaction-type precipitation">Precipitation</span>',
+                category: "precipitation",
+                keywords: ["barium", "sodium", "sulfate", "precipitate"]
+            },
+            {
+                no: "3(ii)",
+                question: "NaOH + HCl → ?",
+                answer: '<span class="equation">NaOH(aq) + HCl(aq) → NaCl(aq) + H₂O(l)</span> <span class="reaction-type neutralization">Neutralization</span>',
+                category: "neutralization",
+                keywords: ["sodium", "hydroxide", "acid", "neutralization"]
+            },
+            {
+                no: "4(i)",
+                question: "Whitewashing substance 'X'?",
+                answer: "CaO (Quicklime)",
+                category: "combination",
+                keywords: ["whitewashing", "quicklime", "calcium", "oxide"]
+            },
+            {
+                no: "4(ii)",
+                question: "CaO + H₂O → ?",
+                answer: '<span class="equation">CaO + H₂O → Ca(OH)₂</span> <span class="reaction-type combination">Combination</span>',
+                category: "combination",
+                keywords: ["calcium", "oxide", "water", "slaked", "lime"]
+            },
+            {
+                no: "5",
+                question: "Why more gas in one test tube in Activity 1.7?",
+                answer: "H₂:O₂ = 2:1 ratio. More gas = H₂",
+                category: "decomposition",
+                keywords: ["electrolysis", "water", "hydrogen", "oxygen", "ratio"]
+            },
+            {
+                no: "6",
+                question: "Why CuSO₄ solution changes with iron nail?",
+                answer: "Fe displaces Cu → FeSO₄ (green)",
+                category: "displacement",
+                keywords: ["copper", "sulfate", "iron", "displacement", "green"]
+            },
+            {
+                no: "7",
+                question: "Example of double displacement reaction",
+                answer: '<span class="equation">Na₂SO₄ + BaCl₂ → BaSO₄ + 2NaCl</span> <span class="reaction-type precipitation">Double Displacement</span>',
+                category: "precipitation",
+                keywords: ["double", "displacement", "example", "precipitation"]
+            },
+            {
+                no: "8(i)",
+                question: "Oxidised in 4Na + O₂ → 2Na₂O ?",
+                answer: "Na oxidised, O₂ reduced <span class=\"reaction-type redox\">Redox</span>",
+                category: "redox",
+                keywords: ["oxidation", "reduction", "sodium", "oxygen"]
+            },
+            {
+                no: "8(ii)",
+                question: "Oxidised/reduced in CuO + H₂ → Cu + H₂O ?",
+                answer: "H₂ oxidised, CuO reduced <span class=\"reaction-type redox\">Redox</span>",
+                category: "redox",
+                keywords: ["oxidation", "reduction", "copper", "hydrogen"]
+            },
+            {
+                no: "9",
+                question: "Incorrect statements in 2PbO + C → 2Pb + CO₂ ?",
+                answer: "(a) and (b)",
+                category: "redox",
+                keywords: ["lead", "oxide", "carbon", "incorrect"]
+            },
+            {
+                no: "10",
+                question: "Fe₂O₃ + Al → ? Type?",
+                answer: '<span class="equation">Fe₂O₃ + 2Al → Al₂O₃ + 2Fe</span> <span class="reaction-type displacement">Displacement</span>',
+                category: "displacement",
+                keywords: ["thermite", "iron", "aluminum", "displacement"]
+            },
+            {
+                no: "11",
+                question: "Dil. HCl + Fe → ?",
+                answer: '<span class="equation">Fe + 2HCl → FeCl₂ + H₂ ↑</span> <span class="reaction-type displacement">Displacement</span>',
+                category: "displacement",
+                keywords: ["iron", "hydrochloric", "acid", "hydrogen", "gas"]
+            },
+            {
+                no: "12",
+                question: "Balanced chemical equation? Why?",
+                answer: "Equal atoms both sides; Law of conservation of mass.",
+                category: "balancing",
+                keywords: ["balanced", "equation", "conservation", "mass", "atoms"]
+            },
+            {
+                no: "13(a)",
+                question: "H₂ + N₂ → ?",
+                answer: '<span class="equation">N₂ + 3H₂ → 2NH₃</span> <span class="reaction-type combination">Combination</span>',
+                category: "combination",
+                keywords: ["nitrogen", "hydrogen", "ammonia", "haber"]
+            },
+            {
+                no: "13(b)",
+                question: "H₂S + O₂ → ?",
+                answer: '<span class="equation">2H₂S + 3O₂ → 2H₂O + 2SO₂</span> <span class="reaction-type redox">Redox</span>',
+                category: "redox",
+                keywords: ["hydrogen", "sulfide", "oxygen", "combustion"]
+            },
+            {
+                no: "13(c)",
+                question: "BaCl₂ + Al₂(SO₄)₃ → ?",
+                answer: '<span class="equation">3BaCl₂ + Al₂(SO₄)₃ → 3BaSO₄ + 2AlCl₃</span> <span class="reaction-type precipitation">Precipitation</span>',
+                category: "precipitation",
+                keywords: ["barium", "aluminum", "sulfate", "precipitate"]
+            },
+            {
+                no: "13(d)",
+                question: "K + H₂O → ?",
+                answer: '<span class="equation">2K + 2H₂O → 2KOH + H₂</span> <span class="reaction-type displacement">Displacement</span>',
+                category: "displacement",
+                keywords: ["potassium", "water", "hydroxide", "hydrogen"]
+            },
+            {
+                no: "14(a)",
+                question: "HNO₃ + Ca(OH)₂ → ?",
+                answer: '<span class="equation">2HNO₃ + Ca(OH)₂ → Ca(NO₃)₂ + 2H₂O</span> <span class="reaction-type neutralization">Neutralization</span>',
+                category: "neutralization",
+                keywords: ["nitric", "acid", "calcium", "hydroxide", "neutralization"]
+            },
+            {
+                no: "14(b)",
+                question: "NaOH + H₂SO₄ → ?",
+                answer: '<span class="equation">2NaOH + H₂SO₄ → Na₂SO₄ + 2H₂O</span> <span class="reaction-type neutralization">Neutralization</span>',
+                category: "neutralization",
+                keywords: ["sodium", "hydroxide", "sulfuric", "acid"]
+            },
+            {
+                no: "14(c)",
+                question: "NaCl + AgNO₃ → ?",
+                answer: '<span class="equation">NaCl + AgNO₃ → AgCl + NaNO₃</span> <span class="reaction-type precipitation">Precipitation</span>',
+                category: "precipitation",
+                keywords: ["sodium", "chloride", "silver", "nitrate", "precipitate"]
+            },
+            {
+                no: "14(d)",
+                question: "BaCl₂ + H₂SO₄ → ?",
+                answer: '<span class="equation">BaCl₂ + H₂SO₄ → BaSO₄ + 2HCl</span> <span class="reaction-type precipitation">Precipitation</span>',
+                category: "precipitation",
+                keywords: ["barium", "chloride", "sulfuric", "acid"]
+            },
+            {
+                no: "15(a)",
+                question: "Ca(OH)₂ + CO₂ → ?",
+                answer: '<span class="equation">Ca(OH)₂ + CO₂ → CaCO₃ + H₂O</span> <span class="reaction-type combination">Combination</span>',
+                category: "combination",
+                keywords: ["calcium", "hydroxide", "carbon", "dioxide", "limestone"]
+            },
+            {
+                no: "15(b)",
+                question: "Zn + AgNO₃ → ?",
+                answer: '<span class="equation">Zn + 2AgNO₃ → Zn(NO₃)₂ + 2Ag</span> <span class="reaction-type displacement">Displacement</span>',
+                category: "displacement",
+                keywords: ["zinc", "silver", "nitrate", "displacement"]
+            },
+            {
+                no: "15(c)",
+                question: "Al + CuCl₂ → ?",
+                answer: '<span class="equation">2Al + 3CuCl₂ → 2AlCl₃ + 3Cu</span> <span class="reaction-type displacement">Displacement</span>',
+                category: "displacement",
+                keywords: ["aluminum", "copper", "chloride", "displacement"]
+            },
+            {
+                no: "15(d)",
+                question: "BaCl₂ + K₂SO₄ → ?",
+                answer: '<span class="equation">BaCl₂ + K₂SO₄ → BaSO₄ + 2KCl</span> <span class="reaction-type precipitation">Precipitation</span>',
+                category: "precipitation",
+                keywords: ["barium", "potassium", "sulfate", "precipitate"]
+            },
+            {
+                no: "16(a)",
+                question: "KBr + BaI₂ → ? Type?",
+                answer: '<span class="equation">2KBr + BaI₂ → 2KI + BaBr₂</span> <span class="reaction-type precipitation">Double displacement</span>',
+                category: "precipitation",
+                keywords: ["potassium", "bromide", "barium", "iodide"]
+            },
+            {
+                no: "16(b)",
+                question: "ZnCO₃ → ? Type?",
+                answer: '<span class="equation">ZnCO₃ → ZnO + CO₂</span> <span class="reaction-type decomposition">Decomposition</span>',
+                category: "decomposition",
+                keywords: ["zinc", "carbonate", "decomposition", "thermal"]
+            },
+            {
+                no: "16(c)",
+                question: "H₂ + Cl₂ → ? Type?",
+                answer: '<span class="equation">H₂ + Cl₂ → 2HCl</span> <span class="reaction-type combination">Combination</span>',
+                category: "combination",
+                keywords: ["hydrogen", "chlorine", "combination"]
+            },
+            {
+                no: "16(d)",
+                question: "Mg + HCl → ? Type?",
+                answer: '<span class="equation">Mg + 2HCl → MgCl₂ + H₂</span> <span class="reaction-type displacement">Displacement</span>',
+                category: "displacement",
+                keywords: ["magnesium", "hydrochloric", "acid", "displacement"]
+            },
+            {
+                no: "17",
+                question: "Exothermic vs Endothermic?",
+                answer: "Exo = release heat (e.g. fuel burning), Endo = absorb heat (e.g. photosynthesis).",
+                category: "combination",
+                keywords: ["exothermic", "endothermic", "heat", "energy"]
+            },
+            {
+                no: "18",
+                question: "Why respiration exothermic?",
+                answer: "Glucose breakdown releases energy.",
+                category: "redox",
+                keywords: ["respiration", "exothermic", "glucose", "energy"]
+            },
+            {
+                no: "19",
+                question: "Decomposition vs Combination?",
+                answer: "Opposites: One breaks down, other combines.",
+                category: "decomposition",
+                keywords: ["decomposition", "combination", "opposite", "break"]
+            },
+            {
+                no: "20",
+                question: "Decomposition by heat/light/electricity?",
+                answer: "Heat: CaCO₃ → CaO + CO₂; Light: 2AgCl → 2Ag + Cl₂; Electricity: 2H₂O → 2H₂ + O₂",
+                category: "decomposition",
+                keywords: ["thermal", "photolytic", "electrolytic", "decomposition"]
+            },
+            {
+                no: "21",
+                question: "Displacement vs Double Displacement?",
+                answer: "Zn + CuSO₄ → ZnSO₄ + Cu (displacement); AgNO₃ + NaCl → AgCl + NaNO₃ (double).",
+                category: "displacement",
+                keywords: ["single", "double", "displacement", "difference"]
+            },
+            {
+                no: "22",
+                question: "Silver recovery reaction?",
+                answer: '<span class="equation">2AgNO₃ + Cu → Cu(NO₃)₂ + 2Ag</span> <span class="reaction-type displacement">Displacement</span>',
+                category: "displacement",
+                keywords: ["silver", "recovery", "copper", "displacement"]
+            },
+            {
+                no: "23",
+                question: "Precipitation reaction?",
+                answer: '<span class="equation">BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl</span> <span class="reaction-type precipitation">Precipitation</span>',
+                category: "precipitation",
+                keywords: ["precipitation", "insoluble", "precipitate"]
+            },
+            {
+                no: "24",
+                question: "Oxidation/Reduction (oxygen)",
+                answer: "Oxidation = gain O₂, Reduction = loss O₂. <span class=\"reaction-type redox\">Redox</span>",
+                category: "redox",
+                keywords: ["oxidation", "reduction", "oxygen", "gain", "loss"]
+            },
+            {
+                no: "25",
+                question: "Shiny brown metal → black on heating?",
+                answer: '<span class="equation">Cu → CuO</span> <span class="reaction-type redox">Oxidation</span>',
+                category: "redox",
+                keywords: ["copper", "black", "heating", "oxidation"]
+            },
+            {
+                no: "26",
+                question: "Why paint on iron?",
+                answer: "To prevent rusting.",
+                category: "redox",
+                keywords: ["paint", "iron", "rusting", "prevent", "corrosion"]
+            },
+            {
+                no: "27",
+                question: "Why food flushed with N₂?",
+                answer: "Prevent rancidity (oxidation).",
+                category: "redox",
+                keywords: ["nitrogen", "food", "rancidity", "oxidation", "prevent"]
+            },
+            {
+                no: "28(a)",
+                question: "Corrosion?",
+                answer: "Rusting of iron = corrosion.",
+                category: "redox",
+                keywords: ["corrosion", "rusting", "iron", "oxidation"]
+            },
+            {
+                no: "28(b)",
+                question: "Rancidity?",
+                answer: "Oxidation of fats/oils (spoiled butter).",
+                category: "redox",
+                keywords: ["rancidity", "fats", "oils", "oxidation", "spoiled"]
+            }
+        ];
+
+        let practiceMode = false;
+        let masteredQuestions = new Set();
+
+        function renderTable() {
+            const tbody = document.getElementById('qaTableBody');
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            
+            let filteredData = qaData.filter(item => {
+                const matchesSearch = searchTerm === '' || 
+                    item.question.toLowerCase().includes(searchTerm) ||
+                    item.answer.toLowerCase().includes(searchTerm) ||
+                    item.keywords.some(keyword => keyword.toLowerCase().includes(searchTerm));
+                
+                const matchesCategory = categoryFilter === 'all' || item.category === categoryFilter;
+                
+                return matchesSearch && matchesCategory;
+            });
+
+            tbody.innerHTML = filteredData.map(item => {
+                const isMastered = masteredQuestions.has(item.no);
+                const highlightedQuestion = highlightText(item.question, searchTerm);
+                const highlightedAnswer = highlightText(item.answer, searchTerm);
+                
+                return `
+                    <tr class="qa-row ${isMastered ? 'mastered' : ''}" data-category="${item.category}">
+                        <td class="px-4 py-4 font-semibold text-indigo-600">${item.no}</td>
+                        <td class="px-4 py-4">${highlightedQuestion}</td>
+                        <td class="px-4 py-4 ${practiceMode ? 'answer-hidden' : ''}" 
+                            onclick="${practiceMode ? `revealAnswer(this)` : ''}"
+                            data-answer="${item.answer}">
+                            ${highlightedAnswer}
+                        </td>
+                        <td class="px-4 py-4 text-center no-print">
+                            <button onclick="toggleMastered('${item.no}')" 
+                                    class="w-8 h-8 rounded-full border-2 ${isMastered ? 'bg-green-500 border-green-500 text-white' : 'border-gray-300 hover:border-green-500'} transition-colors">
+                                ${isMastered ? '✓' : ''}
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            updateStats(filteredData.length);
+        }
+
+        function highlightText(text, searchTerm) {
+            if (!searchTerm) return text;
+            const regex = new RegExp(`(${searchTerm})`, 'gi');
+            return text.replace(regex, '<span class="search-highlight">$1</span>');
+        }
+
+        function toggleMastered(questionNo) {
+            if (masteredQuestions.has(questionNo)) {
+                masteredQuestions.delete(questionNo);
+            } else {
+                masteredQuestions.add(questionNo);
+            }
+            renderTable();
+        }
+
+        function togglePracticeMode() {
+            practiceMode = !practiceMode;
+            const btn = document.getElementById('practiceBtn');
+            btn.textContent = practiceMode ? '👁️ Show Answers' : '🎯 Practice Mode';
+            btn.className = practiceMode ? 
+                'bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-orange-700 transition-colors' :
+                'bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors';
+            renderTable();
+        }
+
+        function revealAnswer(element) {
+            element.classList.remove('answer-hidden');
+            element.onclick = null;
+        }
+
+        function resetProgress() {
+            masteredQuestions.clear();
+            practiceMode = false;
+            document.getElementById('practiceBtn').textContent = '🎯 Practice Mode';
+            document.getElementById('practiceBtn').className = 'bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors';
+            document.getElementById('searchInput').value = '';
+            document.getElementById('categoryFilter').value = 'all';
+            renderTable();
+        }
+
+        function updateStats(visibleCount) {
+            document.getElementById('totalQuestions').textContent = qaData.length;
+            document.getElementById('masteredCount').textContent = masteredQuestions.size;
+            document.getElementById('progressPercent').textContent = Math.round((masteredQuestions.size / qaData.length) * 100) + '%';
+            document.getElementById('visibleQuestions').textContent = visibleCount;
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', renderTable);
+        document.getElementById('categoryFilter').addEventListener('change', renderTable);
+
+        // Initialize
+        renderTable();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'975c55c6c7a18fa1',t:'MTc1NjMwNTc0Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

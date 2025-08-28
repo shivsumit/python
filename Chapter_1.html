@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 10 Science - Chemical Reactions and Equations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+<script src="protection.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .tab-button { transition: all 0.3s ease; }
+        .tab-button:hover { transform: translateY(-2px); }
+        .tab-button.active { 
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        .notes-section { 
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .topic-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .topic-card:hover {
+            border-left-color: #3b82f6;
+            transform: translateX(5px);
+        }
+        .formula-box {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border: 2px solid #0ea5e9;
+        }
+        .definition-box {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border: 2px solid #22c55e;
+        }
+        .example-box {
+            background: linear-gradient(135deg, #fefce8, #fef3c7);
+            border: 2px solid #f59e0b;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <div class="container mx-auto px-4 py-6 max-w-7xl">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <div class="bg-white rounded-2xl shadow-xl p-6 mb-6">
+                <h1 class="text-4xl font-bold text-gray-800 mb-2">Class 10 Science</h1>
+                <h2 class="text-2xl font-semibold text-blue-600 mb-3">Chapter 1: Chemical Reactions and Equations</h2>
+                <p class="text-gray-600 text-lg">Complete Study Material with NCERT Solutions & Practice Tests</p>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+		<script>function navigateTo(page) {
+            // Simulate navigation - in real implementation, these would link to actual pages
+            const pageNames = {
+                'ncert-solutions': 'ncert_solutions_chap_1',
+                'chemical-reactions': 'Chemical Reactions',
+                'quick-revision': 'Quick Revision',
+                'activities': 'Activities',
+                'mock-test-1': 'Mock Test 1',
+                'mock-test-2': 'Mock Test 2',
+                'mock-test-3': 'Mock Test 3 (Very Short Answer)',
+                'mock-test-4': 'Mock Test 4 (Short/Long Answer)',
+                'mock-test-5': 'Mock Test 5 (Case Study)'
+            };
+         
+            // In a real implementation, you would use:
+			window.location.href = `${page}.html`;
+            // or for single page application:
+            // loadPage(page);
+        }</script>
+        <div class="bg-white rounded-2xl shadow-xl p-6 mb-8">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">📚 Study Resources</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <button onclick="navigateTo('ncert_solutions_chap_1')" class="tab-button bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📖 NCERT Solutions
+                </button>
+                <button onclick="navigateTo('All_Chemical_reaction_chap_1')" class="tab-button bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    ⚗️ Chemical Reactions
+                </button>
+                <button onclick="navigateTo('Quick_revision_chap_1')" class="tab-button bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    ⚡ Quick Revision
+                </button>
+                <button onclick="navigateTo('activity_chap_1')" class="tab-button bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    🧪 Activities
+                </button>
+                <button onclick="navigateTo('Mock_Test_1_Chap_1')" class="tab-button bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 1
+                </button>
+                <button onclick="navigateTo('Mock_Test_2_Chap_1')" class="tab-button bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 2
+                </button>
+                <button onclick="navigateTo('Practice_Very_Short_Chap_1')" class="tab-button bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 3 (VSA)
+                </button>
+                <button onclick="navigateTo('Short_Long_Practice_Chap_1')" class="tab-button bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 4 (SA/LA)
+                </button>
+                <button onclick="navigateTo('Case_Study_Chap_1')" class="tab-button bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 5 (Case Study)
+                </button>
+            </div>
+        </div>
+
+        <!-- Notes Section -->
+        <div class="notes-section bg-white rounded-2xl shadow-xl p-8">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">📝 Chapter Notes</h2>
+                <p class="text-gray-600">Complete NCERT Class 10 Science Chapter 1 Notes</p>
+            </div>
+
+            <!-- Table of Contents -->
+            <div class="bg-blue-50 rounded-xl p-6 mb-8">
+                <h3 class="text-xl font-semibold text-blue-800 mb-4">📋 Topics Covered</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                        <span class="text-blue-700">Chemical Equations</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                        <span class="text-blue-700">Balanced Chemical Equations</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                        <span class="text-blue-700">Types of Chemical Reactions</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                        <span class="text-blue-700">Effects of Oxidation in Daily Life</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic 1: Chemical Equations -->
+            <div class="topic-card bg-gray-50 rounded-xl p-6 mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">1. Chemical Equations</h3>
+                
+                <div class="definition-box rounded-lg p-4 mb-6">
+                    <h4 class="text-lg font-semibold text-green-800 mb-2">🔍 Definition</h4>
+                    <p class="text-green-700 leading-relaxed">
+                        A <strong>chemical equation</strong> is a symbolic representation of a chemical reaction. It shows the reactants (starting materials) and products (substances formed) using chemical formulas and symbols.
+                    </p>
+                </div>
+
+                <div class="example-box rounded-lg p-4 mb-6">
+                    <h4 class="text-lg font-semibold text-amber-800 mb-2">💡 Example</h4>
+                    <p class="text-amber-700 mb-2">Magnesium burns in air to form magnesium oxide:</p>
+                    <div class="bg-white p-3 rounded border-l-4 border-amber-500">
+                        <p class="font-mono text-lg">Mg + O₂ → MgO</p>
+                        <p class="text-sm text-gray-600 mt-1">Reactants → Products</p>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 rounded-lg p-4">
+                    <h4 class="text-lg font-semibold text-blue-800 mb-2">📌 Key Points</h4>
+                    <ul class="list-disc list-inside text-blue-700 space-y-1">
+                        <li>Arrow (→) separates reactants from products</li>
+                        <li>Plus sign (+) separates multiple reactants or products</li>
+                        <li>Chemical formulas represent compounds</li>
+                        <li>Symbols represent elements</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Topic 2: Balanced Chemical Equations -->
+            <div class="topic-card bg-gray-50 rounded-xl p-6 mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">2. Balanced Chemical Equations</h3>
+                
+                <div class="definition-box rounded-lg p-4 mb-6">
+                    <h4 class="text-lg font-semibold text-green-800 mb-2">🔍 Definition</h4>
+                    <p class="text-green-700 leading-relaxed">
+                        A <strong>balanced chemical equation</strong> has equal numbers of atoms of each element on both sides of the equation. This follows the <strong>Law of Conservation of Mass</strong>.
+                    </p>
+                </div>
+
+                <div class="formula-box rounded-lg p-4 mb-6">
+                    <h4 class="text-lg font-semibold text-sky-800 mb-2">⚖️ Law of Conservation of Mass</h4>
+                    <p class="text-sky-700 mb-2">
+                        "Mass can neither be created nor destroyed in a chemical reaction."
+                    </p>
+                    <p class="text-sky-600 text-sm">
+                        Therefore: Mass of reactants = Mass of products
+                    </p>
+                </div>
+
+                <div class="example-box rounded-lg p-4 mb-6">
+                    <h4 class="text-lg font-semibold text-amber-800 mb-2">💡 Balancing Example</h4>
+                    <div class="space-y-3">
+                        <div>
+                            <p class="text-amber-700 mb-1">Unbalanced equation:</p>
+                            <div class="bg-white p-3 rounded border-l-4 border-red-500">
+                                <p class="font-mono text-lg">Mg + O₂ → MgO</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-amber-700 mb-1">Balanced equation:</p>
+                            <div class="bg-white p-3 rounded border-l-4 border-green-500">
+                                <p class="font-mono text-lg">2Mg + O₂ → 2MgO</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-purple-50 rounded-lg p-4">
+                    <h4 class="text-lg font-semibold text-purple-800 mb-2">🎯 Steps to Balance Equations</h4>
+                    <ol class="list-decimal list-inside text-purple-700 space-y-1">
+                        <li>Count atoms of each element on both sides</li>
+                        <li>Start with the most complex molecule</li>
+                        <li>Use coefficients (not subscripts) to balance</li>
+                        <li>Balance metals first, then non-metals, then hydrogen and oxygen</li>
+                        <li>Check that all atoms are balanced</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Topic 3: Types of Chemical Reactions -->
+            <div class="topic-card bg-gray-50 rounded-xl p-6 mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">3. Types of Chemical Reactions</h3>
+                
+                <!-- Combination Reaction -->
+                <div class="mb-6">
+                    <h4 class="text-xl font-semibold text-gray-700 mb-3">3.1 Combination Reaction</h4>
+                    <div class="definition-box rounded-lg p-4 mb-4">
+                        <p class="text-green-700">
+                            A reaction where <strong>two or more reactants combine</strong> to form a single product.
+                        </p>
+                        <div class="mt-2 bg-white p-2 rounded">
+                            <p class="font-mono text-center">A + B → AB</p>
+                        </div>
+                    </div>
+                    <div class="example-box rounded-lg p-4">
+                        <h5 class="font-semibold text-amber-800 mb-2">Examples:</h5>
+                        <div class="space-y-2">
+                            <div class="bg-white p-2 rounded">
+                                <p class="font-mono">2H₂ + O₂ → 2H₂O</p>
+                                <p class="text-sm text-gray-600">Formation of water</p>
+                            </div>
+                            <div class="bg-white p-2 rounded">
+                                <p class="font-mono">CaO + H₂O → Ca(OH)₂</p>
+                                <p class="text-sm text-gray-600">Slaking of lime (exothermic)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Decomposition Reaction -->
+                <div class="mb-6">
+                    <h4 class="text-xl font-semibold text-gray-700 mb-3">3.2 Decomposition Reaction</h4>
+                    <div class="definition-box rounded-lg p-4 mb-4">
+                        <p class="text-green-700">
+                            A reaction where <strong>one reactant breaks down</strong> into two or more products.
+                        </p>
+                        <div class="mt-2 bg-white p-2 rounded">
+                            <p class="font-mono text-center">AB → A + B</p>
+                        </div>
+                    </div>
+                    <div class="bg-indigo-50 rounded-lg p-4 mb-4">
+                        <h5 class="font-semibold text-indigo-800 mb-2">Types of Decomposition:</h5>
+                        <ul class="text-indigo-700 space-y-1">
+                            <li><strong>Thermal:</strong> Heat required (CaCO₃ → CaO + CO₂)</li>
+                            <li><strong>Electrolytic:</strong> Electricity required (2H₂O → 2H₂ + O₂)</li>
+                            <li><strong>Photolytic:</strong> Light required (2AgBr → 2Ag + Br₂)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Displacement Reaction -->
+                <div class="mb-6">
+                    <h4 class="text-xl font-semibold text-gray-700 mb-3">3.3 Displacement Reaction</h4>
+                    <div class="definition-box rounded-lg p-4 mb-4">
+                        <p class="text-green-700">
+                            A reaction where a <strong>more reactive element displaces</strong> a less reactive element from its compound.
+                        </p>
+                        <div class="mt-2 bg-white p-2 rounded">
+                            <p class="font-mono text-center">A + BC → AC + B</p>
+                        </div>
+                    </div>
+                    <div class="example-box rounded-lg p-4">
+                        <h5 class="font-semibold text-amber-800 mb-2">Examples:</h5>
+                        <div class="space-y-2">
+                            <div class="bg-white p-2 rounded">
+                                <p class="font-mono">Zn + CuSO₄ → ZnSO₄ + Cu</p>
+                                <p class="text-sm text-gray-600">Zinc displaces copper</p>
+                            </div>
+                            <div class="bg-white p-2 rounded">
+                                <p class="font-mono">Fe + CuSO₄ → FeSO₄ + Cu</p>
+                                <p class="text-sm text-gray-600">Iron displaces copper</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Double Displacement Reaction -->
+                <div class="mb-6">
+                    <h4 class="text-xl font-semibold text-gray-700 mb-3">3.4 Double Displacement Reaction</h4>
+                    <div class="definition-box rounded-lg p-4 mb-4">
+                        <p class="text-green-700">
+                            A reaction where <strong>ions of two compounds exchange</strong> to form two new compounds.
+                        </p>
+                        <div class="mt-2 bg-white p-2 rounded">
+                            <p class="font-mono text-center">AB + CD → AD + CB</p>
+                        </div>
+                    </div>
+                    <div class="example-box rounded-lg p-4">
+                        <h5 class="font-semibold text-amber-800 mb-2">Example:</h5>
+                        <div class="bg-white p-2 rounded">
+                            <p class="font-mono">AgNO₃ + NaCl → AgCl + NaNO₃</p>
+                            <p class="text-sm text-gray-600">White precipitate of AgCl forms</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Redox Reactions -->
+                <div class="mb-6">
+                    <h4 class="text-xl font-semibold text-gray-700 mb-3">3.5 Oxidation and Reduction</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="definition-box rounded-lg p-4">
+                            <h5 class="font-semibold text-green-800 mb-2">Oxidation</h5>
+                            <ul class="text-green-700 text-sm space-y-1">
+                                <li>• Addition of oxygen</li>
+                                <li>• Removal of hydrogen</li>
+                                <li>• Loss of electrons</li>
+                            </ul>
+                        </div>
+                        <div class="formula-box rounded-lg p-4">
+                            <h5 class="font-semibold text-sky-800 mb-2">Reduction</h5>
+                            <ul class="text-sky-700 text-sm space-y-1">
+                                <li>• Removal of oxygen</li>
+                                <li>• Addition of hydrogen</li>
+                                <li>• Gain of electrons</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="example-box rounded-lg p-4 mt-4">
+                        <h5 class="font-semibold text-amber-800 mb-2">Example:</h5>
+                        <div class="bg-white p-2 rounded">
+                            <p class="font-mono">CuO + H₂ → Cu + H₂O</p>
+                            <p class="text-sm text-gray-600">CuO is reduced, H₂ is oxidized</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic 4: Effects of Oxidation in Daily Life -->
+            <div class="topic-card bg-gray-50 rounded-xl p-6 mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">4. Effects of Oxidation in Daily Life</h3>
+                
+                <!-- Corrosion -->
+                <div class="mb-6">
+                    <h4 class="text-xl font-semibold text-gray-700 mb-3">4.1 Corrosion</h4>
+                    <div class="definition-box rounded-lg p-4 mb-4">
+                        <p class="text-green-700">
+                            <strong>Corrosion</strong> is the process where metals are slowly eaten away by the action of air, moisture, or chemicals.
+                        </p>
+                    </div>
+                    <div class="example-box rounded-lg p-4 mb-4">
+                        <h5 class="font-semibold text-amber-800 mb-2">Rusting of Iron:</h5>
+                        <div class="bg-white p-3 rounded">
+                            <p class="font-mono mb-1">4Fe + 3O₂ + 6H₂O → 2Fe₂O₃·3H₂O</p>
+                            <p class="text-sm text-gray-600">Iron + Oxygen + Water → Rust (Hydrated ferric oxide)</p>
+                        </div>
+                    </div>
+                    <div class="bg-red-50 rounded-lg p-4">
+                        <h5 class="font-semibold text-red-800 mb-2">Prevention Methods:</h5>
+                        <ul class="text-red-700 space-y-1">
+                            <li>• <strong>Painting:</strong> Creates a barrier layer</li>
+                            <li>• <strong>Oiling/Greasing:</strong> Prevents contact with air and moisture</li>
+                            <li>• <strong>Galvanisation:</strong> Coating with zinc</li>
+                            <li>• <strong>Chrome plating:</strong> Coating with chromium</li>
+                            <li>• <strong>Alloying:</strong> Making stainless steel</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Rancidity -->
+                <div class="mb-6">
+                    <h4 class="text-xl font-semibold text-gray-700 mb-3">4.2 Rancidity</h4>
+                    <div class="definition-box rounded-lg p-4 mb-4">
+                        <p class="text-green-700">
+                            <strong>Rancidity</strong> is the condition when fats and oils are oxidized and they become rancid. This gives unpleasant smell and taste to food.
+                        </p>
+                    </div>
+                    <div class="bg-yellow-50 rounded-lg p-4">
+                        <h5 class="font-semibold text-yellow-800 mb-2">Prevention Methods:</h5>
+                        <ul class="text-yellow-700 space-y-1">
+                            <li>• <strong>Antioxidants:</strong> Adding BHT, BHA</li>
+                            <li>• <strong>Vacuum packing:</strong> Removing air</li>
+                            <li>• <strong>Nitrogen flushing:</strong> Replacing air with nitrogen</li>
+                            <li>• <strong>Refrigeration:</strong> Storing at low temperatures</li>
+                            <li>• <strong>Airtight containers:</strong> Preventing contact with air</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Important Formulas Summary -->
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl p-6">
+                <h3 class="text-2xl font-bold mb-4">📋 Important Equations Summary</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                        <h4 class="font-semibold mb-2">Combination:</h4>
+                        <p class="font-mono text-sm">2H₂ + O₂ → 2H₂O</p>
+                        <p class="font-mono text-sm">CaO + H₂O → Ca(OH)₂</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                        <h4 class="font-semibold mb-2">Decomposition:</h4>
+                        <p class="font-mono text-sm">2H₂O → 2H₂ + O₂</p>
+                        <p class="font-mono text-sm">CaCO₃ → CaO + CO₂</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                        <h4 class="font-semibold mb-2">Displacement:</h4>
+                        <p class="font-mono text-sm">Zn + CuSO₄ → ZnSO₄ + Cu</p>
+                        <p class="font-mono text-sm">Fe + CuSO₄ → FeSO₄ + Cu</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                        <h4 class="font-semibold mb-2">Double Displacement:</h4>
+                        <p class="font-mono text-sm">AgNO₃ + NaCl → AgCl + NaNO₃</p>
+                        <p class="font-mono text-sm">BaCl₂ + Na₂SO₄ → BaSO₄ + 2NaCl</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function navigateTo(page) {
+            // Simulate navigation - in real implementation, these would link to actual pages
+            const pageNames = {
+                'ncert-solutions': 'ncert_solutions_chap_1',
+                'chemical-reactions': 'Chemical Reactions',
+                'quick-revision': 'Quick Revision',
+                'activities': 'Activities',
+                'mock-test-1': 'Mock Test 1',
+                'mock-test-2': 'Mock Test 2',
+                'mock-test-3': 'Mock Test 3 (Very Short Answer)',
+                'mock-test-4': 'Mock Test 4 (Short/Long Answer)',
+                'mock-test-5': 'Mock Test 5 (Case Study)'
+            };
+         
+            // In a real implementation, you would use:
+			window.location.href = `${page}.html`;
+            // or for single page application:
+            // loadPage(page);
+        }
+
+        // Add smooth scrolling for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add scroll animation to topic cards
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all topic cards
+            document.querySelectorAll('.topic-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'975d30e173ee1432',t:'MTc1NjMxNDcxNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

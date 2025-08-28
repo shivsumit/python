@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemistry Practice Questions - Short Answers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <script src="protection.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .tab-button { transition: all 0.3s ease; }
+        .tab-button:hover { transform: translateY(-2px); }
+        .tab-button.active { 
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .question-card { transition: all 0.3s ease; }
+        .question-card:hover { transform: translateY(-2px); }
+        .answer-reveal { 
+            transition: all 0.4s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .answer-reveal.show { 
+            max-height: 200px;
+        }
+        .section-btn { transition: all 0.2s ease; }
+        .section-btn:hover { transform: scale(1.02); }
+        .progress-indicator { transition: width 0.5s ease; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-50 to-blue-100 min-h-screen">
+ <!-- Navigation Tabs -->
+		<script>function navigateTo(page) {
+            // Simulate navigation - in real implementation, these would link to actual pages
+            const pageNames = {
+                'ncert-solutions': 'ncert_solutions_chap_1',
+                'chemical-reactions': 'Chemical Reactions',
+                'quick-revision': 'Quick Revision',
+                'activities': 'Activities',
+                'mock-test-1': 'Mock Test 1',
+                'mock-test-2': 'Mock Test 2',
+                'mock-test-3': 'Mock Test 3 (Very Short Answer)',
+                'mock-test-4': 'Mock Test 4 (Short/Long Answer)',
+                'mock-test-5': 'Mock Test 5 (Case Study)'
+            };
+         
+            // In a real implementation, you would use:
+			window.location.href = `${page}.html`;
+            // or for single page application:
+            // loadPage(page);
+        }</script>
+        <div class="bg-white rounded-2xl shadow-xl p-6 mb-8">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">📚 Study Resources</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <button onclick="navigateTo('ncert_solutions_chap_1')" class="tab-button bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📖 NCERT Solutions
+                </button>
+                <button onclick="navigateTo('All_Chemical_reaction_chap_1')" class="tab-button bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    ⚗️ Chemical Reactions
+                </button>
+                <button onclick="navigateTo('Quick_revision_chap_1')" class="tab-button bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    ⚡ Quick Revision
+                </button>
+                <button onclick="navigateTo('activity_chap_1')" class="tab-button bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    🧪 Activities
+                </button>
+                <button onclick="navigateTo('Mock_Test_1_Chap_1')" class="tab-button bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 1
+                </button>
+                <button onclick="navigateTo('Mock_Test_2_Chap_1')" class="tab-button bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 2
+                </button>
+                <button onclick="navigateTo('Practice_Very_Short_Chap_1')" class="tab-button bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 3 (VSA)
+                </button>
+                <button onclick="navigateTo('Short_Long_Practice_Chap_1')" class="tab-button bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 4 (SA/LA)
+                </button>
+                <button onclick="navigateTo('Case_Study_Chap_1')" class="tab-button bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 5 (Case Study)
+                </button>
+            </div>
+        </div>
+    <div class="container mx-auto px-4 py-8 max-w-5xl">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">Chemistry Practice Questions</h1>
+            <p class="text-lg text-gray-600 mb-4">Short Answer Questions - Chemical Reactions & Equations</p>
+            
+            <!-- Control Panel -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+                <!-- Section Control Buttons -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="text-center">
+                        <h3 class="text-lg font-semibold text-blue-600 mb-2">📚 Basic Questions</h3>
+                        <div class="space-y-2">
+                            <button onclick="toggleSection('basic')" id="basicBtn" class="section-btn w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+                                Show Set 1 (Q1-45)
+                            </button>
+                            <button onclick="togglePracticeMode('basic')" id="basicPracticeBtn" class="section-btn w-full bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded-lg font-medium text-sm transition-colors" style="display: none;">
+                                🎯 Practice Mode
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-lg font-semibold text-purple-600 mb-2">🧠 HOTS Set 2</h3>
+                        <div class="space-y-2">
+                            <button onclick="toggleSection('hots2')" id="hots2Btn" class="section-btn w-full bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+                                Show Set 2 (Q46-85)
+                            </button>
+                            <button onclick="togglePracticeMode('hots2')" id="hots2PracticeBtn" class="section-btn w-full bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded-lg font-medium text-sm transition-colors" style="display: none;">
+                                🎯 Practice Mode
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-lg font-semibold text-pink-600 mb-2">🔬 HOTS Set 3</h3>
+                        <div class="space-y-2">
+                            <button onclick="toggleSection('hots3')" id="hots3Btn" class="section-btn w-full bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+                                Show Set 3 (Q86-145)
+                            </button>
+                            <button onclick="togglePracticeMode('hots3')" id="hots3PracticeBtn" class="section-btn w-full bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded-lg font-medium text-sm transition-colors" style="display: none;">
+                                🎯 Practice Mode
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Progress Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                    <div class="bg-blue-50 p-3 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-blue-600" id="totalQuestions">145</div>
+                        <div class="text-gray-600">Total Questions</div>
+                    </div>
+                    <div class="bg-green-50 p-3 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-green-600" id="visibleQuestions">0</div>
+                        <div class="text-gray-600">Visible Questions</div>
+                    </div>
+                    <div class="bg-purple-50 p-3 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-purple-600" id="answersShown">0</div>
+                        <div class="text-gray-600">Answers Shown</div>
+                    </div>
+                </div>
+                
+                <!-- Progress Bar -->
+                <div class="mt-4">
+                    <div class="bg-gray-200 rounded-full h-2 overflow-hidden">
+                        <div id="progressBar" class="progress-indicator bg-gradient-to-r from-purple-500 to-blue-600 h-full rounded-full" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Questions Container -->
+        <div id="questionsContainer" class="space-y-4">
+            <!-- Questions will be dynamically generated here -->
+        </div>
+    </div>
+
+    <script>
+        const basicQuestions = [
+            { id: 1, question: "Which gas is produced when zinc reacts with dilute HCl?", answer: "Hydrogen" },
+            { id: 2, question: "What is the colour of copper sulphate solution?", answer: "Blue" },
+            { id: 3, question: "Which product is formed when calcium hydroxide reacts with carbon dioxide?", answer: "Calcium carbonate" },
+            { id: 4, question: "What type of reaction is rusting of iron?", answer: "Oxidation" },
+            { id: 5, question: "Name the black compound formed when copper is heated in air.", answer: "Copper(II) oxide (CuO)" },
+            { id: 6, question: "What is the colour of ferrous sulphate crystals?", answer: "Green" },
+            { id: 7, question: "Which gas is released when a metal reacts with acid?", answer: "Hydrogen" },
+            { id: 8, question: "What is the chemical name of slaked lime?", answer: "Calcium hydroxide" },
+            { id: 9, question: "Which type of reaction is: CaO + H₂O → Ca(OH)₂ ?", answer: "Combination reaction" },
+            { id: 10, question: "Which reaction is the opposite of combination reaction?", answer: "Decomposition reaction" },
+            { id: 11, question: "Write the chemical formula of quicklime.", answer: "CaO" },
+            { id: 12, question: "What does lime water turn into when carbon dioxide is passed through it?", answer: "Milky (due to CaCO₃ formation)" },
+            { id: 13, question: "Which law is obeyed in a balanced chemical equation?", answer: "Law of conservation of mass" },
+            { id: 14, question: "What is the process of depositing a layer of zinc on iron called?", answer: "Galvanisation" },
+            { id: 15, question: "Which gas turns lime water milky?", answer: "Carbon dioxide" },
+            { id: 16, question: "What is the brown solid deposited when iron reacts with copper sulphate solution?", answer: "Copper" },
+            { id: 17, question: "Which element is reduced in the reaction: CuO + H₂ → Cu + H₂O ?", answer: "Copper (Cu²⁺ → Cu)" },
+            { id: 18, question: "Name the substance responsible for rancidity in food.", answer: "Oxygen" },
+            { id: 19, question: "Which reaction occurs when silver chloride is exposed to sunlight?", answer: "Photodecomposition" },
+            { id: 20, question: "What is the formula of bleaching powder?", answer: "CaOCl₂" },
+            { id: 21, question: "Which type of chemical reaction is always accompanied by heat release?", answer: "Exothermic reaction" },
+            { id: 22, question: "What is the colour of lead nitrate crystals?", answer: "White" },
+            { id: 23, question: "What is the colour of the gas NO₂ released on heating lead nitrate?", answer: "Brown" },
+            { id: 24, question: "Which metal is used in the thermite reaction to reduce iron oxide?", answer: "Aluminium" },
+            { id: 25, question: "Which type of reaction is digestion of food in our body?", answer: "Decomposition (enzymatic, exothermic)" },
+            { id: 26, question: "Which type of reaction is neutralisation?", answer: "Double displacement" },
+            { id: 27, question: "Name the reaction: Zn + CuSO₄ → ZnSO₄ + Cu", answer: "Displacement reaction" },
+            { id: 28, question: "Which type of reaction is electrolysis of water?", answer: "Decomposition" },
+            { id: 29, question: "Name the product formed when NaOH reacts with HCl.", answer: "Sodium chloride and water" },
+            { id: 30, question: "Which chemical is used to prevent rancidity in packaged food?", answer: "Nitrogen gas" },
+            { id: 31, question: "Why should a magnesium ribbon be cleaned before burning?", answer: "To remove the oxide layer" },
+            { id: 32, question: "Which reactant is oxidised in the reaction: 4Na + O₂ → 2Na₂O ?", answer: "Sodium" },
+            { id: 33, question: "Identify the reducing agent in: Zn + CuSO₄ → ZnSO₄ + Cu", answer: "Zinc" },
+            { id: 34, question: "Which product makes lime water milky when CO₂ is passed through it?", answer: "Calcium carbonate" },
+            { id: 35, question: "In the reaction: Fe + CuSO₄ → FeSO₄ + Cu, which element is displaced?", answer: "Copper" },
+            { id: 36, question: "What change do you observe in copper sulphate solution when an iron nail is dipped?", answer: "Blue to green" },
+            { id: 37, question: "Which type of reaction occurs when electricity decomposes water?", answer: "Decomposition" },
+            { id: 38, question: "What is common in rusting and rancidity?", answer: "Oxidation" },
+            { id: 39, question: "Which compound is formed when aluminium reacts with copper chloride?", answer: "Aluminium chloride" },
+            { id: 40, question: "Why is respiration considered an exothermic process?", answer: "Energy (heat) is released" },
+            { id: 41, question: "Name the type of reaction in the thermite process.", answer: "Displacement" },
+            { id: 42, question: "Which gas is released when dilute HCl reacts with iron?", answer: "Hydrogen" },
+            { id: 43, question: "In 2PbO + C → 2Pb + CO₂, which substance is reduced?", answer: "Lead oxide (PbO)" },
+            { id: 44, question: "Which type of reaction is neutralisation of acid and base?", answer: "Double displacement" },
+            { id: 45, question: "Why is it necessary to balance chemical equations?", answer: "To obey law of conservation of mass" }
+        ];
+
+        const hots2Questions = [
+            { id: 46, question: "Which reaction type is photosynthesis?", answer: "Combination (endothermic)" },
+            { id: 47, question: "What kind of chemical reaction is digestion of food?", answer: "Decomposition" },
+            { id: 48, question: "Why is aluminium foil used to pack food?", answer: "It resists corrosion" },
+            { id: 49, question: "What will you observe when AgNO₃ reacts with NaCl solution?", answer: "White precipitate of AgCl" },
+            { id: 50, question: "What type of reaction occurs when CaCO₃ is strongly heated?", answer: "Decomposition" },
+            { id: 51, question: "Which gas supports burning and is released in thermal decomposition of KClO₃?", answer: "Oxygen" },
+            { id: 52, question: "Why are decomposition reactions opposite of combination reactions?", answer: "One breaks down, the other combines" },
+            { id: 53, question: "Which reaction shows both oxidation and reduction simultaneously?", answer: "Redox reaction" },
+            { id: 54, question: "Why does an iron nail become reddish-brown when left in damp air?", answer: "Rusting" },
+            { id: 55, question: "What colour change is observed when lead nitrate is heated?", answer: "White to yellow (PbO) with brown fumes (NO₂)" },
+            { id: 56, question: "Identify the oxidising agent in: CuO + H₂ → Cu + H₂O", answer: "CuO" },
+            { id: 57, question: "Why is nitrogen flushed in chips packets?", answer: "To prevent rancidity" },
+            { id: 58, question: "Which product gives the blue-green colour when iron reacts with CuSO₄?", answer: "FeSO₄" },
+            { id: 59, question: "Which type of reaction produces a precipitate?", answer: "Double displacement" },
+            { id: 60, question: "In electrolysis of water, why is volume of hydrogen double that of oxygen?", answer: "Water has 2 hydrogen atoms per oxygen atom" },
+            { id: 61, question: "A shiny brown element turns black on heating in air. Identify the black compound.", answer: "CuO (Copper(II) oxide)" },
+            { id: 62, question: "If a reaction absorbs heat from surroundings, what term describes it?", answer: "Endothermic" },
+            { id: 63, question: "Which reaction explains the recovery of silver from silver nitrate by copper?", answer: "Displacement" },
+            { id: 64, question: "Which type of reaction occurs in decomposition of CaCO₃ → CaO + CO₂ ?", answer: "Thermal decomposition" },
+            { id: 65, question: "What is the reducing agent in the Thermite reaction (Fe₂O₃ + Al → Al₂O₃ + Fe)?", answer: "Aluminium" },
+            { id: 66, question: "Which law is verified by a balanced chemical equation?", answer: "Law of conservation of mass" },
+            { id: 67, question: "If BaCl₂ solution is mixed with Na₂SO₄ solution, what visible change occurs?", answer: "White precipitate of BaSO₄" },
+            { id: 68, question: "Which chemical change is represented in the rancidity of oils?", answer: "Oxidation" },
+            { id: 69, question: "In the reaction Zn + H₂SO₄ → ZnSO₄ + H₂, what happens to zinc?", answer: "Oxidised" },
+            { id: 70, question: "A student passes CO₂ into lime water, it turns milky. On further passing, it clears. Why?", answer: "Formation of soluble Ca(HCO₃)₂" },
+            { id: 71, question: "Why does MgO form when Mg is burnt in air?", answer: "Magnesium is oxidised" },
+            { id: 72, question: "Which type of reaction is always accompanied by colour change or precipitate formation?", answer: "Double displacement" },
+            { id: 73, question: "In electrolysis of water, why is H₂ collected at the cathode?", answer: "Reduction of H⁺ ions" },
+            { id: 74, question: "A compound breaks down on heating with sunlight. What type of reaction is this?", answer: "Photodecomposition" },
+            { id: 75, question: "Which reaction produces brown fumes of NO₂?", answer: "Thermal decomposition of Pb(NO₃)₂" },
+            { id: 76, question: "A nail dipped in CuSO₄ turns reddish-brown. What is deposited?", answer: "Copper" },
+            { id: 77, question: "Which element undergoes reduction in: 2PbO + C → 2Pb + CO₂ ?", answer: "Lead" },
+            { id: 78, question: "Why do fireworks show multiple colours on burning?", answer: "Decomposition of metallic salts" },
+            { id: 79, question: "What type of reaction is NH₃ + HCl → NH₄Cl ?", answer: "Combination" },
+            { id: 80, question: "Why is respiration called slow combustion?", answer: "Gradual release of energy" },
+            { id: 81, question: "Which reaction is used in the \"silver mirror test\"?", answer: "Reduction of AgNO₃" },
+            { id: 82, question: "A food packet was oily and turned rancid. Which gas entered it?", answer: "Oxygen" },
+            { id: 83, question: "In the rusting of iron, which two substances act together to cause oxidation?", answer: "Water and oxygen" },
+            { id: 84, question: "Which type of reaction is used in water purification with alum?", answer: "Precipitation" },
+            { id: 85, question: "Why does Zn replace Cu from CuSO₄ solution but not vice versa?", answer: "Zinc is more reactive than copper" }
+        ];
+
+        const hots3Questions = [
+            { id: 86, question: "Which gas is released when dilute HCl reacts with Na₂CO₃?", answer: "CO₂" },
+            { id: 87, question: "Identify the type of reaction in photosynthesis.", answer: "Endothermic combination" },
+            { id: 88, question: "Which product forms when iron reacts with steam?", answer: "Fe₃O₄" },
+            { id: 89, question: "Which gas burns with a 'pop' sound?", answer: "Hydrogen" },
+            { id: 90, question: "What prevents rancidity in packaged food?", answer: "Nitrogen flushing" },
+            { id: 91, question: "In which reaction does \"slaked lime\" play a role?", answer: "Whitewashing" },
+            { id: 92, question: "Which oxide of nitrogen is brown in colour?", answer: "NO₂" },
+            { id: 93, question: "Which reaction is the basis of black and white photography (old method)?", answer: "Photodecomposition of AgBr" },
+            { id: 94, question: "In corrosion of iron, which is reduced: O₂ or Fe?", answer: "O₂" },
+            { id: 95, question: "Which product of respiration is exhaled out?", answer: "CO₂" },
+            { id: 96, question: "What type of reaction is neutralisation?", answer: "Double displacement" },
+            { id: 97, question: "Which ion is reduced in electrolysis of acidified water?", answer: "H⁺" },
+            { id: 98, question: "Name the solid formed in: Na₂SO₄ + BaCl₂ → ?", answer: "BaSO₄" },
+            { id: 99, question: "Which colour change is observed when Fe nail is dipped in CuSO₄?", answer: "Blue → Green" },
+            { id: 100, question: "What is the main factor responsible for rusting?", answer: "Moisture (H₂O)" },
+            { id: 101, question: "Which gas turns lime water milky?", answer: "CO₂" },
+            { id: 102, question: "Which reaction explains the working of airbags in cars?", answer: "Decomposition of NaN₃" },
+            { id: 103, question: "Which ion is present in bleaching powder responsible for bleaching?", answer: "Cl₂ (released)" },
+            { id: 104, question: "What is the black residue formed on strong heating of sugar?", answer: "Carbon" },
+            { id: 105, question: "Which element acts as catalyst in decomposition of KClO₃?", answer: "MnO₂" },
+            { id: 106, question: "In displacement reactions, which rule decides feasibility?", answer: "Reactivity series" },
+            { id: 107, question: "Which colour flame does copper salts produce in fireworks?", answer: "Green" },
+            { id: 108, question: "Which product causes yellow stains in white clothes due to curry?", answer: "Oxidised turmeric" },
+            { id: 109, question: "Which gas is released when acids react with metals?", answer: "Hydrogen" },
+            { id: 110, question: "What protects aluminium from further corrosion?", answer: "Al₂O₃ layer" },
+            { id: 111, question: "Which gas is collected at the anode in electrolysis of water?", answer: "O₂" },
+            { id: 112, question: "Which metal is used in Thermite welding?", answer: "Aluminium" },
+            { id: 113, question: "Which type of reaction produces large energy in nuclear bombs (analogy with chem)?", answer: "Exothermic reaction" },
+            { id: 114, question: "Which gas is released when zinc reacts with dilute H₂SO₄?", answer: "Hydrogen" },
+            { id: 115, question: "Which factor decides whether a decomposition reaction will occur?", answer: "Energy supplied (heat/light/electricity)" },
+            { id: 116, question: "Identify the reaction: 2KClO₃ → 2KCl + 3O₂ (with heat and catalyst).", answer: "Thermal decomposition" },
+            { id: 117, question: "What is the oxidising agent in: CuO + H₂ → Cu + H₂O ?", answer: "CuO" },
+            { id: 118, question: "Which product of photosynthesis stores solar energy?", answer: "Glucose" },
+            { id: 119, question: "Why is rusting faster in coastal regions?", answer: "Presence of moisture and salts" },
+            { id: 120, question: "What is the main difference between corrosion and combustion in terms of speed?", answer: "Corrosion is slow, combustion is fast." },
+            { id: 121, question: "Which gas is evolved when calcium carbonate reacts with hydrochloric acid?", answer: "CO₂" },
+            { id: 122, question: "What type of reaction is the formation of water from hydrogen and oxygen?", answer: "Combination" },
+            { id: 123, question: "Which compound is responsible for the green color of copper carbonate?", answer: "CuCO₃" },
+            { id: 124, question: "What happens to the mass in a chemical reaction according to the law of conservation?", answer: "Remains constant" },
+            { id: 125, question: "Which type of reaction is the breakdown of glucose during respiration?", answer: "Decomposition" },
+            { id: 126, question: "What is the product when magnesium burns in oxygen?", answer: "MgO" },
+            { id: 127, question: "Which gas is produced when zinc reacts with hydrochloric acid?", answer: "Hydrogen" },
+            { id: 128, question: "What type of reaction occurs when silver nitrate reacts with sodium chloride?", answer: "Double displacement" },
+            { id: 129, question: "Which element is oxidized when copper reacts with oxygen?", answer: "Copper" },
+            { id: 130, question: "What is the color of the precipitate formed when barium chloride reacts with sodium sulfate?", answer: "White" },
+            { id: 131, question: "Which type of reaction is the thermal decomposition of calcium carbonate?", answer: "Decomposition" },
+            { id: 132, question: "What is the reducing agent in the reaction: ZnO + C → Zn + CO?", answer: "Carbon" },
+            { id: 133, question: "Which gas turns moist blue litmus paper red?", answer: "SO₂" },
+            { id: 134, question: "What type of reaction is the neutralization of an acid with a base?", answer: "Double displacement" },
+            { id: 135, question: "Which compound is formed when iron reacts with sulfur?", answer: "FeS" },
+            { id: 136, question: "What is the oxidizing agent in the reaction: H₂S + Cl₂ → S + HCl?", answer: "Cl₂" },
+            { id: 137, question: "Which type of reaction is the formation of ammonia from nitrogen and hydrogen?", answer: "Combination" },
+            { id: 138, question: "What is the color change when potassium permanganate is reduced?", answer: "Purple to colorless" },
+            { id: 139, question: "Which gas is evolved when sodium bicarbonate is heated?", answer: "CO₂" },
+            { id: 140, question: "What type of reaction is the displacement of copper by iron?", answer: "Displacement" },
+            { id: 141, question: "Which compound is responsible for the blue color of copper sulfate solution?", answer: "CuSO₄·5H₂O" },
+            { id: 142, question: "What is the product when calcium oxide reacts with water?", answer: "Ca(OH)₂" },
+            { id: 143, question: "Which type of reaction is the electrolysis of sodium chloride?", answer: "Decomposition" },
+            { id: 144, question: "What is the color of the flame when sodium compounds burn?", answer: "Yellow" },
+            { id: 145, question: "Which gas is produced when hydrogen peroxide decomposes?", answer: "Oxygen" }
+        ];
+
+        const questions = [...basicQuestions, ...hots2Questions, ...hots3Questions];
+
+        let visibleSections = new Set();
+        let answersShown = new Set();
+        let practiceModes = new Set();
+
+        function renderQuestions() {
+            const container = document.getElementById('questionsContainer');
+            container.innerHTML = '';
+
+            // Render Basic Questions Section
+            if (visibleSections.has('basic')) {
+                const basicHeader = document.createElement('div');
+                basicHeader.className = 'mb-6 text-center';
+                basicHeader.innerHTML = `
+                    <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl p-6 shadow-lg">
+                        <h2 class="text-2xl font-bold mb-2">📚 Basic Short Answer Questions</h2>
+                        <p class="text-blue-100">Fundamental concepts and direct recall questions</p>
+                        <div class="text-sm mt-2 bg-white bg-opacity-20 rounded-lg px-3 py-1 inline-block">
+                            Questions 1-45
+                        </div>
+                    </div>
+                `;
+                container.appendChild(basicHeader);
+
+                basicQuestions.forEach((q, index) => {
+                    const questionDiv = document.createElement('div');
+                    questionDiv.className = 'question-card bg-white rounded-xl shadow-md p-6 border border-gray-200 mb-4';
+                    
+                    const isPracticeMode = practiceModes.has('basic');
+                    const showAnswer = answersShown.has(q.id) && !isPracticeMode;
+                    
+                    questionDiv.innerHTML = `
+                        <div class="mb-4">
+                            <div class="flex items-start justify-between mb-3">
+                                <h3 class="text-lg font-semibold text-gray-800 flex-1 pr-4">
+                                    <span class="text-blue-600 font-bold">Q${q.id}.</span> ${q.question}
+                                </h3>
+                                ${isPracticeMode ? `
+                                    <button onclick="toggleIndividualAnswer(${q.id})" id="individualBtn-${q.id}" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-lg font-medium text-sm transition-colors">
+                                        Show Answer
+                                    </button>
+                                ` : ''}
+                            </div>
+                            <div id="answer-${q.id}" class="answer-reveal ${showAnswer ? 'show' : ''}">
+                                <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
+                                    <div class="flex items-center mb-2">
+                                        <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="font-semibold text-green-800">Answer:</span>
+                                    </div>
+                                    <p class="text-green-700 font-medium">${q.answer}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    container.appendChild(questionDiv);
+                });
+            }
+
+            // Render HOTS Set 2 Questions Section
+            if (visibleSections.has('hots2')) {
+                const hots2Header = document.createElement('div');
+                hots2Header.className = 'mb-6 mt-8 text-center';
+                hots2Header.innerHTML = `
+                    <div class="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl p-6 shadow-lg">
+                        <h2 class="text-2xl font-bold mb-2">🧠 HOTS Set 2 Questions</h2>
+                        <p class="text-purple-100">Application, analysis, and reasoning-based questions</p>
+                        <div class="text-sm mt-2 bg-white bg-opacity-20 rounded-lg px-3 py-1 inline-block">
+                            Questions 46-85
+                        </div>
+                    </div>
+                `;
+                container.appendChild(hots2Header);
+
+                hots2Questions.forEach((q, index) => {
+                    const questionDiv = document.createElement('div');
+                    questionDiv.className = 'question-card bg-white rounded-xl shadow-md p-6 border border-purple-200 mb-4';
+                    
+                    const isPracticeMode = practiceModes.has('hots2');
+                    const showAnswer = answersShown.has(q.id) && !isPracticeMode;
+                    
+                    questionDiv.innerHTML = `
+                        <div class="mb-4">
+                            <div class="flex items-start justify-between mb-3">
+                                <h3 class="text-lg font-semibold text-gray-800 flex-1 pr-4">
+                                    <span class="text-purple-600 font-bold">Q${q.id}.</span> ${q.question}
+                                </h3>
+                                ${isPracticeMode ? `
+                                    <button onclick="toggleIndividualAnswer(${q.id})" id="individualBtn-${q.id}" class="bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded-lg font-medium text-sm transition-colors">
+                                        Show Answer
+                                    </button>
+                                ` : ''}
+                            </div>
+                            <div id="answer-${q.id}" class="answer-reveal ${showAnswer ? 'show' : ''}">
+                                <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-lg">
+                                    <div class="flex items-center mb-2">
+                                        <svg class="w-5 h-5 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="font-semibold text-purple-800">Answer:</span>
+                                    </div>
+                                    <p class="text-purple-700 font-medium">${q.answer}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    container.appendChild(questionDiv);
+                });
+            }
+
+            // Render HOTS Set 3 Questions Section
+            if (visibleSections.has('hots3')) {
+                const hots3Header = document.createElement('div');
+                hots3Header.className = 'mb-6 mt-8 text-center';
+                hots3Header.innerHTML = `
+                    <div class="bg-gradient-to-r from-pink-600 to-red-600 text-white rounded-xl p-6 shadow-lg">
+                        <h2 class="text-2xl font-bold mb-2">🔬 HOTS Set 3 Questions</h2>
+                        <p class="text-pink-100">Advanced application and critical thinking questions</p>
+                        <div class="text-sm mt-2 bg-white bg-opacity-20 rounded-lg px-3 py-1 inline-block">
+                            Questions 86-145
+                        </div>
+                    </div>
+                `;
+                container.appendChild(hots3Header);
+
+                hots3Questions.forEach((q, index) => {
+                    const questionDiv = document.createElement('div');
+                    questionDiv.className = 'question-card bg-white rounded-xl shadow-md p-6 border border-pink-200 mb-4';
+                    
+                    const isPracticeMode = practiceModes.has('hots3');
+                    const showAnswer = answersShown.has(q.id) && !isPracticeMode;
+                    
+                    questionDiv.innerHTML = `
+                        <div class="mb-4">
+                            <div class="flex items-start justify-between mb-3">
+                                <h3 class="text-lg font-semibold text-gray-800 flex-1 pr-4">
+                                    <span class="text-pink-600 font-bold">Q${q.id}.</span> ${q.question}
+                                </h3>
+                                ${isPracticeMode ? `
+                                    <button onclick="toggleIndividualAnswer(${q.id})" id="individualBtn-${q.id}" class="bg-pink-500 hover:bg-pink-600 text-white px-3 py-1 rounded-lg font-medium text-sm transition-colors">
+                                        Show Answer
+                                    </button>
+                                ` : ''}
+                            </div>
+                            <div id="answer-${q.id}" class="answer-reveal ${showAnswer ? 'show' : ''}">
+                                <div class="bg-pink-50 border-l-4 border-pink-500 p-4 rounded-r-lg">
+                                    <div class="flex items-center mb-2">
+                                        <svg class="w-5 h-5 text-pink-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="font-semibold text-pink-800">Answer:</span>
+                                    </div>
+                                    <p class="text-pink-700 font-medium">${q.answer}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    container.appendChild(questionDiv);
+                });
+            }
+        }
+
+        function toggleSection(sectionName) {
+            const button = document.getElementById(`${sectionName}Btn`);
+            const practiceBtn = document.getElementById(`${sectionName}PracticeBtn`);
+            
+            if (visibleSections.has(sectionName)) {
+                // Hide section
+                visibleSections.delete(sectionName);
+                practiceModes.delete(sectionName);
+                
+                // Hide all answers from this section
+                const sectionQuestions = getSectionQuestions(sectionName);
+                sectionQuestions.forEach(q => {
+                    answersShown.delete(q.id);
+                });
+                
+                // Update button text and hide practice button
+                const questionRange = getSectionRange(sectionName);
+                button.textContent = `Show ${getSectionName(sectionName)} (${questionRange})`;
+                button.className = button.className.replace('bg-red-500 hover:bg-red-600', getSectionButtonClass(sectionName));
+                practiceBtn.style.display = 'none';
+            } else {
+                // Show section
+                visibleSections.add(sectionName);
+                
+                // Show all answers in this section
+                const sectionQuestions = getSectionQuestions(sectionName);
+                sectionQuestions.forEach(q => {
+                    answersShown.add(q.id);
+                });
+                
+                // Update button text and show practice button
+                const questionRange = getSectionRange(sectionName);
+                button.textContent = `Hide ${getSectionName(sectionName)} (${questionRange})`;
+                button.className = button.className.replace(getSectionButtonClass(sectionName), 'bg-red-500 hover:bg-red-600');
+                practiceBtn.style.display = 'block';
+            }
+            
+            renderQuestions();
+            updateProgress();
+        }
+
+        function getSectionQuestions(sectionName) {
+            switch(sectionName) {
+                case 'basic': return basicQuestions;
+                case 'hots2': return hots2Questions;
+                case 'hots3': return hots3Questions;
+                default: return [];
+            }
+        }
+
+        function getSectionRange(sectionName) {
+            switch(sectionName) {
+                case 'basic': return 'Q1-45';
+                case 'hots2': return 'Q46-85';
+                case 'hots3': return 'Q86-145';
+                default: return '';
+            }
+        }
+
+        function getSectionName(sectionName) {
+            switch(sectionName) {
+                case 'basic': return 'Set 1';
+                case 'hots2': return 'Set 2';
+                case 'hots3': return 'Set 3';
+                default: return '';
+            }
+        }
+
+        function getSectionButtonClass(sectionName) {
+            switch(sectionName) {
+                case 'basic': return 'bg-blue-500 hover:bg-blue-600';
+                case 'hots2': return 'bg-purple-500 hover:bg-purple-600';
+                case 'hots3': return 'bg-pink-500 hover:bg-pink-600';
+                default: return 'bg-gray-500 hover:bg-gray-600';
+            }
+        }
+
+        function togglePracticeMode(sectionName) {
+            const practiceBtn = document.getElementById(`${sectionName}PracticeBtn`);
+            
+            if (practiceModes.has(sectionName)) {
+                // Exit practice mode
+                practiceModes.delete(sectionName);
+                
+                // Show all answers again
+                const sectionQuestions = getSectionQuestions(sectionName);
+                sectionQuestions.forEach(q => {
+                    answersShown.add(q.id);
+                });
+                
+                practiceBtn.textContent = '🎯 Practice Mode';
+                practiceBtn.className = practiceBtn.className.replace('bg-gray-500 hover:bg-gray-600', 'bg-orange-500 hover:bg-orange-600');
+            } else {
+                // Enter practice mode
+                practiceModes.add(sectionName);
+                
+                // Hide all answers in this section
+                const sectionQuestions = getSectionQuestions(sectionName);
+                sectionQuestions.forEach(q => {
+                    answersShown.delete(q.id);
+                });
+                
+                practiceBtn.textContent = '📖 Exit Practice';
+                practiceBtn.className = practiceBtn.className.replace('bg-orange-500 hover:bg-orange-600', 'bg-gray-500 hover:bg-gray-600');
+            }
+            
+            renderQuestions();
+            updateProgress();
+        }
+
+        function toggleIndividualAnswer(questionId) {
+            const answerDiv = document.getElementById(`answer-${questionId}`);
+            const button = document.getElementById(`individualBtn-${questionId}`);
+            
+            if (answersShown.has(questionId)) {
+                // Hide answer
+                answersShown.delete(questionId);
+                answerDiv.classList.remove('show');
+                button.textContent = 'Show Answer';
+                button.className = button.className.replace('bg-red-500 hover:bg-red-600', getIndividualButtonClass(questionId));
+            } else {
+                // Show answer
+                answersShown.add(questionId);
+                answerDiv.classList.add('show');
+                button.textContent = 'Hide Answer';
+                button.className = button.className.replace(getIndividualButtonClass(questionId), 'bg-red-500 hover:bg-red-600');
+            }
+            
+            updateProgress();
+        }
+
+        function getIndividualButtonClass(questionId) {
+            if (questionId <= 45) return 'bg-blue-500 hover:bg-blue-600';
+            if (questionId <= 85) return 'bg-purple-500 hover:bg-purple-600';
+            return 'bg-pink-500 hover:bg-pink-600';
+        }
+
+        function updateProgress() {
+            const totalVisible = visibleSections.size > 0 ? 
+                Array.from(visibleSections).reduce((sum, section) => sum + getSectionQuestions(section).length, 0) : 0;
+            const totalAnswersShown = answersShown.size;
+            const percentage = totalVisible > 0 ? Math.round((totalAnswersShown / totalVisible) * 100) : 0;
+            
+            document.getElementById('visibleQuestions').textContent = totalVisible;
+            document.getElementById('answersShown').textContent = totalAnswersShown;
+            document.getElementById('progressBar').style.width = percentage + '%';
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderQuestions();
+            updateProgress();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'975ce88592cb3e16',t:'MTc1NjMxMTc1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

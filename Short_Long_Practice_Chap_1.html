@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemistry Practice - Chemical Reactions & Equations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+	<script src="protection.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .question-card { transition: all 0.3s ease; }
+        .question-card:hover { transform: translateY(-2px); }
+        .answer-reveal { 
+            transition: all 0.4s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .answer-reveal.show { 
+            max-height: 500px;
+        }
+        .section-btn { transition: all 0.2s ease; }
+        .section-btn:hover { transform: scale(1.02); }
+        .progress-indicator { transition: width 0.5s ease; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-indigo-50 to-cyan-100 min-h-screen">
+ <!-- Navigation Tabs -->
+		<script>function navigateTo(page) {
+            // Simulate navigation - in real implementation, these would link to actual pages
+            const pageNames = {
+                'ncert-solutions': 'ncert_solutions_chap_1',
+                'chemical-reactions': 'Chemical Reactions',
+                'quick-revision': 'Quick Revision',
+                'activities': 'Activities',
+                'mock-test-1': 'Mock Test 1',
+                'mock-test-2': 'Mock Test 2',
+                'mock-test-3': 'Mock Test 3 (Very Short Answer)',
+                'mock-test-4': 'Mock Test 4 (Short/Long Answer)',
+                'mock-test-5': 'Mock Test 5 (Case Study)'
+            };
+         
+            // In a real implementation, you would use:
+			window.location.href = `${page}.html`;
+            // or for single page application:
+            // loadPage(page);
+        }</script>
+        <div class="bg-white rounded-2xl shadow-xl p-6 mb-8">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">📚 Study Resources</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <button onclick="navigateTo('ncert_solutions_chap_1')" class="tab-button bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📖 NCERT Solutions
+                </button>
+                <button onclick="navigateTo('All_Chemical_reaction_chap_1')" class="tab-button bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    ⚗️ Chemical Reactions
+                </button>
+                <button onclick="navigateTo('Quick_revision_chap_1')" class="tab-button bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    ⚡ Quick Revision
+                </button>
+                <button onclick="navigateTo('activity_chap_1')" class="tab-button bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    🧪 Activities
+                </button>
+                <button onclick="navigateTo('Mock_Test_1_Chap_1')" class="tab-button bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 1
+                </button>
+                <button onclick="navigateTo('Mock_Test_2_Chap_1')" class="tab-button bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 2
+                </button>
+                <button onclick="navigateTo('Practice_Very_Short_Chap_1')" class="tab-button bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 3 (VSA)
+                </button>
+                <button onclick="navigateTo('Short_Long_Practice_Chap_1')" class="tab-button bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 4 (SA/LA)
+                </button>
+                <button onclick="navigateTo('Case_Study_Chap_1')" class="tab-button bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 5 (Case Study)
+                </button>
+            </div>
+        </div>
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">Chemistry Practice Questions</h1>
+            <p class="text-lg text-gray-600 mb-4">Chemical Reactions & Equations - Comprehensive Practice</p>
+            
+            <!-- Control Panel -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+                <!-- Section Control Buttons -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="text-center">
+                        <h3 class="text-lg font-semibold text-blue-600 mb-3">📝 Short Answer Questions</h3>
+                        <p class="text-sm text-gray-600 mb-3">2-3 Marks each • Quick Response Questions</p>
+                        <div class="space-y-2">
+                            <button onclick="toggleSection('short')" id="shortBtn" class="section-btn w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+                                Show Short Questions (Q1-15)
+                            </button>
+                            <button onclick="togglePracticeMode('short')" id="shortPracticeBtn" class="section-btn w-full bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded-lg font-medium text-sm transition-colors" style="display: none;">
+                                🎯 Practice Mode
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-lg font-semibold text-purple-600 mb-3">📚 Long Answer Questions</h3>
+                        <p class="text-sm text-gray-600 mb-3">4-5 Marks each • Detailed Explanations</p>
+                        <div class="space-y-2">
+                            <button onclick="toggleSection('long')" id="longBtn" class="section-btn w-full bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+                                Show Long Questions (Q16-30)
+                            </button>
+                            <button onclick="togglePracticeMode('long')" id="longPracticeBtn" class="section-btn w-full bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded-lg font-medium text-sm transition-colors" style="display: none;">
+                                🎯 Practice Mode
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Progress Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-sm">
+                    <div class="bg-blue-50 p-3 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-blue-600" id="totalQuestions">30</div>
+                        <div class="text-gray-600">Total Questions</div>
+                    </div>
+                    <div class="bg-green-50 p-3 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-green-600" id="visibleQuestions">0</div>
+                        <div class="text-gray-600">Visible Questions</div>
+                    </div>
+                    <div class="bg-purple-50 p-3 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-purple-600" id="answersShown">0</div>
+                        <div class="text-gray-600">Answers Shown</div>
+                    </div>
+                    <div class="bg-orange-50 p-3 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-orange-600" id="practiceMode">0</div>
+                        <div class="text-gray-600">Practice Sections</div>
+                    </div>
+                </div>
+                
+                <!-- Progress Bar -->
+                <div class="mt-4">
+                    <div class="bg-gray-200 rounded-full h-2 overflow-hidden">
+                        <div id="progressBar" class="progress-indicator bg-gradient-to-r from-blue-500 to-purple-600 h-full rounded-full" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Questions Container -->
+        <div id="questionsContainer" class="space-y-4">
+            <!-- Questions will be dynamically generated here -->
+        </div>
+    </div>
+
+    <script>
+        const shortAnswerQuestions = [
+            { 
+                id: 1, 
+                question: "Why should magnesium ribbon be cleaned before burning? What would happen if it is not cleaned?", 
+                answer: "Magnesium ribbon should be cleaned to remove the oxide layer (MgO) that forms on its surface when exposed to air. This oxide layer prevents the magnesium from burning properly. If not cleaned, the ribbon may not ignite easily or burn incompletely, giving a dim flame instead of the characteristic bright white flame." 
+            },
+            { 
+                id: 2, 
+                question: "A student adds dilute HCl to a beaker containing Zn granules. What do you observe? Write a balanced equation for the reaction.", 
+                answer: "Observations: (1) Effervescence occurs due to hydrogen gas evolution, (2) Zinc granules gradually dissolve, (3) The solution becomes warm (exothermic reaction), (4) A 'pop' sound is heard when a burning splinter is brought near the gas.\n\nBalanced equation: Zn + 2HCl → ZnCl₂ + H₂↑" 
+            },
+            { 
+                id: 3, 
+                question: "What will happen if you keep iron nails dipped in copper sulphate solution for 30 minutes? Explain with equation.", 
+                answer: "Observations: (1) The blue color of copper sulphate solution fades and turns light green, (2) A reddish-brown coating of copper metal appears on the iron nails, (3) The nails become heavier due to copper deposition.\n\nThis is a displacement reaction: Fe + CuSO₄ → FeSO₄ + Cu\n\nIron displaces copper from copper sulphate as iron is more reactive than copper." 
+            },
+            { 
+                id: 4, 
+                question: "Why is respiration considered an exothermic process? Write a chemical equation for it.", 
+                answer: "Respiration is exothermic because it releases energy in the form of heat and ATP when glucose is broken down in the presence of oxygen. This energy is used for various life processes.\n\nChemical equation: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + Energy (ATP)\n\nThe energy released keeps our body warm and powers cellular activities." 
+            },
+            { 
+                id: 5, 
+                question: "Why are food items flushed with nitrogen before packing?", 
+                answer: "Food items are flushed with nitrogen to prevent rancidity and spoilage. Nitrogen is an inert gas that:\n\n1. Displaces oxygen, preventing oxidation of fats and oils\n2. Prevents the growth of aerobic bacteria\n3. Maintains freshness and extends shelf life\n4. Does not react with food components\n\nThis process is called 'nitrogen flushing' and is commonly used in chips packets, nuts, and other packaged foods." 
+            },
+            { 
+                id: 6, 
+                question: "When a piece of sodium metal is added to water, a vigorous reaction takes place. Write observations and balanced equation.", 
+                answer: "Observations:\n1. Sodium floats on water surface (less dense)\n2. Vigorous effervescence occurs\n3. Sodium moves rapidly on water surface\n4. A hissing sound is produced\n5. Heat is generated (exothermic)\n6. Hydrogen gas is evolved\n7. Solution becomes basic (NaOH formed)\n\nBalanced equation: 2Na + 2H₂O → 2NaOH + H₂↑ + Heat" 
+            },
+            { 
+                id: 7, 
+                question: "Why do silver articles turn black after some time when exposed to air?", 
+                answer: "Silver articles turn black due to the formation of silver sulphide (Ag₂S) when they react with hydrogen sulphide (H₂S) present in air.\n\nReaction: 4Ag + 2H₂S + O₂ → 2Ag₂S + 2H₂O\n\nHydrogen sulphide comes from:\n- Industrial pollution\n- Volcanic emissions\n- Bacterial decomposition of organic matter\n\nThis black coating is called tarnishing and can be removed by cleaning with baking soda or special silver cleaners." 
+            },
+            { 
+                id: 8, 
+                question: "A student observed a brown deposit on an iron nail when dipped in copper sulphate solution. Identify the type of reaction.", 
+                answer: "This is a **Displacement Reaction** (also called Single Displacement Reaction).\n\nExplanation:\n- Iron displaces copper from copper sulphate solution\n- The brown deposit is metallic copper\n- Iron is more reactive than copper in the reactivity series\n- The more reactive metal displaces the less reactive metal from its salt solution\n\nReaction: Fe + CuSO₄ → FeSO₄ + Cu (brown deposit)" 
+            },
+            { 
+                id: 9, 
+                question: "Why does the colour of ferrous sulphate crystals change when heated strongly? Write the reaction.", 
+                answer: "Ferrous sulphate crystals (FeSO₄·7H₂O) are light green in color. When heated strongly:\n\n1. **Color change**: Light green → White → Yellow-brown\n2. **Reason**: Thermal decomposition occurs\n\nReaction: 2FeSO₄·7H₂O → Fe₂O₃ + SO₂ + SO₃ + 14H₂O\n\n- Water molecules are lost first (green → white)\n- Then decomposition occurs forming Fe₂O₃ (yellow-brown)\n- SO₂ and SO₃ gases are evolved\n- This is a thermal decomposition reaction" 
+            },
+            { 
+                id: 10, 
+                question: "Give one example each of a chemical reaction where energy is supplied in the form of: (a) Heat, (b) Light, (c) Electricity.", 
+                answer: "(a) **Heat (Thermal Decomposition)**:\nCaCO₃ + Heat → CaO + CO₂\n(Limestone heated to form quicklime)\n\n(b) **Light (Photolytic Decomposition)**:\n2AgBr + Sunlight → 2Ag + Br₂\n(Silver bromide decomposes in photography)\n\n(c) **Electricity (Electrolytic Decomposition)**:\n2H₂O + Electricity → 2H₂ + O₂\n(Electrolysis of water to produce hydrogen and oxygen)" 
+            },
+            { 
+                id: 11, 
+                question: "Why is it necessary to balance a chemical equation?", 
+                answer: "Balancing chemical equations is necessary because:\n\n1. **Law of Conservation of Mass**: Mass can neither be created nor destroyed in a chemical reaction\n\n2. **Equal atoms**: Number of atoms of each element must be equal on both sides\n\n3. **Correct stoichiometry**: Shows the correct ratio of reactants and products\n\n4. **Quantitative calculations**: Enables calculation of amounts of reactants needed and products formed\n\n5. **Scientific accuracy**: Represents the actual chemical process occurring\n\nExample: H₂ + O₂ → H₂O (unbalanced)\nCorrect: 2H₂ + O₂ → 2H₂O (balanced)" 
+            },
+            { 
+                id: 12, 
+                question: "In Thermite welding, aluminium is used to join broken railway tracks. Justify with balanced equation.", 
+                answer: "Thermite welding uses the highly exothermic reaction between aluminium and iron oxide:\n\n**Balanced equation**: Fe₂O₃ + 2Al → Al₂O₃ + 2Fe + Heat\n\n**Justification**:\n1. **Highly exothermic**: Produces temperature around 2500°C\n2. **Molten iron formation**: The iron produced is in molten state\n3. **Strong welding**: Molten iron flows into the gap between tracks\n4. **Displacement reaction**: Al is more reactive than Fe\n5. **No external heating**: Self-sustaining reaction\n6. **Strong joint**: Creates a permanent, strong connection\n\nThis process is ideal for railway track repairs in remote locations." 
+            },
+            { 
+                id: 13, 
+                question: "Explain the role of paint on iron objects. What would happen if they are not painted?", 
+                answer: "**Role of paint on iron objects**:\n1. **Barrier protection**: Prevents contact between iron and oxygen/moisture\n2. **Prevents rusting**: Stops the oxidation process\n3. **Aesthetic appeal**: Improves appearance\n4. **Increases lifespan**: Protects from corrosion\n\n**If not painted**:\n1. **Rusting occurs**: 4Fe + 3O₂ + 6H₂O → 2Fe₂O₃·3H₂O (rust)\n2. **Structural weakness**: Iron becomes brittle and weak\n3. **Economic loss**: Objects need frequent replacement\n4. **Safety hazards**: Weakened structures can collapse\n5. **Continuous deterioration**: Rust spreads and damages the entire object\n\nPaint acts as a protective coating preventing these problems." 
+            },
+            { 
+                id: 14, 
+                question: "Why does lime water turn milky when CO₂ is passed through it? Write balanced equation.", 
+                answer: "Lime water turns milky due to the formation of insoluble calcium carbonate (CaCO₃) when CO₂ reacts with calcium hydroxide.\n\n**Balanced equation**: Ca(OH)₂ + CO₂ → CaCO₃↓ + H₂O\n\n**Explanation**:\n1. **Lime water**: Clear solution of Ca(OH)₂\n2. **Milky appearance**: Due to fine particles of white CaCO₃ suspended in water\n3. **Precipitation**: CaCO₃ is insoluble in water\n4. **Test for CO₂**: This reaction is used to test for carbon dioxide gas\n\n**Note**: On passing excess CO₂, the milkiness disappears due to formation of soluble calcium bicarbonate:\nCaCO₃ + H₂O + CO₂ → Ca(HCO₃)₂" 
+            },
+            { 
+                id: 15, 
+                question: "Which type of chemical reactions are usually accompanied by precipitation? Explain with one example.", 
+                answer: "**Double Displacement Reactions** are usually accompanied by precipitation.\n\n**Definition**: When two compounds exchange their ions to form two new compounds, and one of the products is insoluble (precipitate).\n\n**Example**: AgNO₃ + NaCl → AgCl↓ + NaNO₃\n\n**Explanation**:\n1. **Ion exchange**: Ag⁺ combines with Cl⁻, Na⁺ combines with NO₃⁻\n2. **Precipitate formation**: AgCl is insoluble in water (white precipitate)\n3. **Observable change**: White solid appears in the solution\n4. **General form**: AB + CD → AD↓ + CB\n\n**Other examples**:\n- BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl (white precipitate)\n- Pb(NO₃)₂ + 2KI → PbI₂↓ + 2KNO₃ (yellow precipitate)" 
+            }
+        ];
+
+        const longAnswerQuestions = [
+            { 
+                id: 16, 
+                question: "With suitable examples, explain the difference between displacement and double displacement reactions.", 
+                answer: "**DISPLACEMENT REACTION:**\n\n**Definition**: A more reactive element displaces a less reactive element from its compound.\n\n**General form**: A + BC → AC + B\n\n**Examples**:\n1. Zn + CuSO₄ → ZnSO₄ + Cu\n2. Fe + CuSO₄ → FeSO₄ + Cu\n3. Mg + 2HCl → MgCl₂ + H₂\n\n**Characteristics**:\n- Only one displacement occurs\n- Based on reactivity series\n- Usually involves metals\n- Often accompanied by color change\n\n**DOUBLE DISPLACEMENT REACTION:**\n\n**Definition**: Two compounds exchange their ions to form two new compounds.\n\n**General form**: AB + CD → AD + CB\n\n**Examples**:\n1. AgNO₃ + NaCl → AgCl↓ + NaNO₃\n2. BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl\n3. HCl + NaOH → NaCl + H₂O\n\n**Characteristics**:\n- Two displacements occur simultaneously\n- Often produces precipitate or gas\n- Involves ionic compounds\n- No change in oxidation states" 
+            },
+            { 
+                id: 17, 
+                question: "Explain the process of corrosion of iron (rusting) with the help of a chemical equation. How can it be prevented?", 
+                answer: "**CORROSION OF IRON (RUSTING):**\n\n**Definition**: Rusting is the oxidation of iron in the presence of oxygen and moisture to form hydrated iron(III) oxide.\n\n**Chemical Equation**:\n4Fe + 3O₂ + 6H₂O → 2Fe₂O₃·3H₂O (Rust)\n\n**Process**:\n1. **Oxidation**: Fe → Fe²⁺ + 2e⁻\n2. **Reduction**: O₂ + 4H⁺ + 4e⁻ → 2H₂O\n3. **Further oxidation**: Fe²⁺ → Fe³⁺ + e⁻\n4. **Hydration**: Fe₂O₃ + 3H₂O → Fe₂O₃·3H₂O\n\n**Conditions required**:\n- Presence of oxygen\n- Presence of moisture/water\n- Both are essential\n\n**PREVENTION METHODS**:\n\n1. **Painting**: Creates barrier layer\n2. **Oiling/Greasing**: Prevents contact with air and moisture\n3. **Galvanisation**: Coating with zinc\n4. **Electroplating**: Coating with non-reactive metals (Ni, Cr)\n5. **Alloying**: Making stainless steel (Fe + Cr + Ni)\n6. **Sacrificial protection**: Using more reactive metals\n7. **Proper storage**: Keeping in dry places" 
+            },
+            { 
+                id: 18, 
+                question: "Define rancidity. What causes it? Suggest three methods to prevent rancidity.", 
+                answer: "**RANCIDITY:**\n\n**Definition**: Rancidity is the process of oxidation of fats and oils in food, resulting in unpleasant smell and taste.\n\n**CAUSES OF RANCIDITY**:\n\n1. **Oxidation**: Reaction with atmospheric oxygen\n   - Fats/oils + O₂ → Aldehydes + Ketones (bad smell/taste)\n\n2. **Factors accelerating rancidity**:\n   - Exposure to air (oxygen)\n   - High temperature\n   - Light (UV rays)\n   - Moisture\n   - Presence of metals (catalysts)\n\n**THREE METHODS TO PREVENT RANCIDITY**:\n\n**1. Antioxidants**:\n   - Add BHT (Butylated Hydroxy Toluene)\n   - Add BHA (Butylated Hydroxy Anisole)\n   - Natural antioxidants: Vitamin E, Vitamin C\n\n**2. Packaging in inert atmosphere**:\n   - Nitrogen flushing in packets\n   - Removes oxygen from packaging\n   - Example: Chips packets filled with nitrogen\n\n**3. Proper storage conditions**:\n   - Store in cool, dry places\n   - Avoid exposure to light\n   - Use airtight containers\n   - Refrigeration to slow down oxidation\n\n**Additional methods**: Vacuum packaging, adding preservatives, using dark-colored containers." 
+            },
+            { 
+                id: 19, 
+                question: "Write balanced chemical equations for the following and mention the type of reactions:\n(a) Calcium hydroxide reacts with carbon dioxide\n(b) Zinc reacts with hydrochloric acid\n(c) Silver nitrate reacts with sodium chloride", 
+                answer: "**(a) Calcium hydroxide reacts with carbon dioxide:**\n\n**Balanced equation**: Ca(OH)₂ + CO₂ → CaCO₃ + H₂O\n\n**Type**: Combination reaction (two reactants combine to form one product)\n\n**Observation**: Lime water turns milky due to CaCO₃ formation\n\n**(b) Zinc reacts with hydrochloric acid:**\n\n**Balanced equation**: Zn + 2HCl → ZnCl₂ + H₂↑\n\n**Type**: Displacement reaction (Zn displaces H₂ from HCl)\n\n**Observations**: Effervescence, hydrogen gas evolution, exothermic reaction\n\n**(c) Silver nitrate reacts with sodium chloride:**\n\n**Balanced equation**: AgNO₃ + NaCl → AgCl↓ + NaNO₃\n\n**Type**: Double displacement reaction (exchange of ions)\n\n**Observation**: White precipitate of AgCl forms\n\n**Summary**:\n- All reactions follow law of conservation of mass\n- Each shows different reaction characteristics\n- Balanced equations show correct stoichiometry" 
+            },
+            { 
+                id: 20, 
+                question: "A substance 'X' is used in whitewashing. Name it, write its formula, and explain the chemical reactions involved in whitewashing.", 
+                answer: "**SUBSTANCE 'X': CALCIUM HYDROXIDE (Slaked Lime)**\n\n**Formula**: Ca(OH)₂\n\n**CHEMICAL REACTIONS IN WHITEWASHING**:\n\n**Step 1: Preparation of slaked lime**\nCaO + H₂O → Ca(OH)₂ + Heat\n(Quicklime + Water → Slaked lime)\n\n**Step 2: Application on walls**\nCa(OH)₂ is mixed with water to form lime water and applied on walls\n\n**Step 3: Setting and hardening**\nCa(OH)₂ + CO₂ → CaCO₃ + H₂O\n(From air)    (Hard coating)\n\n**EXPLANATION**:\n\n1. **Initial application**: Ca(OH)₂ solution is applied as a thin layer\n\n2. **Reaction with CO₂**: Atmospheric CO₂ slowly reacts with Ca(OH)₂\n\n3. **Formation of hard coating**: CaCO₃ forms a hard, white, protective layer\n\n4. **Advantages**:\n   - Cheap and easily available\n   - Antiseptic properties\n   - Good adhesion to walls\n   - Reflects light (cooling effect)\n   - Long-lasting protection\n\n**Overall process**: CaO → Ca(OH)₂ → CaCO₃ (final hard coating)" 
+            },
+            { 
+                id: 21, 
+                question: "What is the difference between exothermic and endothermic reactions? Give one example and equation of each from daily life.", 
+                answer: "**EXOTHERMIC REACTIONS:**\n\n**Definition**: Reactions that release energy (heat) to the surroundings.\n\n**Characteristics**:\n- Temperature of surroundings increases\n- Energy is given out\n- ΔH is negative\n- Products have lower energy than reactants\n\n**Daily life example**: **Respiration**\nC₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + Energy\n- Keeps our body warm\n- Provides energy for life processes\n\n**Other examples**: Combustion, rusting, neutralization\n\n**ENDOTHERMIC REACTIONS:**\n\n**Definition**: Reactions that absorb energy (heat) from the surroundings.\n\n**Characteristics**:\n- Temperature of surroundings decreases\n- Energy is absorbed\n- ΔH is positive\n- Products have higher energy than reactants\n\n**Daily life example**: **Photosynthesis**\n6CO₂ + 6H₂O + Sunlight → C₆H₁₂O₆ + 6O₂\n- Plants absorb solar energy\n- Convert it to chemical energy (glucose)\n\n**Other examples**: Melting ice, evaporation, cooking\n\n**KEY DIFFERENCES**:\n| Exothermic | Endothermic |\n|------------|-------------|\n| Heat released | Heat absorbed |\n| Temperature rises | Temperature falls |\n| Energy flows out | Energy flows in |\n| Spontaneous | Requires energy input |" 
+            },
+            { 
+                id: 22, 
+                question: "Classify the following reactions into combination, decomposition, displacement and double displacement with proper justification:\n(i) 2FeSO₄ → Fe₂O₃ + SO₂ + SO₃\n(ii) NaOH + HCl → NaCl + H₂O\n(iii) CaO + H₂O → Ca(OH)₂\n(iv) Zn + CuSO₄ → ZnSO₄ + Cu", 
+                answer: "**(i) 2FeSO₄ → Fe₂O₃ + SO₂ + SO₃**\n\n**Type**: **DECOMPOSITION REACTION**\n\n**Justification**:\n- Single reactant (FeSO₄) breaks down into multiple products\n- General form: AB → A + B + C\n- Thermal decomposition (requires heat)\n- One compound splits into simpler substances\n\n**(ii) NaOH + HCl → NaCl + H₂O**\n\n**Type**: **DOUBLE DISPLACEMENT REACTION**\n\n**Justification**:\n- Two compounds exchange ions\n- Na⁺ from NaOH combines with Cl⁻ from HCl\n- H⁺ from HCl combines with OH⁻ from NaOH\n- General form: AB + CD → AD + CB\n- Also called neutralization reaction\n\n**(iii) CaO + H₂O → Ca(OH)₂**\n\n**Type**: **COMBINATION REACTION**\n\n**Justification**:\n- Two reactants combine to form single product\n- General form: A + B → AB\n- Also called synthesis reaction\n- Exothermic reaction (releases heat)\n\n**(iv) Zn + CuSO₄ → ZnSO₄ + Cu**\n\n**Type**: **DISPLACEMENT REACTION**\n\n**Justification**:\n- Zn displaces Cu from CuSO₄\n- More reactive metal (Zn) displaces less reactive metal (Cu)\n- General form: A + BC → AC + B\n- Based on reactivity series\n- Single displacement occurs" 
+            },
+            { 
+                id: 23, 
+                question: "Why are decomposition reactions called opposite of combination reactions? Explain with two suitable examples.", 
+                answer: "**WHY DECOMPOSITION IS OPPOSITE OF COMBINATION:**\n\nDecomposition and combination reactions are opposite because:\n\n1. **Direction of reaction**:\n   - Combination: Multiple reactants → Single product\n   - Decomposition: Single reactant → Multiple products\n\n2. **Energy changes**:\n   - Combination: Usually exothermic (releases energy)\n   - Decomposition: Usually endothermic (requires energy)\n\n3. **Complexity**:\n   - Combination: Simple → Complex\n   - Decomposition: Complex → Simple\n\n**EXAMPLE 1: Water Formation vs. Water Splitting**\n\n**Combination**: 2H₂ + O₂ → 2H₂O + Energy\n- Two gases combine to form water\n- Exothermic reaction\n- Energy is released\n\n**Decomposition**: 2H₂O + Energy → 2H₂ + O₂\n- Water splits into hydrogen and oxygen\n- Endothermic reaction (electrolysis)\n- Energy is required\n\n**EXAMPLE 2: Calcium Hydroxide Formation vs. Decomposition**\n\n**Combination**: CaO + H₂O → Ca(OH)₂ + Heat\n- Quicklime and water combine\n- Forms slaked lime\n- Heat is released\n\n**Decomposition**: Ca(OH)₂ + Heat → CaO + H₂O\n- Slaked lime decomposes on heating\n- Forms quicklime and water vapor\n- Heat is required\n\n**CONCLUSION**: These reactions are reverse of each other in terms of reactants, products, and energy changes." 
+            },
+            { 
+                id: 24, 
+                question: "Differentiate between oxidation and reduction in terms of gain/loss of oxygen and hydrogen. Write two examples each.", 
+                answer: "**OXIDATION:**\n\n**Definition in terms of oxygen and hydrogen**:\n1. **Gain of oxygen**\n2. **Loss of hydrogen**\n\n**Examples of Oxidation**:\n\n**Example 1 - Gain of oxygen**:\n2Mg + O₂ → 2MgO\n- Magnesium gains oxygen\n- Mg is oxidized to MgO\n\n**Example 2 - Loss of hydrogen**:\nH₂S + Cl₂ → S + 2HCl\n- H₂S loses hydrogen\n- Sulfur is oxidized (H₂S → S)\n\n**REDUCTION:**\n\n**Definition in terms of oxygen and hydrogen**:\n1. **Loss of oxygen**\n2. **Gain of hydrogen**\n\n**Examples of Reduction**:\n\n**Example 1 - Loss of oxygen**:\nCuO + H₂ → Cu + H₂O\n- CuO loses oxygen\n- Copper oxide is reduced to copper\n\n**Example 2 - Gain of hydrogen**:\nCl₂ + H₂ → 2HCl\n- Cl₂ gains hydrogen\n- Chlorine is reduced to HCl\n\n**SUMMARY TABLE**:\n\n| Process | Oxygen | Hydrogen | Example |\n|---------|--------|----------|---------|\n| **Oxidation** | Gain | Loss | 2Mg + O₂ → 2MgO |\n| **Reduction** | Loss | Gain | CuO + H₂ → Cu + H₂O |\n\n**Note**: In redox reactions, oxidation and reduction occur simultaneously. The substance that causes oxidation is called an oxidizing agent, and the substance that causes reduction is called a reducing agent." 
+            },
+            { 
+                id: 25, 
+                question: "Explain with equations why:\n(a) Copper vessel gets a green coating when exposed to moist air.\n(b) Iron nails kept in water in a closed test tube rust more quickly than those kept in dry air.", 
+                answer: "**(a) Copper vessel gets a green coating when exposed to moist air:**\n\n**Explanation**: The green coating is copper carbonate hydroxide formed due to corrosion of copper.\n\n**Chemical equation**:\n2Cu + H₂O + CO₂ + O₂ → Cu₂(OH)₂CO₃ (Green coating)\n\n**Process**:\n1. **Oxidation**: Cu → Cu²⁺ + 2e⁻\n2. **Reaction with moisture**: Cu²⁺ + OH⁻ → Cu(OH)₂\n3. **Reaction with CO₂**: Cu(OH)₂ + CO₂ → Cu₂(OH)₂CO₃\n\n**Factors involved**:\n- Moisture (H₂O)\n- Carbon dioxide (CO₂) from air\n- Oxygen (O₂) for oxidation\n- Time (slow process)\n\n**(b) Iron nails rust more quickly in water than in dry air:**\n\n**Rusting equation**: 4Fe + 3O₂ + 6H₂O → 2Fe₂O₃·3H₂O\n\n**Explanation**:\n\n**In water (faster rusting)**:\n1. **Both conditions present**: O₂ (dissolved) + H₂O (abundant)\n2. **Ion mobility**: Water allows easy movement of ions\n3. **Electrochemical process**: Forms galvanic cells\n4. **Continuous supply**: Water provides constant moisture\n\n**In dry air (slower rusting)**:\n1. **Limited moisture**: Only atmospheric humidity\n2. **Slower ion movement**: Less water for ionic reactions\n3. **Reduced contact**: Limited O₂-H₂O interaction\n\n**Conclusion**: Both oxygen AND water are essential for rusting. Water accelerates the process by providing the medium for ionic reactions." 
+            },
+            { 
+                id: 26, 
+                question: "During electrolysis of water, why is the volume of gas collected at cathode double the volume collected at anode? Name the gases.", 
+                answer: "**ELECTROLYSIS OF WATER:**\n\n**Overall equation**: 2H₂O → 2H₂ + O₂\n\n**At Cathode (negative electrode)**:\n**Reduction**: 2H⁺ + 2e⁻ → H₂↑\n**Gas produced**: **Hydrogen (H₂)**\n\n**At Anode (positive electrode)**:\n**Oxidation**: 2OH⁻ → H₂O + ½O₂ + 2e⁻\n**Gas produced**: **Oxygen (O₂)**\n\n**WHY HYDROGEN VOLUME IS DOUBLE**:\n\n**From the balanced equation**: 2H₂O → 2H₂ + O₂\n\n**Molar ratio**: H₂ : O₂ = 2 : 1\n\n**Explanation**:\n1. **Water molecule composition**: H₂O contains 2 hydrogen atoms and 1 oxygen atom\n\n2. **Stoichiometry**: For every 2 molecules of water:\n   - 2 molecules of H₂ are produced\n   - 1 molecule of O₂ is produced\n\n3. **Avogadro's law**: Equal moles of gases occupy equal volumes at same temperature and pressure\n\n4. **Volume ratio**: Since molar ratio is 2:1, volume ratio is also 2:1\n\n**Practical observation**:\n- **Cathode**: Collects 2 volumes of hydrogen\n- **Anode**: Collects 1 volume of oxygen\n- **Total**: 2 + 1 = 3 volumes of gas from 2 volumes of water vapor\n\n**Test for gases**:\n- **Hydrogen**: Burns with 'pop' sound\n- **Oxygen**: Rekindles glowing splinter" 
+            },
+            { 
+                id: 27, 
+                question: "Write one example of each type of decomposition reaction: (a) Thermal, (b) Photolytic, (c) Electrolytic. Explain with equations.", 
+                answer: "**(a) THERMAL DECOMPOSITION:**\n\n**Definition**: Decomposition caused by heat energy.\n\n**Example**: Decomposition of calcium carbonate\n**Equation**: CaCO₃ + Heat → CaO + CO₂↑\n\n**Explanation**:\n- Limestone (CaCO₃) is heated strongly\n- Breaks down into quicklime (CaO) and carbon dioxide\n- Used in cement and steel industries\n- Endothermic reaction (requires continuous heating)\n\n**(b) PHOTOLYTIC DECOMPOSITION:**\n\n**Definition**: Decomposition caused by light energy.\n\n**Example**: Decomposition of silver bromide\n**Equation**: 2AgBr + Sunlight → 2Ag + Br₂\n\n**Explanation**:\n- Silver bromide decomposes in presence of light\n- Forms metallic silver and bromine gas\n- Basis of black and white photography\n- Light provides energy to break Ag-Br bonds\n- Silver appears as dark spots on photographic film\n\n**(c) ELECTROLYTIC DECOMPOSITION:**\n\n**Definition**: Decomposition caused by electrical energy.\n\n**Example**: Electrolysis of water\n**Equation**: 2H₂O + Electricity → 2H₂↑ + O₂↑\n\n**Explanation**:\n- Electric current passes through acidified water\n- Water molecules split into hydrogen and oxygen\n- **At cathode**: 2H⁺ + 2e⁻ → H₂ (reduction)\n- **At anode**: 4OH⁻ → 2H₂O + O₂ + 4e⁻ (oxidation)\n- Used for industrial production of hydrogen\n\n**SUMMARY**:\n- All require external energy input\n- All are endothermic processes\n- Energy source determines the type of decomposition" 
+            },
+            { 
+                id: 28, 
+                question: "What is meant by precipitation reaction? Explain with two examples from daily life.", 
+                answer: "**PRECIPITATION REACTION:**\n\n**Definition**: A chemical reaction in which an insoluble solid (precipitate) is formed when two aqueous solutions are mixed.\n\n**Characteristics**:\n- Involves double displacement\n- One product is insoluble in water\n- Visible solid formation occurs\n- Usually occurs in aqueous medium\n\n**General form**: AB(aq) + CD(aq) → AD↓ + CB(aq)\n(↓ indicates precipitate)\n\n**DAILY LIFE EXAMPLES:**\n\n**Example 1: Hard Water Treatment**\n\n**Reaction**: Ca(HCO₃)₂ + Ca(OH)₂ → 2CaCO₃↓ + 2H₂O\n\n**Explanation**:\n- Temporary hardness in water due to Ca(HCO₃)₂\n- Lime water Ca(OH)₂ is added\n- White precipitate of CaCO₃ forms\n- Precipitate is filtered out to soften water\n- Used in water treatment plants\n\n**Example 2: Soap Scum Formation**\n\n**Reaction**: 2C₁₇H₃₅COONa + CaCl₂ → (C₁₇H₃₅COO)₂Ca↓ + 2NaCl\n(Soap) + (Hard water) → (Soap scum)\n\n**Explanation**:\n- Soap reacts with calcium/magnesium salts in hard water\n- Forms insoluble calcium/magnesium stearate\n- Appears as white scum in bathrooms\n- Reduces soap's cleaning efficiency\n- Reason why detergents are preferred in hard water areas\n\n**Other examples**: Formation of kidney stones, antacid reactions, cheese making (casein precipitation)" 
+            },
+            { 
+                id: 29, 
+                question: "Discuss the importance of balancing chemical equations in the context of law of conservation of mass. Illustrate with an example.", 
+                answer: "**LAW OF CONSERVATION OF MASS:**\n\n**Statement**: \"Mass can neither be created nor destroyed in a chemical reaction.\"\n- Proposed by Antoine Lavoisier\n- Fundamental principle of chemistry\n- Mass of reactants = Mass of products\n\n**IMPORTANCE OF BALANCING EQUATIONS:**\n\n**1. Obeys Conservation Law**:\n- Ensures equal number of atoms on both sides\n- Maintains mass balance\n- Represents actual stoichiometry\n\n**2. Quantitative Calculations**:\n- Determines exact amounts needed\n- Predicts product quantities\n- Enables industrial planning\n\n**3. Scientific Accuracy**:\n- Represents true chemical process\n- Shows correct molecular ratios\n- Prevents calculation errors\n\n**ILLUSTRATION WITH EXAMPLE:**\n\n**Unbalanced equation**: H₂ + O₂ → H₂O\n\n**Mass analysis**:\n- **Reactants**: H₂ (2g) + O₂ (32g) = 34g\n- **Products**: H₂O (18g)\n- **Problem**: 34g ≠ 18g (violates conservation law)\n\n**Balanced equation**: 2H₂ + O₂ → 2H₂O\n\n**Mass analysis**:\n- **Reactants**: 2H₂ (4g) + O₂ (32g) = 36g\n- **Products**: 2H₂O (36g)\n- **Result**: 36g = 36g ✓ (obeys conservation law)\n\n**Atom count verification**:\n- **Reactants**: 4H + 2O = 6 atoms\n- **Products**: 4H + 2O = 6 atoms ✓\n\n**CONCLUSION**: Balanced equations ensure that the law of conservation of mass is obeyed, making chemical calculations accurate and meaningful." 
+            },
+            { 
+                id: 30, 
+                question: "A shiny brown element 'X' turns black on heating in air. The black compound reacts with hydrogen to give back 'X'. Identify element 'X' and write the equations.", 
+                answer: "**IDENTIFICATION OF ELEMENT 'X':**\n\n**Element 'X' = COPPER (Cu)**\n\n**REASONING:**\n1. **Shiny brown element**: Copper has characteristic brown/reddish-brown metallic luster\n2. **Turns black on heating**: Forms black copper oxide\n3. **Reversible with hydrogen**: CuO can be reduced back to Cu\n\n**CHEMICAL EQUATIONS:**\n\n**Step 1: Heating copper in air (Oxidation)**\n2Cu + O₂ → 2CuO\n(Brown) (Air) (Black)\n\n**Explanation**:\n- Copper gets oxidized in presence of oxygen\n- Forms black copper(II) oxide\n- This is an oxidation reaction\n- Cu loses electrons: Cu → Cu²⁺ + 2e⁻\n\n**Step 2: Reaction of black compound with hydrogen (Reduction)**\nCuO + H₂ → Cu + H₂O\n(Black) (Gas) (Brown) (Water)\n\n**Explanation**:\n- Copper oxide is reduced by hydrogen\n- Copper metal is recovered\n- This is a reduction reaction\n- Cu²⁺ gains electrons: Cu²⁺ + 2e⁻ → Cu\n- Hydrogen acts as reducing agent\n\n**OVERALL PROCESS:**\nCu → CuO → Cu (Reversible process)\n\n**IDENTIFICATION CONFIRMATIONS:**\n- Brown metallic appearance ✓\n- Forms black oxide on heating ✓\n- Oxide reduces with hydrogen ✓\n- Common laboratory demonstration ✓\n\n**Applications**: This reaction is used to demonstrate oxidation-reduction processes in laboratories." 
+            }
+        ];
+
+        const questions = [...shortAnswerQuestions, ...longAnswerQuestions];
+
+        let visibleSections = new Set();
+        let answersShown = new Set();
+        let practiceModes = new Set();
+
+        function renderQuestions() {
+            const container = document.getElementById('questionsContainer');
+            container.innerHTML = '';
+
+            // Render Short Answer Questions Section
+            if (visibleSections.has('short')) {
+                const shortHeader = document.createElement('div');
+                shortHeader.className = 'mb-6 text-center';
+                shortHeader.innerHTML = `
+                    <div class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-xl p-6 shadow-lg">
+                        <h2 class="text-2xl font-bold mb-2">📝 Short Answer Questions</h2>
+                        <p class="text-blue-100">2-3 Marks each • Quick Response Questions</p>
+                        <div class="text-sm mt-2 bg-white bg-opacity-20 rounded-lg px-3 py-1 inline-block">
+                            Questions 1-15
+                        </div>
+                    </div>
+                `;
+                container.appendChild(shortHeader);
+
+                shortAnswerQuestions.forEach((q, index) => {
+                    const questionDiv = document.createElement('div');
+                    questionDiv.className = 'question-card bg-white rounded-xl shadow-md p-6 border border-blue-200 mb-4';
+                    
+                    const isPracticeMode = practiceModes.has('short');
+                    const showAnswer = answersShown.has(q.id) && !isPracticeMode;
+                    
+                    questionDiv.innerHTML = `
+                        <div class="mb-4">
+                            <div class="flex items-start justify-between mb-3">
+                                <h3 class="text-lg font-semibold text-gray-800 flex-1 pr-4">
+                                    <span class="text-blue-600 font-bold">Q${q.id}.</span> ${q.question}
+                                </h3>
+                                ${isPracticeMode ? `
+                                    <button onclick="toggleIndividualAnswer(${q.id})" id="individualBtn-${q.id}" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-lg font-medium text-sm transition-colors whitespace-nowrap">
+                                        Show Answer
+                                    </button>
+                                ` : ''}
+                            </div>
+                            <div id="answer-${q.id}" class="answer-reveal ${showAnswer ? 'show' : ''}">
+                                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                                    <div class="flex items-center mb-2">
+                                        <svg class="w-5 h-5 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="font-semibold text-blue-800">Answer:</span>
+                                    </div>
+                                    <div class="text-blue-700 font-medium whitespace-pre-line">${q.answer}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    container.appendChild(questionDiv);
+                });
+            }
+
+            // Render Long Answer Questions Section
+            if (visibleSections.has('long')) {
+                const longHeader = document.createElement('div');
+                longHeader.className = 'mb-6 mt-8 text-center';
+                longHeader.innerHTML = `
+                    <div class="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl p-6 shadow-lg">
+                        <h2 class="text-2xl font-bold mb-2">📚 Long Answer Questions</h2>
+                        <p class="text-purple-100">4-5 Marks each • Detailed Explanations Required</p>
+                        <div class="text-sm mt-2 bg-white bg-opacity-20 rounded-lg px-3 py-1 inline-block">
+                            Questions 16-30
+                        </div>
+                    </div>
+                `;
+                container.appendChild(longHeader);
+
+                longAnswerQuestions.forEach((q, index) => {
+                    const questionDiv = document.createElement('div');
+                    questionDiv.className = 'question-card bg-white rounded-xl shadow-md p-6 border border-purple-200 mb-4';
+                    
+                    const isPracticeMode = practiceModes.has('long');
+                    const showAnswer = answersShown.has(q.id) && !isPracticeMode;
+                    
+                    questionDiv.innerHTML = `
+                        <div class="mb-4">
+                            <div class="flex items-start justify-between mb-3">
+                                <h3 class="text-lg font-semibold text-gray-800 flex-1 pr-4">
+                                    <span class="text-purple-600 font-bold">Q${q.id}.</span> ${q.question}
+                                </h3>
+                                ${isPracticeMode ? `
+                                    <button onclick="toggleIndividualAnswer(${q.id})" id="individualBtn-${q.id}" class="bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded-lg font-medium text-sm transition-colors whitespace-nowrap">
+                                        Show Answer
+                                    </button>
+                                ` : ''}
+                            </div>
+                            <div id="answer-${q.id}" class="answer-reveal ${showAnswer ? 'show' : ''}">
+                                <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-lg">
+                                    <div class="flex items-center mb-2">
+                                        <svg class="w-5 h-5 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="font-semibold text-purple-800">Answer:</span>
+                                    </div>
+                                    <div class="text-purple-700 font-medium whitespace-pre-line">${q.answer}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    container.appendChild(questionDiv);
+                });
+            }
+        }
+
+        function toggleSection(sectionName) {
+            const button = document.getElementById(`${sectionName}Btn`);
+            const practiceBtn = document.getElementById(`${sectionName}PracticeBtn`);
+            
+            if (visibleSections.has(sectionName)) {
+                // Hide section
+                visibleSections.delete(sectionName);
+                practiceModes.delete(sectionName);
+                
+                // Hide all answers from this section
+                const sectionQuestions = getSectionQuestions(sectionName);
+                sectionQuestions.forEach(q => {
+                    answersShown.delete(q.id);
+                });
+                
+                // Update button text and hide practice button
+                const questionRange = getSectionRange(sectionName);
+                const sectionDisplayName = getSectionDisplayName(sectionName);
+                button.textContent = `Show ${sectionDisplayName} (${questionRange})`;
+                button.className = button.className.replace('bg-red-500 hover:bg-red-600', getSectionButtonClass(sectionName));
+                practiceBtn.style.display = 'none';
+            } else {
+                // Show section
+                visibleSections.add(sectionName);
+                
+                // Show all answers in this section
+                const sectionQuestions = getSectionQuestions(sectionName);
+                sectionQuestions.forEach(q => {
+                    answersShown.add(q.id);
+                });
+                
+                // Update button text and show practice button
+                const questionRange = getSectionRange(sectionName);
+                const sectionDisplayName = getSectionDisplayName(sectionName);
+                button.textContent = `Hide ${sectionDisplayName} (${questionRange})`;
+                button.className = button.className.replace(getSectionButtonClass(sectionName), 'bg-red-500 hover:bg-red-600');
+                practiceBtn.style.display = 'block';
+            }
+            
+            renderQuestions();
+            updateProgress();
+        }
+
+        function getSectionQuestions(sectionName) {
+            switch(sectionName) {
+                case 'short': return shortAnswerQuestions;
+                case 'long': return longAnswerQuestions;
+                default: return [];
+            }
+        }
+
+        function getSectionRange(sectionName) {
+            switch(sectionName) {
+                case 'short': return 'Q1-15';
+                case 'long': return 'Q16-30';
+                default: return '';
+            }
+        }
+
+        function getSectionDisplayName(sectionName) {
+            switch(sectionName) {
+                case 'short': return 'Short Questions';
+                case 'long': return 'Long Questions';
+                default: return '';
+            }
+        }
+
+        function getSectionButtonClass(sectionName) {
+            switch(sectionName) {
+                case 'short': return 'bg-blue-500 hover:bg-blue-600';
+                case 'long': return 'bg-purple-500 hover:bg-purple-600';
+                default: return 'bg-gray-500 hover:bg-gray-600';
+            }
+        }
+
+        function togglePracticeMode(sectionName) {
+            const practiceBtn = document.getElementById(`${sectionName}PracticeBtn`);
+            
+            if (practiceModes.has(sectionName)) {
+                // Exit practice mode
+                practiceModes.delete(sectionName);
+                
+                // Show all answers again
+                const sectionQuestions = getSectionQuestions(sectionName);
+                sectionQuestions.forEach(q => {
+                    answersShown.add(q.id);
+                });
+                
+                practiceBtn.textContent = '🎯 Practice Mode';
+                practiceBtn.className = practiceBtn.className.replace('bg-gray-500 hover:bg-gray-600', 'bg-orange-500 hover:bg-orange-600');
+            } else {
+                // Enter practice mode
+                practiceModes.add(sectionName);
+                
+                // Hide all answers in this section
+                const sectionQuestions = getSectionQuestions(sectionName);
+                sectionQuestions.forEach(q => {
+                    answersShown.delete(q.id);
+                });
+                
+                practiceBtn.textContent = '📖 Exit Practice';
+                practiceBtn.className = practiceBtn.className.replace('bg-orange-500 hover:bg-orange-600', 'bg-gray-500 hover:bg-gray-600');
+            }
+            
+            renderQuestions();
+            updateProgress();
+        }
+
+        function toggleIndividualAnswer(questionId) {
+            const answerDiv = document.getElementById(`answer-${questionId}`);
+            const button = document.getElementById(`individualBtn-${questionId}`);
+            
+            if (answersShown.has(questionId)) {
+                // Hide answer
+                answersShown.delete(questionId);
+                answerDiv.classList.remove('show');
+                button.textContent = 'Show Answer';
+                button.className = button.className.replace('bg-red-500 hover:bg-red-600', getIndividualButtonClass(questionId));
+            } else {
+                // Show answer
+                answersShown.add(questionId);
+                answerDiv.classList.add('show');
+                button.textContent = 'Hide Answer';
+                button.className = button.className.replace(getIndividualButtonClass(questionId), 'bg-red-500 hover:bg-red-600');
+            }
+            
+            updateProgress();
+        }
+
+        function getIndividualButtonClass(questionId) {
+            if (questionId <= 15) return 'bg-blue-500 hover:bg-blue-600';
+            return 'bg-purple-500 hover:bg-purple-600';
+        }
+
+        function updateProgress() {
+            const totalVisible = visibleSections.size > 0 ? 
+                Array.from(visibleSections).reduce((sum, section) => sum + getSectionQuestions(section).length, 0) : 0;
+            const totalAnswersShown = answersShown.size;
+            const practiceModesActive = practiceModes.size;
+            const percentage = totalVisible > 0 ? Math.round((totalAnswersShown / totalVisible) * 100) : 0;
+            
+            document.getElementById('visibleQuestions').textContent = totalVisible;
+            document.getElementById('answersShown').textContent = totalAnswersShown;
+            document.getElementById('practiceMode').textContent = practiceModesActive;
+            document.getElementById('progressBar').style.width = percentage + '%';
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderQuestions();
+            updateProgress();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'975cf70e55b697f6',t:'MTc1NjMxMjM0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

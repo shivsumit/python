@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 10 Chemistry - Complete Chapter 1 Study Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+	<script src="protection.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .question-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-left: 4px solid transparent;
+        }
+        
+        .question-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left-color: #3b82f6;
+        }
+        
+        .equation {
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e40af;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border-left: 4px solid #3b82f6;
+            margin: 8px 0;
+            display: inline-block;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .page-indicator {
+            display: inline-block;
+            background: #f59e0b;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .reaction-type {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        
+        .combination { background: #dcfce7; color: #166534; }
+        .decomposition { background: #fef3c7; color: #92400e; }
+        .displacement { background: #fecaca; color: #991b1b; }
+        .precipitation { background: #dbeafe; color: #1e40af; }
+        .redox { background: #e9d5ff; color: #7c2d12; }
+        .neutralization { background: #f3e8ff; color: #6b21a8; }
+        
+        .answer-hidden {
+            filter: blur(4px);
+            cursor: pointer;
+            transition: filter 0.3s ease;
+        }
+        
+        .answer-hidden:hover {
+            filter: blur(2px);
+        }
+        
+        .search-highlight {
+            background-color: #fef08a;
+            padding: 1px 2px;
+            border-radius: 2px;
+        }
+        
+        .nav-button {
+            position: fixed;
+            right: 20px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .nav-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+        }
+        
+        #scrollToTop { bottom: 80px; }
+        #practiceMode { bottom: 140px; }
+        
+        @media print {
+            .no-print { display: none !important; }
+            .question-card { border: 1px solid #e5e7eb; page-break-inside: avoid; }
+        }
+        
+        .toc-item {
+            cursor: pointer;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .toc-item:hover {
+            background: #e0e7ff;
+            color: #4338ca;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+ <!-- Navigation Tabs -->
+		<script>function navigateTo(page) {
+            // Simulate navigation - in real implementation, these would link to actual pages
+            const pageNames = {
+                'ncert-solutions': 'ncert_solutions_chap_1',
+                'chemical-reactions': 'Chemical Reactions',
+                'quick-revision': 'Quick Revision',
+                'activities': 'Activities',
+                'mock-test-1': 'Mock Test 1',
+                'mock-test-2': 'Mock Test 2',
+                'mock-test-3': 'Mock Test 3 (Very Short Answer)',
+                'mock-test-4': 'Mock Test 4 (Short/Long Answer)',
+                'mock-test-5': 'Mock Test 5 (Case Study)'
+            };
+         
+            // In a real implementation, you would use:
+			window.location.href = `${page}.html`;
+            // or for single page application:
+            // loadPage(page);
+        }</script>
+        <div class="bg-white rounded-2xl shadow-xl p-6 mb-8">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">📚 Study Resources</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <button onclick="navigateTo('ncert_solutions_chap_1')" class="tab-button bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📖 NCERT Solutions
+                </button>
+                <button onclick="navigateTo('All_Chemical_reaction_chap_1')" class="tab-button bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    ⚗️ Chemical Reactions
+                </button>
+                <button onclick="navigateTo('Quick_revision_chap_1')" class="tab-button bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    ⚡ Quick Revision
+                </button>
+                <button onclick="navigateTo('activity_chap_1')" class="tab-button bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    🧪 Activities
+                </button>
+                <button onclick="navigateTo('Mock_Test_1_Chap_1')" class="tab-button bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 1
+                </button>
+                <button onclick="navigateTo('Mock_Test_2_Chap_1')" class="tab-button bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 2
+                </button>
+                <button onclick="navigateTo('Practice_Very_Short_Chap_1')" class="tab-button bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 3 (VSA)
+                </button>
+                <button onclick="navigateTo('Short_Long_Practice_Chap_1')" class="tab-button bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 4 (SA/LA)
+                </button>
+                <button onclick="navigateTo('Case_Study_Chap_1')" class="tab-button bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 5 (Case Study)
+                </button>
+            </div>
+        </div>
+    <!-- Header -->
+    <div class="bg-white shadow-lg border-b-4 border-indigo-500 mb-6  top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-6">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold text-gray-800 mb-2">🧪 Complete Study Guide</h1>
+                <h2 class="text-2xl font-semibold text-indigo-600 mb-4">Class 10 Science - Chapter 1: Chemical Reactions and Equations</h2>
+                
+				
+				  
+				
+				
+				
+				
+				
+                <!-- Controls -->
+                <div class="flex flex-wrap justify-center gap-4 mb-4 no-print">
+                    <input type="text" id="searchInput" placeholder="🔍 Search questions, topics, or equations..." 
+                           class="px-4 py-2 border border-gray-300 rounded-lg w-80 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    
+                    <select id="pageFilter" class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="all">All Sections</option>
+                        <option value="flowchart">Reaction Types Flowchart</option>
+                        <option value="page6">Page 6</option>
+                        <option value="page10">Page 10</option>
+                        <option value="page13">Page 13</option>
+                        <option value="exercises">Exercises (14-16)</option>
+                        <option value="additional">Additional Q&A</option>
+                    </select>
+                    
+                    <button onclick="togglePracticeMode()" id="practiceBtn" 
+                            class="bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                        🎯 Practice Mode
+                    </button>
+                    
+                    <button onclick="window.print()" 
+                            class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 transition-colors">
+                        🖨️ Print
+                    </button>
+                </div>
+                
+                <!-- Quick Navigation -->
+                <div class="bg-gray-50 rounded-lg p-4 no-print">
+                    <h3 class="font-semibold mb-2">Quick Navigation:</h3>
+                    <div class="flex flex-wrap justify-center gap-2 text-sm">
+                        <div class="toc-item" onclick="scrollToSection('flowchart')">🔹 Reaction Types Flowchart</div>
+                        <div class="toc-item" onclick="scrollToSection('page6')">📄 Page 6 Questions</div>
+                        <div class="toc-item" onclick="scrollToSection('page10')">📄 Page 10 Questions</div>
+                        <div class="toc-item" onclick="scrollToSection('page13')">📄 Page 13 Questions</div>
+                        <div class="toc-item" onclick="scrollToSection('exercises')">📝 Exercises</div>
+                        <div class="toc-item" onclick="scrollToSection('additional')">➕ Additional Q&A</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 pb-8">
+        <!-- Page 6 Questions -->
+        <div id="page6" class="mb-12">
+            <div class="section-header">📄 Page 6 Questions</div>
+            
+            <div class="question-card p-6 rounded-lg mb-6" data-page="page6">
+                <div class="page-indicator">Page 6</div>
+                <h3 class="text-lg font-semibold mb-3">Q1. Why should a magnesium ribbon be cleaned before burning in air?</h3>
+                <div class="answer-content">
+                    <p class="text-gray-700 mb-3"><strong>Ans:</strong> Magnesium ribbon is cleaned (by rubbing with sandpaper) to remove the thin layer of magnesium oxide formed on its surface so that it burns easily with a bright flame.</p>
+                    <span class="reaction-type combination">Surface Preparation</span>
+                </div>
+            </div>
+
+            <div class="question-card p-6 rounded-lg mb-6" data-page="page6">
+                <div class="page-indicator">Page 6</div>
+                <h3 class="text-lg font-semibold mb-3">Q2. Write the balanced equation for the following chemical reactions.</h3>
+                <div class="answer-content">
+                    <p class="font-medium mb-2">(i) Hydrogen + Chlorine → Hydrogen chloride</p>
+                    <div class="equation">H₂ + Cl₂ → 2HCl</div>
+                    <span class="reaction-type combination">Combination</span>
+                    
+                    <p class="font-medium mb-2 mt-4">(ii) Barium chloride + Aluminium sulphate → Barium sulphate + Aluminium chloride</p>
+                    <div class="equation">3BaCl₂ + Al₂(SO₄)₃ → 3BaSO₄ + 2AlCl₃</div>
+                    <span class="reaction-type precipitation">Precipitation</span>
+                    
+                    <p class="font-medium mb-2 mt-4">(iii) Sodium + Water → Sodium hydroxide + Hydrogen</p>
+                    <div class="equation">2Na + 2H₂O → 2NaOH + H₂</div>
+                    <span class="reaction-type displacement">Displacement</span>
+                </div>
+            </div>
+
+            <div class="question-card p-6 rounded-lg mb-6" data-page="page6">
+                <div class="page-indicator">Page 6</div>
+                <h3 class="text-lg font-semibold mb-3">Q3. Write a balanced chemical equation with state symbols for the following reactions.</h3>
+                <div class="answer-content">
+                    <p class="font-medium mb-2">(i) Solutions of barium chloride and sodium sulphate in water react to give insoluble barium sulphate and solution of sodium chloride.</p>
+                    <div class="equation">BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s) + 2NaCl(aq)</div>
+                    <span class="reaction-type precipitation">Precipitation</span>
+                    
+                    <p class="font-medium mb-2 mt-4">(ii) Sodium hydroxide solution (in water) reacts with hydrochloric acid solution (in water) to produce sodium chloride solution and water.</p>
+                    <div class="equation">NaOH(aq) + HCl(aq) → NaCl(aq) + H₂O(l)</div>
+                    <span class="reaction-type neutralization">Neutralization</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 10 Questions -->
+        <div id="page10" class="mb-12">
+            <div class="section-header">📄 Page 10 Questions</div>
+            
+            <div class="question-card p-6 rounded-lg mb-6" data-page="page10">
+                <div class="page-indicator">Page 10</div>
+                <h3 class="text-lg font-semibold mb-3">Q1. A solution of a substance 'X' is used for whitewashing.</h3>
+                <div class="answer-content">
+                    <p class="font-medium mb-2">(i) Name the substance 'X' and write its formula.</p>
+                    <p class="text-gray-700 mb-3"><strong>Ans:</strong> Substance X is Calcium oxide (CaO).</p>
+                    
+                    <p class="font-medium mb-2">(ii) Write the reaction of 'X' with water.</p>
+                    <div class="equation">CaO + H₂O → Ca(OH)₂</div>
+                    <span class="reaction-type combination">Combination</span>
+                </div>
+            </div>
+
+            <div class="question-card p-6 rounded-lg mb-6" data-page="page10">
+                <div class="page-indicator">Page 10</div>
+                <h3 class="text-lg font-semibold mb-3">Q2. Why is the amount of gas collected in one of the test tubes in Activity 1.7 double of the amount collected in the other? Name this gas.</h3>
+                <div class="answer-content">
+                    <p class="text-gray-700 mb-3"><strong>Ans:</strong> In electrolysis of water, hydrogen and oxygen are released in the ratio 2:1. The amount of hydrogen collected is double the oxygen. The gas is hydrogen.</p>
+                    <div class="equation">2H₂O → 2H₂ + O₂</div>
+                    <span class="reaction-type decomposition">Electrolytic Decomposition</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 13 Questions -->
+        <div id="page13" class="mb-12">
+            <div class="section-header">📄 Page 13 Questions</div>
+            
+            <div class="question-card p-6 rounded-lg mb-6" data-page="page13">
+                <div class="page-indicator">Page 13</div>
+                <h3 class="text-lg font-semibold mb-3">Q1. Why does the colour of copper sulphate solution change when an iron nail is dipped in it?</h3>
+                <div class="answer-content">
+                    <p class="text-gray-700 mb-3"><strong>Ans:</strong> Iron displaces copper from copper sulphate solution because iron is more reactive than copper. Copper gets deposited and the solution turns light green due to formation of iron sulphate.</p>
+                    <div class="equation">Fe + CuSO₄ → FeSO₄ + Cu</div>
+                    <span class="reaction-type displacement">Displacement</span>
+                </div>
+            </div>
+
+            <div class="question-card p-6 rounded-lg mb-6" data-page="page13">
+                <div class="page-indicator">Page 13</div>
+                <h3 class="text-lg font-semibold mb-3">Q2. Give an example of a double displacement reaction other than the one given in Activity 1.10.</h3>
+                <div class="answer-content">
+                    <div class="equation">Na₂SO₄(aq) + BaCl₂(aq) → BaSO₄(s) + 2NaCl(aq)</div>
+                    <span class="reaction-type precipitation">Double Displacement</span>
+                </div>
+            </div>
+
+            <div class="question-card p-6 rounded-lg mb-6" data-page="page13">
+                <div class="page-indicator">Page 13</div>
+                <h3 class="text-lg font-semibold mb-3">Q3. Identify the substances that are oxidised and reduced.</h3>
+                <div class="answer-content">
+                    <p class="font-medium mb-2">(i) 4Na + O₂ → 2Na₂O</p>
+                    <p class="text-gray-700 mb-2"><strong>Sodium is oxidised.</strong></p>
+                    <p class="text-gray-700 mb-3"><strong>Oxygen is reduced.</strong></p>
+                    
+                    <p class="font-medium mb-2">(ii) CuO + H₂ → Cu + H₂O</p>
+                    <p class="text-gray-700 mb-2"><strong>Hydrogen is oxidised.</strong></p>
+                    <p class="text-gray-700 mb-3"><strong>Copper(II) oxide (CuO) is reduced.</strong></p>
+                    <span class="reaction-type redox">Redox Reactions</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercises (Pages 14-16) -->
+        <div id="exercises" class="mb-12">
+            <div class="section-header">📝 Exercises (Pages 14-16)</div>
+            
+            <div class="question-card p-6 rounded-lg mb-6" data-page="exercises">
+                <div class="page-indicator">Exercise</div>
+                <h3 class="text-lg font-semibold mb-3">Q1. Which of the statements about the reaction below are incorrect?</h3>
+                <div class="answer-content">
+                    <div class="equation">2PbO + C → 2Pb + CO₂</div>
+                    <p class="text-gray-700 mb-2">(a) Lead is getting reduced. ✔️</p>
+                    <p class="text-gray-700 mb-2">(b) Carbon dioxide is getting oxidised. ❌</p>
+                    <p class="text-gray-700 mb-2">(c) Carbon is getting oxidised. ✔️</p>
+                    <p class="text-gray-700 mb-3">(d) Lead oxide is getting reduced. ✔️</p>
+                    <p class="font-semibold text-indigo-600">Correct Answer: (a) and (b)</p>
+                    <span class="reaction-type redox">Redox Analysis</span>
+                </div>
+            </div>
+
+            <div class="question-card p-6 rounded-lg mb-6" data-page="exercises">
+                <div class="page-indicator">Exercise</div>
+                <h3 class="text-lg font-semibold mb-3">Q2. Fe₂O₃ + 2Al → Al₂O₃ + 2Fe</h3>
+                <div class="answer-content">
+                    <p class="text-gray-700 mb-3">This is a <strong>displacement reaction</strong>.</p>
+                    <span class="reaction-type displacement">Thermite Reaction</span>
+                </div>
+            </div>
+
+            <div class="question-card p-6 rounded-lg mb-6" data-page="exercises">
+                <div class="page-indicator">Exercise</div>
+                <h3 class="text-lg font-semibold mb-3">Q3. What happens when dilute hydrochloric acid is added to iron filings?</h3>
+                <div class="answer-content">
+                    <div class="equation">Fe + 2HCl → FeCl₂ + H₂</div>
+                    <p class="text-gray-700 mb-3">Hydrogen gas is evolved and iron chloride is formed.</p>
+                    <span class="reaction-type displacement">Displacement</span>
+                </div>
+            </div>
+
+            <div class="question-card p-6 rounded-lg mb-6" data-page="exercises">
+                <div class="page-indicator">Exercise</div>
+                <h3 class="text-lg font-semibold mb-3">Q4. What is a balanced chemical equation? Why should chemical equations be balanced?</h3>
+                <div class="answer-content">
+                    <p class="text-gray-700 mb-3"><strong>Ans:</strong> A chemical equation with equal number of atoms of each element on both sides is called a balanced chemical equation. Equations are balanced to obey the Law of Conservation of Mass.</p>
+                    <span class="reaction-type balancing">Balancing Concept</span>
+                </div>
+            </div>
+
+            <div class="question-card p-6 rounded-lg mb-6" data-page="exercises">
+                <div class="page-indicator">Exercise</div>
+                <h3 class="text-lg font-semibold mb-3">Q9. What does one mean by exothermic and endothermic reactions?</h3>
+                <div class="answer-content">
+                    <p class="text-gray-700 mb-2"><strong>Exothermic:</strong> Reactions that release heat (e.g. combustion of fuel).</p>
+                    <p class="text-gray-700 mb-3"><strong>Endothermic:</strong> Reactions that absorb heat (e.g. photosynthesis).</p>
+                    <span class="reaction-type redox">Energy Changes</span>
+                </div>
+            </div>
+
+            <div class="question-card p-6 rounded-lg mb-6" data-page="exercises">
+                <div class="page-indicator">Exercise</div>
+                <h3 class="text-lg font-semibold mb-3">Q10. Why is respiration considered an exothermic reaction?</h3>
+                <div class="answer-content">
+                    <p class="text-gray-700 mb-3"><strong>Ans:</strong> During respiration, glucose is broken down into CO₂ and water with release of energy. Hence, it is exothermic.</p>
+                    <span class="reaction-type redox">Biological Process</span>
+                </div>
+            </div>
+
+            <div class="question-card p-6 rounded-lg mb-6" data-page="exercises">
+                <div class="page-indicator">Exercise</div>
+                <h3 class="text-lg font-semibold mb-3">Q12. One equation each for decomposition reactions:</h3>
+                <div class="answer-content">
+                    <p class="font-medium mb-2">Heat (Thermal):</p>
+                    <div class="equation">CaCO₃ → CaO + CO₂</div>
+                    
+                    <p class="font-medium mb-2 mt-4">Light (Photolytic):</p>
+                    <div class="equation">2AgCl → 2Ag + Cl₂</div>
+                    
+                    <p class="font-medium mb-2 mt-4">Electricity (Electrolytic):</p>
+                    <div class="equation">2H₂O → 2H₂ + O₂</div>
+                    <span class="reaction-type decomposition">Decomposition Types</span>
+                </div>
+            </div>
+
+            <div class="question-card p-6 rounded-lg mb-6" data-page="exercises">
+                <div class="page-indicator">Exercise</div>
+                <h3 class="text-lg font-semibold mb-3">Q14. Refining of silver reaction:</h3>
+                <div class="answer-content">
+                    <div class="equation">2AgNO₃ + Cu → Cu(NO₃)₂ + 2Ag</div>
+                    <span class="reaction-type displacement">Metal Refining</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Q&A -->
+        <div id="additional" class="mb-12">
+            <div class="section-header">➕ Additional Important Q&A</div>
+            
+            <div class="question-card p-6 rounded-lg mb-6" data-page="additional">
+                <div class="page-indicator">Additional</div>
+                <h3 class="text-lg font-semibold mb-3">Q15. What is a precipitation reaction?</h3>
+                <div class="answer-content">
+                    <p class="text-gray-700 mb-3"><strong>Ans:</strong> A reaction in which an insoluble solid (precipitate) is formed.</p>
+                    <p class="font-medium mb-2">Example:</p>
+                    <div class="equation">BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl</div>
+                    <span class="reaction-type precipitation">Precipitation</span>
+                </div>
+            </div>
+
+            <div class="question-card p-6 rounded-lg mb-6" data-page="additional">
+                <div class="page-indicator">Additional</div>
+                <h3 class="text-lg font-semibold mb-3">Q16. Explain oxidation and reduction in terms of oxygen.</h3>
+                <div class="answer-content">
+                    <p class="text-gray-700 mb-2"><strong>Oxidation = Gain of oxygen.</strong> e.g. 2Mg + O₂ → 2MgO</p>
+                    <p class="text-gray-700 mb-3"><strong>Reduction = Loss of oxygen.</strong> e.g. CuO + H₂ → Cu + H₂O</p>
+                    <span class="reaction-type redox">Redox Definitions</span>
+                </div>
+            </div>
+
+            <div class="question-card p-6 rounded-lg mb-6" data-page="additional">
+                <div class="page-indicator">Additional</div>
+                <h3 class="text-lg font-semibold mb-3">Q17. A shiny brown coloured element 'X' on heating in air becomes black in colour.</h3>
+                <div class="answer-content">
+                    <p class="text-gray-700 mb-3"><strong>Ans:</strong> X is Copper (Cu) and black compound is CuO (Copper oxide).</p>
+                    <div class="equation">2Cu + O₂ → 2CuO</div>
+                    <span class="reaction-type redox">Oxidation</span>
+                </div>
+            </div>
+
+            <div class="question-card p-6 rounded-lg mb-6" data-page="additional">
+                <div class="page-indicator">Additional</div>
+                <h3 class="text-lg font-semibold mb-3">Q18. Why do we apply paint on iron articles?</h3>
+                <div class="answer-content">
+                    <p class="text-gray-700 mb-3"><strong>Ans:</strong> To prevent rusting by stopping contact with air and moisture.</p>
+                    <span class="reaction-type redox">Corrosion Prevention</span>
+                </div>
+            </div>
+
+            <div class="question-card p-6 rounded-lg mb-6" data-page="additional">
+                <div class="page-indicator">Additional</div>
+                <h3 class="text-lg font-semibold mb-3">Q19. Oil and fat containing food items are flushed with nitrogen. Why?</h3>
+                <div class="answer-content">
+                    <p class="text-gray-700 mb-3"><strong>Ans:</strong> To prevent rancidity by removing oxygen and preventing oxidation.</p>
+                    <span class="reaction-type redox">Food Preservation</span>
+                </div>
+            </div>
+
+            <div class="question-card p-6 rounded-lg mb-6" data-page="additional">
+                <div class="page-indicator">Additional</div>
+                <h3 class="text-lg font-semibold mb-3">Q20. Explain the terms.</h3>
+                <div class="answer-content">
+                    <p class="text-gray-700 mb-2"><strong>(a) Corrosion:</strong> Slow eating away of metals due to reaction with air/moisture (e.g. rusting of iron).</p>
+                    <p class="text-gray-700 mb-3"><strong>(b) Rancidity:</strong> Spoilage of food containing fats/oils due to oxidation (e.g. stale smell of butter).</p>
+                    <span class="reaction-type redox">Important Definitions</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flowchart Section -->
+        <div id="flowchart" class="mb-12">
+            <div class="section-header">🔹 Types of Chemical Reactions - Visual Flowchart</div>
+            
+            <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+                <div class="text-center mb-8">
+                    <div class="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-xl text-xl font-bold shadow-lg">
+                        Chemical Reactions
+                    </div>
+                </div>
+                
+                <!-- Main Branches -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+                    <!-- Combination -->
+                    <div class="text-center">
+                        <div class="bg-green-100 border-4 border-green-500 rounded-xl p-6 mb-4">
+                            <h3 class="text-xl font-bold text-green-800 mb-3">Combination</h3>
+                            <div class="equation text-lg mb-3">A + B → AB</div>
+                            <p class="text-sm text-green-700 mb-3">Two or more substances combine to form one product</p>
+                            <div class="bg-white p-3 rounded-lg">
+                                <p class="font-semibold text-sm mb-1">Example:</p>
+                                <div class="equation text-sm">H₂ + Cl₂ → 2HCl</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Decomposition -->
+                    <div class="text-center">
+                        <div class="bg-yellow-100 border-4 border-yellow-500 rounded-xl p-6 mb-4">
+                            <h3 class="text-xl font-bold text-yellow-800 mb-3">Decomposition</h3>
+                            <div class="equation text-lg mb-3">AB → A + B</div>
+                            <p class="text-sm text-yellow-700 mb-3">One compound breaks down into simpler substances</p>
+                            <div class="bg-white p-3 rounded-lg">
+                                <p class="font-semibold text-sm mb-1">Example:</p>
+                                <div class="equation text-sm">CaCO₃ → CaO + CO₂</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Displacement -->
+                    <div class="text-center">
+                        <div class="bg-red-100 border-4 border-red-500 rounded-xl p-6 mb-4">
+                            <h3 class="text-xl font-bold text-red-800 mb-3">Displacement</h3>
+                            <div class="equation text-lg mb-3">A + BC → AC + B</div>
+                            <p class="text-sm text-red-700 mb-3">One element displaces another from its compound</p>
+                            <div class="bg-white p-3 rounded-lg">
+                                <p class="font-semibold text-sm mb-1">Example:</p>
+                                <div class="equation text-sm">Zn + CuSO₄ → ZnSO₄ + Cu</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Displacement Subcategories -->
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <h3 class="text-lg font-bold text-center mb-6 text-gray-800">Displacement Reaction Types</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Single Displacement -->
+                        <div class="bg-white border-2 border-red-300 rounded-lg p-4">
+                            <h4 class="font-bold text-red-700 mb-2">Single Displacement</h4>
+                            <p class="text-sm text-gray-600 mb-2">Metal + Salt → New salt + Metal</p>
+                            <div class="bg-red-50 p-3 rounded">
+                                <p class="font-semibold text-xs mb-1">Example:</p>
+                                <div class="equation text-xs">Fe + 2HCl → FeCl₂ + H₂</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Double Displacement -->
+                        <div class="bg-white border-2 border-blue-300 rounded-lg p-4">
+                            <h4 class="font-bold text-blue-700 mb-2">Double Displacement</h4>
+                            <p class="text-sm text-gray-600 mb-2">AB + CD → AD + CB (Exchange of ions)</p>
+                            <div class="bg-blue-50 p-3 rounded">
+                                <p class="font-semibold text-xs mb-1">Example:</p>
+                                <div class="equation text-xs">Na₂SO₄ + BaCl₂ → BaSO₄↓ + 2NaCl</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Special Categories -->
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h3 class="text-2xl font-bold text-center text-gray-800 mb-8">🔹 Special Categories of Reactions</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Precipitation -->
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-500 rounded-lg p-6">
+                        <h4 class="text-lg font-bold text-blue-800 mb-3">💧 Precipitation Reaction</h4>
+                        <p class="text-sm text-blue-700 mb-3">(Type of Double Displacement)</p>
+                        <p class="text-gray-700 mb-3">Formation of insoluble solid (precipitate)</p>
+                        <div class="bg-white p-3 rounded-lg">
+                            <div class="equation text-sm">AgNO₃ + NaCl → AgCl↓ + NaNO₃</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Redox -->
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 border-l-4 border-purple-500 rounded-lg p-6">
+                        <h4 class="text-lg font-bold text-purple-800 mb-3">⚡ Redox Reaction</h4>
+                        <p class="text-sm text-purple-700 mb-3">(Oxidation + Reduction together)</p>
+                        <p class="text-gray-700 mb-3">Electron transfer reactions</p>
+                        <div class="bg-white p-3 rounded-lg">
+                            <div class="equation text-sm">CuO + H₂ → Cu + H₂O</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Exothermic -->
+                    <div class="bg-gradient-to-br from-red-50 to-red-100 border-l-4 border-red-500 rounded-lg p-6">
+                        <h4 class="text-lg font-bold text-red-800 mb-3">🔥 Exothermic Reaction</h4>
+                        <p class="text-sm text-red-700 mb-3">Heat is released</p>
+                        <p class="text-gray-700 mb-3">Energy flows out of the system</p>
+                        <div class="bg-white p-3 rounded-lg">
+                            <div class="equation text-sm">CH₄ + 2O₂ → CO₂ + 2H₂O + Heat</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Endothermic -->
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 border-l-4 border-green-500 rounded-lg p-6">
+                        <h4 class="text-lg font-bold text-green-800 mb-3">❄️ Endothermic Reaction</h4>
+                        <p class="text-sm text-green-700 mb-3">Heat is absorbed</p>
+                        <p class="text-gray-700 mb-3">Energy flows into the system</p>
+                        <div class="bg-white p-3 rounded-lg">
+                            <div class="equation text-sm">CaCO₃ + Heat → CaO + CO₂</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick Reference Table -->
+                <div class="mt-8 bg-gray-50 rounded-xl p-6">
+                    <h4 class="text-lg font-bold text-center mb-4">📊 Quick Reference Guide</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead class="bg-gray-200">
+                                <tr>
+                                    <th class="px-4 py-2 text-left font-semibold">Reaction Type</th>
+                                    <th class="px-4 py-2 text-left font-semibold">General Form</th>
+                                    <th class="px-4 py-2 text-left font-semibold">Key Feature</th>
+                                    <th class="px-4 py-2 text-left font-semibold">Example</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr class="hover:bg-gray-100">
+                                    <td class="px-4 py-2 font-medium">Combination</td>
+                                    <td class="px-4 py-2">A + B → AB</td>
+                                    <td class="px-4 py-2">Two → One</td>
+                                    <td class="px-4 py-2">2H₂ + O₂ → 2H₂O</td>
+                                </tr>
+                                <tr class="hover:bg-gray-100">
+                                    <td class="px-4 py-2 font-medium">Decomposition</td>
+                                    <td class="px-4 py-2">AB → A + B</td>
+                                    <td class="px-4 py-2">One → Many</td>
+                                    <td class="px-4 py-2">2H₂O → 2H₂ + O₂</td>
+                                </tr>
+                                <tr class="hover:bg-gray-100">
+                                    <td class="px-4 py-2 font-medium">Single Displacement</td>
+                                    <td class="px-4 py-2">A + BC → AC + B</td>
+                                    <td class="px-4 py-2">One element replaces</td>
+                                    <td class="px-4 py-2">Zn + H₂SO₄ → ZnSO₄ + H₂</td>
+                                </tr>
+                                <tr class="hover:bg-gray-100">
+                                    <td class="px-4 py-2 font-medium">Double Displacement</td>
+                                    <td class="px-4 py-2">AB + CD → AD + CB</td>
+                                    <td class="px-4 py-2">Ion exchange</td>
+                                    <td class="px-4 py-2">HCl + NaOH → NaCl + H₂O</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <h3 class="text-2xl font-bold text-center text-gray-800 mb-6">📋 Chapter Summary</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div class="text-3xl mb-2">⚗️</div>
+                    <h4 class="font-semibold text-lg mb-2">Key Concepts</h4>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Balanced equations</li>
+                        <li>• State symbols</li>
+                        <li>• Conservation of mass</li>
+                        <li>• Reaction indicators</li>
+                    </ul>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl mb-2">🔄</div>
+                    <h4 class="font-semibold text-lg mb-2">Reaction Types</h4>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Combination</li>
+                        <li>• Decomposition</li>
+                        <li>• Displacement</li>
+                        <li>• Double displacement</li>
+                    </ul>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl mb-2">🔥</div>
+                    <h4 class="font-semibold text-lg mb-2">Energy Changes</h4>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Exothermic reactions</li>
+                        <li>• Endothermic reactions</li>
+                        <li>• Oxidation-Reduction</li>
+                        <li>• Corrosion & Rancidity</li>
+                    </ul>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl mb-2">🧮</div>
+                    <h4 class="font-semibold text-lg mb-2">Important Examples</h4>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Thermite reaction</li>
+                        <li>• Electrolysis of water</li>
+                        <li>• Precipitation reactions</li>
+                        <li>• Neutralization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button class="nav-button" id="practiceMode" onclick="togglePracticeMode()" title="Practice Mode">🎯</button>
+    <button class="nav-button" id="scrollToTop" onclick="scrollToTop()" title="Scroll to Top">↑</button>
+
+    <script>
+	
+        let practiceMode = false;
+
+        function renderContent() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const pageFilter = document.getElementById('pageFilter').value;
+            const cards = document.querySelectorAll('.question-card');
+            const sections = document.querySelectorAll('#flowchart, #page6, #page10, #page13, #exercises, #additional');
+
+            // Handle section visibility
+            sections.forEach(section => {
+                const sectionId = section.id;
+                if (pageFilter === 'all' || pageFilter === sectionId) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+
+            // Handle question cards within visible sections
+            cards.forEach(card => {
+                const cardPage = card.getAttribute('data-page');
+                const cardText = card.textContent.toLowerCase();
+                
+                const matchesSearch = searchTerm === '' || cardText.includes(searchTerm);
+                const matchesPage = pageFilter === 'all' || cardPage === pageFilter;
+                
+                if (matchesSearch && matchesPage) {
+                    card.style.display = 'block';
+                    // Highlight search terms
+                    if (searchTerm) {
+                        highlightSearchTerms(card, searchTerm);
+                    }
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function highlightSearchTerms(element, searchTerm) {
+            const walker = document.createTreeWalker(
+                element,
+                NodeFilter.SHOW_TEXT,
+                null,
+                false
+            );
+
+            const textNodes = [];
+            let node;
+            while (node = walker.nextNode()) {
+                textNodes.push(node);
+            }
+
+            textNodes.forEach(textNode => {
+                if (textNode.textContent.toLowerCase().includes(searchTerm)) {
+                    const regex = new RegExp(`(${searchTerm})`, 'gi');
+                    const highlightedText = textNode.textContent.replace(regex, '<span class="search-highlight">$1</span>');
+                    const span = document.createElement('span');
+                    span.innerHTML = highlightedText;
+                    textNode.parentNode.replaceChild(span, textNode);
+                }
+            });
+        }
+
+        function togglePracticeMode() {
+            practiceMode = !practiceMode;
+            const btn = document.getElementById('practiceBtn');
+            const answers = document.querySelectorAll('.answer-content');
+            
+            if (practiceMode) {
+                btn.textContent = '👁️ Show Answers';
+                btn.className = 'bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-orange-700 transition-colors';
+                answers.forEach(answer => {
+                    answer.classList.add('answer-hidden');
+                    answer.onclick = () => {
+                        answer.classList.remove('answer-hidden');
+                        answer.onclick = null;
+                    };
+                });
+            } else {
+                btn.textContent = '🎯 Practice Mode';
+                btn.className = 'bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors';
+                answers.forEach(answer => {
+                    answer.classList.remove('answer-hidden');
+                    answer.onclick = null;
+                });
+            }
+        }
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', renderContent);
+        document.getElementById('pageFilter').addEventListener('change', renderContent);
+
+        // Show scroll to top button when scrolling
+        window.addEventListener('scroll', () => {
+            const scrollBtn = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollBtn.style.display = 'block';
+            } else {
+                scrollBtn.style.display = 'none';
+            }
+        });
+
+        // Initialize
+        renderContent();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'975c5f8a6530ff70',t:'MTc1NjMwNjE0Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

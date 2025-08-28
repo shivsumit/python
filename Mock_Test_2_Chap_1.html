@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 10 Science Mock Test - Chemical Reactions and Equations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+	<script src="protection.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .tab-button { transition: all 0.3s ease; }
+        .tab-button:hover { transform: translateY(-2px); }
+        .tab-button.active { 
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .test-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .timer {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #dc3545;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .progress-info {
+            font-size: 1.1rem;
+            color: #495057;
+        }
+
+        .question-container {
+            padding: 30px;
+            min-height: 400px;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .question-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .set-indicator {
+            background: #28a745;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .options {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .option {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #2196f3;
+            transform: translateY(-2px);
+        }
+
+        .option.selected {
+            background: #e8f5e8;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .navigation {
+            background: #f8f9fa;
+            border-top: 2px solid #e9ecef;
+            padding: 20px 30px;
+        }
+
+        .nav-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .nav-btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            padding: 12px 30px;
+        }
+
+        .question-palette {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .palette-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .palette-title {
+            font-weight: bold;
+            color: #495057;
+            font-size: 1.1rem;
+        }
+
+        .palette-legend {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.unanswered { background: #e9ecef; }
+        .legend-dot.answered { background: #28a745; }
+        .legend-dot.current { background: #007bff; }
+
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+            gap: 8px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .question-dot {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            background: #e9ecef;
+            color: #495057;
+            border: 2px solid transparent;
+            font-size: 0.9rem;
+        }
+
+        .question-dot:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .question-dot.answered {
+            background: #28a745;
+            color: white;
+        }
+
+        .question-dot.current {
+            background: #007bff;
+            color: white;
+            border-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .set-filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .set-filter {
+            background: #e9ecef;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .set-filter.active {
+            background: #007bff;
+            color: white;
+        }
+
+        .progress-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .quick-nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .quick-nav-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .quick-nav-btn:hover {
+            background: #495057;
+        }
+
+        .results-container {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .score-display {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #28a745;
+            margin: 20px 0;
+        }
+
+        .score-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .score-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #007bff;
+        }
+
+        .score-item h3 {
+            color: #495057;
+            margin-bottom: 10px;
+        }
+
+        .score-item .value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .restart-btn {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-top: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .test-info {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .question-container {
+                padding: 20px;
+            }
+            
+            .nav-controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-buttons {
+                justify-content: center;
+            }
+            
+            .quick-nav {
+                justify-content: center;
+            }
+            
+            .palette-header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .palette-legend {
+                justify-content: center;
+            }
+            
+            .progress-summary {
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
+            
+            .set-filters {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .question-grid {
+                grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+                max-height: 150px;
+            }
+            
+            .question-dot {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+
+ <!-- Navigation Tabs -->
+		<script>function navigateTo(page) {
+            // Simulate navigation - in real implementation, these would link to actual pages
+            const pageNames = {
+                'ncert-solutions': 'ncert_solutions_chap_1',
+                'chemical-reactions': 'Chemical Reactions',
+                'quick-revision': 'Quick Revision',
+                'activities': 'Activities',
+                'mock-test-1': 'Mock Test 1',
+                'mock-test-2': 'Mock Test 2',
+                'mock-test-3': 'Mock Test 3 (Very Short Answer)',
+                'mock-test-4': 'Mock Test 4 (Short/Long Answer)',
+                'mock-test-5': 'Mock Test 5 (Case Study)'
+            };
+         
+            // In a real implementation, you would use:
+			window.location.href = `${page}.html`;
+            // or for single page application:
+            // loadPage(page);
+        }</script>
+        <div class="bg-white rounded-2xl shadow-xl p-6 mb-8">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">📚 Study Resources</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <button onclick="navigateTo('ncert_solutions_chap_1')" class="tab-button bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📖 NCERT Solutions
+                </button>
+                <button onclick="navigateTo('All_Chemical_reaction_chap_1')" class="tab-button bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    ⚗️ Chemical Reactions
+                </button>
+                <button onclick="navigateTo('Quick_revision_chap_1')" class="tab-button bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    ⚡ Quick Revision
+                </button>
+                <button onclick="navigateTo('activity_chap_1')" class="tab-button bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    🧪 Activities
+                </button>
+                <button onclick="navigateTo('Mock_Test_1_Chap_1')" class="tab-button bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 1
+                </button>
+                <button onclick="navigateTo('Mock_Test_2_Chap_1')" class="tab-button bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 2
+                </button>
+                <button onclick="navigateTo('Practice_Very_Short_Chap_1')" class="tab-button bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 3 (VSA)
+                </button>
+                <button onclick="navigateTo('Short_Long_Practice_Chap_1')" class="tab-button bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 4 (SA/LA)
+                </button>
+                <button onclick="navigateTo('Case_Study_Chap_1')" class="tab-button bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 5 (Case Study)
+                </button>
+            </div>
+        </div>
+
+
+    <div class="container">
+        <div class="header">
+            <h1>🧪 Class 10 Science Mock Test 2</h1>
+            <p>Chapter 1: Chemical Reactions and Equations <br> Competency Based Questions</p>
+        </div>
+
+        <div id="testInterface">
+            <div class="test-info">
+                <div class="progress-info">
+                    <span id="currentQuestion">1</span> of <span id="totalQuestions">60</span> Questions
+                </div>
+                <div class="timer" id="timer">60:00</div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-header">
+                    <div class="question-number" id="questionNumber">Question 1</div>
+                    <div class="set-indicator" id="setIndicator">Set 1</div>
+                </div>
+                
+                <div class="question-text" id="questionText"></div>
+                
+                <div class="options" id="optionsContainer"></div>
+            </div>
+
+            <div class="navigation">
+                <div class="nav-controls">
+                    <div class="nav-buttons">
+                        <button class="nav-btn" id="prevBtn" onclick="previousQuestion()">
+                            ← Previous
+                        </button>
+                        <button class="nav-btn" id="nextBtn" onclick="nextQuestion()">
+                            Next →
+                        </button>
+                        <button class="nav-btn submit-btn hidden" id="submitBtn" onclick="submitTest()">
+                            ✓ Submit Test
+                        </button>
+                    </div>
+                    
+                    <div class="quick-nav">
+                        <button class="quick-nav-btn" onclick="goToFirstUnanswered()">First Unanswered</button>
+                        <button class="quick-nav-btn" onclick="goToLastQuestion()">Last Question</button>
+                    </div>
+                </div>
+
+                <div class="question-palette">
+                    <div class="palette-header">
+                        <div class="palette-title">Question Navigator</div>
+                        <div class="palette-legend">
+                            <div class="legend-item">
+                                <div class="legend-dot unanswered"></div>
+                                <span>Unanswered</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-dot answered"></div>
+                                <span>Answered</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-dot current"></div>
+                                <span>Current</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="progress-summary">
+                        <span>Progress: <strong id="answeredCount">0</strong> / <strong>60</strong> answered</span>
+                        <span>Current Set: <strong id="currentSet">1</strong></span>
+                    </div>
+
+                    <div class="set-filters">
+                        <button class="set-filter active" onclick="filterBySet('all')">All Questions</button>
+                        <button class="set-filter" onclick="filterBySet(1)">Set 1 (1-20)</button>
+                        <button class="set-filter" onclick="filterBySet(2)">Set 2 (21-40)</button>
+                        <button class="set-filter" onclick="filterBySet(3)">Set 3 (41-60)</button>
+                    </div>
+                    
+                    <div class="question-grid" id="questionGrid"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="resultsInterface" class="hidden">
+            <div class="results-container">
+                <h2>🎉 Test Completed!</h2>
+                <div class="score-display" id="finalScore">0/60</div>
+                
+                <div class="score-breakdown">
+                    <div class="score-item">
+                        <h3>Total Score</h3>
+                        <div class="value" id="totalScore">0%</div>
+                    </div>
+                    <div class="score-item">
+                        <h3>Correct Answers</h3>
+                        <div class="value" id="correctCount">0</div>
+                    </div>
+                    <div class="score-item">
+                        <h3>Incorrect Answers</h3>
+                        <div class="value" id="incorrectCount">0</div>
+                    </div>
+                    <div class="score-item">
+                        <h3>Time Taken</h3>
+                        <div class="value" id="timeTaken">0:00</div>
+                    </div>
+                </div>
+                
+                <button class="restart-btn" onclick="restartTest()">🔄 Restart Test</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+       const questions = [
+            {
+                id: 61,
+                question: "A student adds dilute HCl to a test tube containing zinc granules. He observes bubbles on the zinc surface. The correct inference is:",
+                options: [
+                    "Oxygen gas is evolved",
+                    "Hydrogen gas is evolved", 
+                    "Carbon dioxide gas is evolved",
+                    "Chlorine gas is evolved"
+                ],
+                correct: 1
+            },
+            {
+                id: 62,
+                question: "In a reaction, copper turns into green when exposed to moist air. This green coating is:",
+                options: [
+                    "Copper carbonate",
+                    "Copper hydroxide",
+                    "Basic copper carbonate",
+                    "Copper chloride"
+                ],
+                correct: 2
+            },
+            {
+                id: 63,
+                question: "When iron nail is dipped in copper sulphate solution, a reddish-brown layer is formed on the nail. This is due to:",
+                options: [
+                    "Deposition of iron",
+                    "Deposition of copper",
+                    "Formation of rust",
+                    "Formation of ferric oxide"
+                ],
+                correct: 1
+            },
+            {
+                id: 64,
+                question: "A teacher heats a small quantity of lead nitrate in a test tube. Brown fumes are released. The gas evolved is:",
+                options: [
+                    "NO",
+                    "N₂O",
+                    "NO₂",
+                    "NH₃"
+                ],
+                correct: 2
+            },
+            {
+                id: 65,
+                question: "During a lab activity, a student observes a white precipitate when solutions of BaCl₂ and Na₂SO₄ are mixed. The precipitate is:",
+                options: [
+                    "BaSO₄",
+                    "NaCl",
+                    "Na₂SO₄",
+                    "BaCl₂"
+                ],
+                correct: 0
+            },
+            {
+                id: 66,
+                question: "A shiny brown metal 'X' is heated in air and turns black. On adding hydrogen gas, the black substance becomes shiny brown again. Identify 'X'.",
+                options: [
+                    "Aluminium",
+                    "Copper",
+                    "Iron",
+                    "Zinc"
+                ],
+                correct: 1
+            },
+            {
+                id: 67,
+                question: "In an experiment, a student places some food items in open air. After a few days, they develop a bad smell and taste. This is due to:",
+                options: [
+                    "Fermentation",
+                    "Corrosion",
+                    "Rancidity",
+                    "Oxidation of metals"
+                ],
+                correct: 2
+            },
+            {
+                id: 68,
+                question: "A white salt on heating gives off brown fumes and a residue of yellow colour is left when hot, turning white on cooling. The salt is:",
+                options: [
+                    "Zn(NO₃)₂",
+                    "Pb(NO₃)₂",
+                    "NaNO₃",
+                    "Cu(NO₃)₂"
+                ],
+                correct: 0
+            },
+            {
+                id: 69,
+                question: "While performing electrolysis of water, the ratio of gases collected in cathode and anode is:",
+                options: [
+                    "1:1",
+                    "2:1",
+                    "1:2",
+                    "3:1"
+                ],
+                correct: 1
+            },
+            {
+                id: 70,
+                question: "In a test tube, a student adds NaOH solution to a solution of CuSO₄. The observation will be:",
+                options: [
+                    "No reaction",
+                    "Formation of white precipitate",
+                    "Formation of blue precipitate",
+                    "Gas evolved"
+                ],
+                correct: 2
+            },
+            {
+                id: 71,
+                question: "A reaction is carried out in which heat energy is absorbed. This type of reaction is:",
+                options: [
+                    "Displacement",
+                    "Exothermic",
+                    "Endothermic",
+                    "Neutralisation"
+                ],
+                correct: 2
+            },
+            {
+                id: 72,
+                question: "In the activity of rusting, iron nails in test tube with boiled water and oil on top do not rust. This proves that:",
+                options: [
+                    "Only water is necessary for rusting",
+                    "Only air is necessary for rusting",
+                    "Both air and moisture are necessary for rusting",
+                    "Rusting does not need any condition"
+                ],
+                correct: 2
+            },
+            {
+                id: 73,
+                question: "Which reaction is the basis for whitewashing walls?",
+                options: [
+                    "CaO + H₂O → Ca(OH)₂",
+                    "Ca(OH)₂ + CO₂ → CaCO₃ + H₂O",
+                    "CaCO₃ → CaO + CO₂",
+                    "Both (a) and (b)"
+                ],
+                correct: 3
+            },
+            {
+                id: 74,
+                question: "A student burns magnesium ribbon in air. The white ash formed is:",
+                options: [
+                    "Mg(OH)₂",
+                    "MgCO₃",
+                    "MgO",
+                    "MgCl₂"
+                ],
+                correct: 2
+            },
+            {
+                id: 75,
+                question: "When dilute HCl is added to sodium carbonate, brisk effervescence is seen. The gas evolved turns lime water milky. The gas is:",
+                options: [
+                    "CO₂",
+                    "O₂",
+                    "H₂",
+                    "SO₂"
+                ],
+                correct: 0
+            },
+            {
+                id: 76,
+                question: "During the thermite reaction, molten iron is formed. This reaction is highly:",
+                options: [
+                    "Exothermic",
+                    "Endothermic",
+                    "Neutralisation",
+                    "Photolytic"
+                ],
+                correct: 0
+            },
+            {
+                id: 77,
+                question: "In a double displacement reaction between Na₂SO₄ and BaCl₂, the insoluble product is:",
+                options: [
+                    "NaCl",
+                    "BaSO₄",
+                    "Na₂Cl₂",
+                    "H₂O"
+                ],
+                correct: 1
+            },
+            {
+                id: 78,
+                question: "A silver article turns black after some time when exposed to air. This is due to the formation of:",
+                options: [
+                    "AgCl",
+                    "Ag₂S",
+                    "Ag₂O",
+                    "AgNO₃"
+                ],
+                correct: 1
+            },
+            {
+                id: 79,
+                question: "Which observation confirms that a chemical reaction has taken place?",
+                options: [
+                    "Change in state",
+                    "Change in colour",
+                    "Evolution of gas",
+                    "All of these"
+                ],
+                correct: 3
+            },
+            {
+                id: 80,
+                question: "In a classroom demonstration, a teacher shows the reaction: 2PbO + C → 2Pb + CO₂. Here, the substance getting oxidised is:",
+                options: [
+                    "PbO",
+                    "Pb",
+                    "C",
+                    "CO₂"
+                ],
+                correct: 2
+            },
+            {
+                id: 81,
+                question: "A student mixes aqueous solutions of lead nitrate and potassium iodide. A yellow precipitate forms immediately. This is an example of:",
+                options: [
+                    "Combination reaction",
+                    "Double displacement reaction",
+                    "Displacement reaction",
+                    "Decomposition reaction"
+                ],
+                correct: 1
+            },
+            {
+                id: 82,
+                question: "In a laboratory, heating of ferrous sulphate crystals results in:",
+                options: [
+                    "Formation of SO₂ and SO₃ gases with brown residue",
+                    "Formation of Fe₂O₃, SO₂, SO₃ gases",
+                    "Formation of FeS and SO₂",
+                    "No reaction"
+                ],
+                correct: 1
+            },
+            {
+                id: 83,
+                question: "A test tube contains dilute HCl. A piece of marble is dropped in it. Which gas is evolved?",
+                options: [
+                    "Oxygen",
+                    "Hydrogen",
+                    "Carbon dioxide",
+                    "Sulphur dioxide"
+                ],
+                correct: 2
+            },
+            {
+                id: 84,
+                question: "A black compound of copper on heating in hydrogen gas turns red-brown. The reaction shows:",
+                options: [
+                    "Oxidation of CuO",
+                    "Reduction of CuO",
+                    "Reduction of H₂",
+                    "Both (a) and (b)"
+                ],
+                correct: 1
+            },
+            {
+                id: 85,
+                question: "A student performed electrolysis of water using Hoffmann voltameter. The ratio of gases collected is:",
+                options: [
+                    "Hydrogen : Oxygen = 2 : 1",
+                    "Hydrogen : Oxygen = 1 : 2",
+                    "Hydrogen : Oxygen = 1 : 1",
+                    "Hydrogen : Oxygen = 3 : 1"
+                ],
+                correct: 0
+            },
+            {
+                id: 86,
+                question: "In a displacement reaction, Fe + CuSO₄ → FeSO₄ + Cu, the substance reduced is:",
+                options: [
+                    "Fe",
+                    "Cu",
+                    "SO₄²⁻",
+                    "Fe²⁺"
+                ],
+                correct: 1
+            },
+            {
+                id: 87,
+                question: "The white coating that develops on walls after whitewashing becomes hard due to:",
+                options: [
+                    "Formation of Ca(OH)₂",
+                    "Reaction of CaO with H₂O",
+                    "Formation of CaCO₃ by reaction of Ca(OH)₂ with CO₂",
+                    "Reaction of CaCO₃ with O₂"
+                ],
+                correct: 2
+            },
+            {
+                id: 88,
+                question: "When a silver article turns black, it is due to:",
+                options: [
+                    "Reaction with oxygen to form Ag₂O",
+                    "Reaction with hydrogen sulphide to form Ag₂S",
+                    "Reaction with chlorine to form AgCl",
+                    "Deposition of carbon"
+                ],
+                correct: 1
+            },
+            {
+                id: 89,
+                question: "A student observed that a reddish-brown powder is deposited when an iron nail is dipped in blue CuSO₄ solution. Here, iron:",
+                options: [
+                    "Is oxidised, copper is reduced",
+                    "Is reduced, copper is oxidised",
+                    "Does not react",
+                    "Forms a precipitate"
+                ],
+                correct: 0
+            },
+            {
+                id: 90,
+                question: "Rusting of iron is an example of:",
+                options: [
+                    "Electrochemical reaction",
+                    "Combination reaction",
+                    "Displacement reaction",
+                    "Decomposition reaction"
+                ],
+                correct: 0
+            },
+            {
+                id: 91,
+                question: "During rusting of iron, which reactions take place simultaneously?",
+                options: [
+                    "Oxidation of iron and reduction of oxygen",
+                    "Oxidation of oxygen and reduction of iron",
+                    "Oxidation of iron and oxygen",
+                    "Only oxidation of iron"
+                ],
+                correct: 0
+            },
+            {
+                id: 92,
+                question: "An iron nail is kept in copper sulphate solution. The solution turns light green because:",
+                options: [
+                    "Cu²⁺ ions are replaced by Fe²⁺ ions",
+                    "Iron is deposited on copper",
+                    "Copper reacts with sulphuric acid",
+                    "Cu²⁺ ions remain unchanged"
+                ],
+                correct: 0
+            },
+            {
+                id: 93,
+                question: "Which observation best indicates that a chemical change has occurred?",
+                options: [
+                    "Melting of ice",
+                    "Dissolution of sugar in water",
+                    "Rusting of iron",
+                    "Breaking of glass"
+                ],
+                correct: 2
+            },
+            {
+                id: 94,
+                question: "A compound 'X' is used for disinfecting drinking water. When exposed to air, it gives a pungent smell. 'X' is:",
+                options: [
+                    "Bleaching powder",
+                    "Washing soda",
+                    "Baking soda",
+                    "Slaked lime"
+                ],
+                correct: 0
+            },
+            {
+                id: 95,
+                question: "When Mg ribbon is burnt in air, it gives dazzling light and produces:",
+                options: [
+                    "MgCO₃",
+                    "MgCl₂",
+                    "Mg(OH)₂",
+                    "MgO"
+                ],
+                correct: 3
+            },
+            {
+                id: 96,
+                question: "A student performs the reaction: 2H₂ + O₂ → 2H₂O. This is an example of:",
+                options: [
+                    "Decomposition reaction",
+                    "Combination reaction",
+                    "Displacement reaction",
+                    "Neutralisation reaction"
+                ],
+                correct: 1
+            },
+            {
+                id: 97,
+                question: "Which experiment proves that both air and water are necessary for rusting?",
+                options: [
+                    "Nail in boiled water covered with oil",
+                    "Nail in dry air",
+                    "Nail in salty water",
+                    "Nail in moist air only"
+                ],
+                correct: 2
+            },
+            {
+                id: 98,
+                question: "Which reaction produces a gas that extinguishes fire?",
+                options: [
+                    "Zn + H₂SO₄ → ZnSO₄ + H₂",
+                    "CaCO₃ + HCl → CaCl₂ + H₂O + CO₂",
+                    "2Mg + O₂ → 2MgO",
+                    "2Na + Cl₂ → 2NaCl"
+                ],
+                correct: 1
+            },
+            {
+                id: 99,
+                question: "Which one is an example of photochemical decomposition reaction?",
+                options: [
+                    "2KClO₃ → 2KCl + 3O₂",
+                    "2AgBr → 2Ag + Br₂ (in sunlight)",
+                    "2Pb(NO₃)₂ → 2PbO + 4NO₂ + O₂",
+                    "CaCO₃ → CaO + CO₂"
+                ],
+                correct: 1
+            },
+            {
+                id: 100,
+                question: "In the thermite reaction: Fe₂O₃ + 2Al → Al₂O₃ + 2Fe, aluminium acts as:",
+                options: [
+                    "Oxidising agent",
+                    "Reducing agent",
+                    "Catalyst",
+                    "Neutral substance"
+                ],
+                correct: 1
+            },
+            {
+                id: 101,
+                question: "A student added a small amount of zinc granules to dilute HCl. He observed brisk effervescence. The gas evolved can be tested by:",
+                options: [
+                    "Bringing a glowing splint near it",
+                    "Bringing a burning splinter near it – it burns with a pop sound",
+                    "Passing it through lime water – lime water turns milky",
+                    "Smelling the gas directly"
+                ],
+                correct: 1
+            },
+            {
+                id: 102,
+                question: "A silver spoon kept in air slowly turns black. Which type of reaction causes this change?",
+                options: [
+                    "Displacement reaction",
+                    "Oxidation reaction",
+                    "Double displacement reaction",
+                    "Combination reaction"
+                ],
+                correct: 1
+            },
+            {
+                id: 103,
+                question: "A white solid 'X' on heating strongly gives off a gas that turns lime water milky, leaving behind a residue of quicklime. 'X' is:",
+                options: [
+                    "CaCO₃",
+                    "NaCl",
+                    "K₂CO₃",
+                    "Ca(OH)₂"
+                ],
+                correct: 0
+            },
+            {
+                id: 104,
+                question: "In a redox reaction: MnO₂ + 4HCl → MnCl₂ + 2H₂O + Cl₂, the oxidising agent is:",
+                options: [
+                    "MnO₂",
+                    "HCl",
+                    "Cl₂",
+                    "MnCl₂"
+                ],
+                correct: 0
+            },
+            {
+                id: 105,
+                question: "When a small amount of ferrous sulphate is heated in a test tube, the gas evolved has a choking smell. This gas is:",
+                options: [
+                    "CO₂",
+                    "SO₂",
+                    "H₂",
+                    "Cl₂"
+                ],
+                correct: 1
+            },
+            {
+                id: 106,
+                question: "A reddish-brown gas is released when lead nitrate crystals are heated. This gas is:",
+                options: [
+                    "NO",
+                    "NO₂",
+                    "SO₂",
+                    "Cl₂"
+                ],
+                correct: 1
+            },
+            {
+                id: 107,
+                question: "When electric current is passed through acidified water, two gases are collected in the ratio of 2:1. This demonstrates:",
+                options: [
+                    "Law of constant proportion",
+                    "Law of conservation of mass",
+                    "Law of multiple proportion",
+                    "Avogadro's law"
+                ],
+                correct: 1
+            },
+            {
+                id: 108,
+                question: "A magnesium ribbon was burnt in air after cleaning with sandpaper. Why was the cleaning necessary?",
+                options: [
+                    "To remove moisture",
+                    "To remove oxide layer",
+                    "To make it shiny",
+                    "To increase its mass"
+                ],
+                correct: 1
+            },
+            {
+                id: 109,
+                question: "When dilute sulphuric acid reacts with zinc granules, the reaction is:",
+                options: [
+                    "Endothermic and displacement",
+                    "Exothermic and combination",
+                    "Exothermic and displacement",
+                    "Endothermic and decomposition"
+                ],
+                correct: 2
+            },
+            {
+                id: 110,
+                question: "Which observation confirms that a double displacement reaction has taken place?",
+                options: [
+                    "Gas evolved with effervescence",
+                    "Heat released",
+                    "Formation of a precipitate",
+                    "Change in colour only"
+                ],
+                correct: 2
+            },
+            {
+                id: 111,
+                question: "In the rusting of iron, the actual rust is:",
+                options: [
+                    "FeO",
+                    "Fe₂O₃",
+                    "Fe₂O₃·xH₂O",
+                    "Fe(OH)₃"
+                ],
+                correct: 2
+            },
+            {
+                id: 112,
+                question: "An iron gate in a park is painted frequently to:",
+                options: [
+                    "Make it attractive",
+                    "Prevent displacement",
+                    "Prevent corrosion",
+                    "Maintain its weight"
+                ],
+                correct: 2
+            },
+            {
+                id: 113,
+                question: "Which of the following is both a combination and exothermic reaction?",
+                options: [
+                    "Decomposition of KClO₃",
+                    "Burning of coal",
+                    "Rusting of iron",
+                    "Electrolysis of water"
+                ],
+                correct: 1
+            },
+            {
+                id: 114,
+                question: "A student observed that after adding dilute HCl to Na₂CO₃ solution, brisk effervescence occurred. The gas evolved is confirmed by:",
+                options: [
+                    "Turning lime water milky",
+                    "Bursting with a pop sound",
+                    "Glowing splinter re-lights",
+                    "Blue litmus turns red"
+                ],
+                correct: 0
+            },
+            {
+                id: 115,
+                question: "In the equation: 2Fe + 3Cl₂ → 2FeCl₃, the substance reduced is:",
+                options: [
+                    "Fe",
+                    "Cl₂",
+                    "FeCl₃",
+                    "None"
+                ],
+                correct: 1
+            },
+            {
+                id: 116,
+                question: "A student wrote the equation: NaOH + HCl → NaCl + H₂. The error is:",
+                options: [
+                    "HCl cannot react with NaOH",
+                    "Reaction does not occur",
+                    "The product should be water, not hydrogen",
+                    "Equation is correct"
+                ],
+                correct: 2
+            },
+            {
+                id: 117,
+                question: "On keeping food containing oil in the open for a long time, it smells bad. This is due to:",
+                options: [
+                    "Decomposition",
+                    "Rancidity",
+                    "Fermentation",
+                    "Neutralisation"
+                ],
+                correct: 1
+            },
+            {
+                id: 118,
+                question: "A black substance is deposited when CuO is heated in hydrogen. This shows that:",
+                options: [
+                    "Hydrogen is oxidised",
+                    "Hydrogen is reduced",
+                    "CuO is reduced to Cu",
+                    "Both (a) and (c)"
+                ],
+                correct: 2
+            },
+            {
+                id: 119,
+                question: "Which type of reaction is used in the extraction of metals from their oxides using aluminium powder?",
+                options: [
+                    "Combination",
+                    "Neutralisation",
+                    "Displacement",
+                    "Decomposition"
+                ],
+                correct: 2
+            },
+            {
+                id: 120,
+                question: "A reaction in which energy is absorbed from surroundings is called:",
+                options: [
+                    "Exothermic",
+                    "Endothermic",
+                    "Combustion",
+                    "Neutralisation"
+                ],
+                correct: 1
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let userAnswers = new Array(questions.length).fill(null);
+        let timeRemaining = 3600; // 60 minutes in seconds
+        let timerInterval;
+        let testStartTime;
+        let currentFilter = 'all';
+        let filteredQuestions = [];
+
+        function initializeTest() {
+            testStartTime = Date.now();
+            document.getElementById('totalQuestions').textContent = questions.length;
+            createQuestionGrid();
+            displayQuestion();
+            startTimer();
+        }
+
+        function createQuestionGrid() {
+            filteredQuestions = questions.map((_, index) => index);
+            const grid = document.getElementById('questionGrid');
+            grid.innerHTML = '';
+            
+            for (let i = 0; i < questions.length; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'question-dot';
+                dot.textContent = i + 1;
+                dot.dataset.questionIndex = i;
+                dot.onclick = () => goToQuestion(i);
+                grid.appendChild(dot);
+            }
+            updateQuestionGrid();
+        }
+
+        function updateQuestionGrid() {
+            const dots = document.querySelectorAll('.question-dot');
+            dots.forEach((dot, index) => {
+                const questionIndex = parseInt(dot.dataset.questionIndex);
+                dot.className = 'question-dot';
+                if (userAnswers[questionIndex] !== null) {
+                    dot.classList.add('answered');
+                }
+                if (questionIndex === currentQuestionIndex) {
+                    dot.classList.add('current');
+                }
+            });
+            
+            updateProgressSummary();
+        }
+
+        function updateProgressSummary() {
+            const answeredCount = userAnswers.filter(answer => answer !== null).length;
+            const currentSet = questions[currentQuestionIndex].set;
+            
+            document.getElementById('answeredCount').textContent = answeredCount;
+            document.getElementById('currentSet').textContent = currentSet;
+        }
+
+        function filterBySet(setNumber) {
+            currentFilter = setNumber;
+            
+            // Update filter buttons
+            document.querySelectorAll('.set-filter').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Filter and display questions
+            const grid = document.getElementById('questionGrid');
+            grid.innerHTML = '';
+            
+            if (setNumber === 'all') {
+                filteredQuestions = questions.map((_, index) => index);
+            } else {
+                filteredQuestions = questions
+                    .map((question, index) => ({ question, index }))
+                    .filter(item => item.question.set === setNumber)
+                    .map(item => item.index);
+            }
+            
+            filteredQuestions.forEach(questionIndex => {
+                const dot = document.createElement('div');
+                dot.className = 'question-dot';
+                dot.textContent = questionIndex + 1;
+                dot.dataset.questionIndex = questionIndex;
+                dot.onclick = () => goToQuestion(questionIndex);
+                grid.appendChild(dot);
+            });
+            
+            updateQuestionGrid();
+        }
+
+        function goToFirstUnanswered() {
+            const firstUnanswered = userAnswers.findIndex(answer => answer === null);
+            if (firstUnanswered !== -1) {
+                goToQuestion(firstUnanswered);
+            }
+        }
+
+        function goToLastQuestion() {
+            goToQuestion(questions.length - 1);
+        }
+
+        function displayQuestion() {
+            const question = questions[currentQuestionIndex];
+            
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+            document.getElementById('questionNumber').textContent = `Question ${currentQuestionIndex + 1}`;
+            document.getElementById('setIndicator').textContent = `Set ${question.set}`;
+            document.getElementById('questionText').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                optionDiv.textContent = `(${String.fromCharCode(97 + index)}) ${option}`;
+                optionDiv.onclick = () => selectOption(index);
+                
+                if (userAnswers[currentQuestionIndex] === index) {
+                    optionDiv.classList.add('selected');
+                }
+                
+                optionsContainer.appendChild(optionDiv);
+            });
+            
+            updateNavigationButtons();
+            updateQuestionGrid();
+        }
+
+        function selectOption(optionIndex) {
+            userAnswers[currentQuestionIndex] = optionIndex;
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach((option, index) => {
+                option.classList.remove('selected');
+                if (index === optionIndex) {
+                    option.classList.add('selected');
+                }
+            });
+            
+            updateQuestionGrid();
+        }
+
+        function updateNavigationButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            prevBtn.disabled = currentQuestionIndex === 0;
+            
+            if (currentQuestionIndex === questions.length - 1) {
+                nextBtn.classList.add('hidden');
+                submitBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                submitBtn.classList.add('hidden');
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                displayQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                displayQuestion();
+            }
+        }
+
+        function goToQuestion(index) {
+            currentQuestionIndex = index;
+            displayQuestion();
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                updateTimerDisplay();
+                
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    submitTest();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            document.getElementById('timer').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function submitTest() {
+            clearInterval(timerInterval);
+            
+            const testEndTime = Date.now();
+            const timeTaken = Math.floor((testEndTime - testStartTime) / 1000);
+            
+            let correctAnswers = 0;
+            
+            questions.forEach((question, index) => {
+                if (userAnswers[index] === question.correct) {
+                    correctAnswers++;
+                }
+            });
+            
+            const incorrectAnswers = questions.length - correctAnswers;
+            const percentage = Math.round((correctAnswers / questions.length) * 100);
+            
+            // Display results
+            document.getElementById('testInterface').classList.add('hidden');
+            document.getElementById('resultsInterface').classList.remove('hidden');
+            
+            document.getElementById('finalScore').textContent = `${correctAnswers}/${questions.length}`;
+            document.getElementById('totalScore').textContent = `${percentage}%`;
+            document.getElementById('correctCount').textContent = correctAnswers;
+            document.getElementById('incorrectCount').textContent = incorrectAnswers;
+            
+            const minutes = Math.floor(timeTaken / 60);
+            const seconds = timeTaken % 60;
+            document.getElementById('timeTaken').textContent = 
+                `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function restartTest() {
+            currentQuestionIndex = 0;
+            userAnswers = new Array(questions.length).fill(null);
+            timeRemaining = 3600;
+            
+            document.getElementById('resultsInterface').classList.add('hidden');
+            document.getElementById('testInterface').classList.remove('hidden');
+            
+            initializeTest();
+        }
+
+        // Initialize the test when page loads
+        window.onload = initializeTest;
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'975c60cec0f9ff70',t:'MTc1NjMwNjE5NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

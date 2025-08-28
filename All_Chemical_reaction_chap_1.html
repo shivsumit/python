@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 10 Chemistry - Quick Reaction Sheet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+	<script src="protection.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .reaction-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .reaction-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .equation {
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e40af;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .print-friendly {
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+        }
+        
+        @media print {
+            body { font-size: 12px; }
+            .equation { font-size: 14px; }
+            .section-header { background: #4f46e5 !important; }
+        }
+        
+        .reaction-type {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        
+        .combination { background: #dcfce7; color: #166534; }
+        .decomposition { background: #fef3c7; color: #92400e; }
+        .displacement { background: #fecaca; color: #991b1b; }
+        .precipitation { background: #dbeafe; color: #1e40af; }
+        .redox { background: #e9d5ff; color: #7c2d12; }
+        .neutralization { background: #f3e8ff; color: #6b21a8; }
+        
+        .flowchart-box {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .flowchart-box:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        }
+        
+        .arrow {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 15px solid #6b7280;
+            margin: 8px auto;
+        }
+        
+        .horizontal-arrow {
+            width: 30px;
+            height: 2px;
+            background: #6b7280;
+            position: relative;
+            margin: 20px auto;
+        }
+        
+        .horizontal-arrow::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: -4px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid #6b7280;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen print-friendly">
+
+ <!-- Navigation Tabs -->
+		<script>function navigateTo(page) {
+            // Simulate navigation - in real implementation, these would link to actual pages
+            const pageNames = {
+                'ncert-solutions': 'ncert_solutions_chap_1',
+                'chemical-reactions': 'Chemical Reactions',
+                'quick-revision': 'Quick Revision',
+                'activities': 'Activities',
+                'mock-test-1': 'Mock Test 1',
+                'mock-test-2': 'Mock Test 2',
+                'mock-test-3': 'Mock Test 3 (Very Short Answer)',
+                'mock-test-4': 'Mock Test 4 (Short/Long Answer)',
+                'mock-test-5': 'Mock Test 5 (Case Study)'
+            };
+         
+            // In a real implementation, you would use:
+			window.location.href = `${page}.html`;
+            // or for single page application:
+            // loadPage(page);
+        }</script>
+        <div class="bg-white rounded-2xl shadow-xl p-6 mb-8">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">📚 Study Resources</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <button onclick="navigateTo('ncert_solutions_chap_1')" class="tab-button bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📖 NCERT Solutions
+                </button>
+                <button onclick="navigateTo('All_Chemical_reaction_chap_1')" class="tab-button bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    ⚗️ Chemical Reactions
+                </button>
+                <button onclick="navigateTo('Quick_revision_chap_1')" class="tab-button bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    ⚡ Quick Revision
+                </button>
+                <button onclick="navigateTo('activity_chap_1')" class="tab-button bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    🧪 Activities
+                </button>
+                <button onclick="navigateTo('Mock_Test_1_Chap_1')" class="tab-button bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 1
+                </button>
+                <button onclick="navigateTo('Mock_Test_2_Chap_1')" class="tab-button bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 2
+                </button>
+                <button onclick="navigateTo('Practice_Very_Short_Chap_1')" class="tab-button bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 3 (VSA)
+                </button>
+                <button onclick="navigateTo('Short_Long_Practice_Chap_1')" class="tab-button bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 4 (SA/LA)
+                </button>
+                <button onclick="navigateTo('Case_Study_Chap_1')" class="tab-button bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white px-4 py-3 rounded-lg font-medium text-sm shadow-lg">
+                    📝 Mock Test 5 (Case Study)
+                </button>
+            </div>
+        </div>
+
+
+
+    <!-- Header -->
+    <div class="bg-white shadow-lg border-b-4 border-indigo-500 mb-6">
+        <div class="max-w-7xl mx-auto px-6 py-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold text-gray-800 mb-2">🧪 Quick Reaction Sheet</h1>
+                <h2 class="text-2xl font-semibold text-indigo-600 mb-4">Class 10 Science - Chapter 1: Chemical Reactions and Equations</h2>
+                <div class="flex justify-center gap-4 mb-4">
+                    <button onclick="window.print()" class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 transition-colors">
+                        🖨️ Print Sheet
+                    </button>
+                    <button onclick="showFlowchart()" class="bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                        📊 View Flowchart
+                    </button>
+                </div>
+                <p class="text-gray-600">All essential reactions organized by type for quick revision</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 pb-8">
+        <!-- Basic Reactions -->
+        <div class="mb-8">
+            <div class="section-header">🔹 Basic Reactions</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">2Mg + O₂ → 2MgO</div>
+                    <span class="reaction-type combination">Combination</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">Zn + H₂SO₄ → ZnSO₄ + H₂</div>
+                    <span class="reaction-type displacement">Displacement</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">Pb(NO₃)₂ + 2KI → PbI₂ + 2KNO₃</div>
+                    <span class="reaction-type precipitation">Precipitation</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">2FeSO₄ → Fe₂O₃ + SO₂ + SO₃</div>
+                    <span class="reaction-type decomposition">Decomposition</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">CaO + H₂O → Ca(OH)₂</div>
+                    <span class="reaction-type combination">Combination</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Whitewashing -->
+        <div class="mb-8">
+            <div class="section-header">🏠 Whitewashing</div>
+            <div class="reaction-card p-4 rounded-lg">
+                <div class="equation">Ca(OH)₂ + CO₂ → CaCO₃ + H₂O</div>
+                <span class="reaction-type combination">Combination</span>
+            </div>
+        </div>
+
+        <!-- Displacement Reactions -->
+        <div class="mb-8">
+            <div class="section-header">🔄 Displacement Reactions</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">Fe + CuSO₄ → FeSO₄ + Cu</div>
+                    <span class="reaction-type displacement">Single Displacement</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">Cu + 2AgNO₃ → Cu(NO₃)₂ + 2Ag</div>
+                    <span class="reaction-type displacement">Single Displacement</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">Zn + CuSO₄ → ZnSO₄ + Cu</div>
+                    <span class="reaction-type displacement">Single Displacement</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">Mg + 2HCl → MgCl₂ + H₂</div>
+                    <span class="reaction-type displacement">Single Displacement</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">Al + 3CuSO₄ → Al₂(SO₄)₃ + 3Cu</div>
+                    <span class="reaction-type displacement">Single Displacement</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">Pb + CuCl₂ → PbCl₂ + Cu</div>
+                    <span class="reaction-type displacement">Single Displacement</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Combination Reactions -->
+        <div class="mb-8">
+            <div class="section-header">➕ Combination Reactions</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">C + O₂ → CO₂</div>
+                    <span class="reaction-type combination">Combination</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">2H₂ + O₂ → 2H₂O</div>
+                    <span class="reaction-type combination">Combination</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">N₂ + 3H₂ → 2NH₃</div>
+                    <span class="reaction-type combination">Combination</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">SO₂ + O₂ → SO₃</div>
+                    <span class="reaction-type combination">Combination</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">2Na + Cl₂ → 2NaCl</div>
+                    <span class="reaction-type combination">Combination</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decomposition Reactions -->
+        <div class="mb-8">
+            <div class="section-header">💥 Decomposition Reactions</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">2Pb(NO₃)₂ → 2PbO + 4NO₂ + O₂</div>
+                    <span class="reaction-type decomposition">Thermal</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">2H₂O → 2H₂ + O₂</div>
+                    <span class="reaction-type decomposition">Electrolytic</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">2AgCl → 2Ag + Cl₂</div>
+                    <span class="reaction-type decomposition">Photolytic</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">CaCO₃ → CaO + CO₂</div>
+                    <span class="reaction-type decomposition">Thermal</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Double Displacement / Precipitation -->
+        <div class="mb-8">
+            <div class="section-header">💧 Double Displacement / Precipitation</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">Na₂SO₄ + BaCl₂ → BaSO₄ + 2NaCl</div>
+                    <span class="reaction-type precipitation">Precipitation</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">AgNO₃ + NaCl → AgCl + NaNO₃</div>
+                    <span class="reaction-type precipitation">Precipitation</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">CuSO₄ + 2NaOH → Cu(OH)₂ + Na₂SO₄</div>
+                    <span class="reaction-type precipitation">Precipitation</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">FeCl₃ + 3NH₄OH → Fe(OH)₃ + 3NH₄Cl</div>
+                    <span class="reaction-type precipitation">Precipitation</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thermite Reaction -->
+        <div class="mb-8">
+            <div class="section-header">🔥 Thermite Reaction</div>
+            <div class="reaction-card p-4 rounded-lg">
+                <div class="equation">Fe₂O₃ + 2Al → Al₂O₃ + 2Fe</div>
+                <span class="reaction-type redox">Redox</span>
+            </div>
+        </div>
+
+        <!-- Neutralization -->
+        <div class="mb-8">
+            <div class="section-header">⚖️ Neutralization</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">HCl + NaOH → NaCl + H₂O</div>
+                    <span class="reaction-type neutralization">Neutralization</span>
+                </div>
+                <div class="reaction-card p-4 rounded-lg">
+                    <div class="equation">H₂SO₄ + 2KOH → K₂SO₄ + 2H₂O</div>
+                    <span class="reaction-type neutralization">Neutralization</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Reference -->
+        <div class="bg-white rounded-2xl shadow-xl p-6 mb-8">
+            <h3 class="text-2xl font-bold text-center text-gray-800 mb-6">🚀 Quick Reference Guide</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center">
+                    <div class="text-3xl mb-2">⚗️</div>
+                    <h4 class="font-semibold text-lg mb-2">Balancing Tips</h4>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Count atoms on both sides</li>
+                        <li>• Start with complex molecules</li>
+                        <li>• Balance metals first</li>
+                        <li>• Balance oxygen last</li>
+                    </ul>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl mb-2">🔍</div>
+                    <h4 class="font-semibold text-lg mb-2">Reaction Indicators</h4>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Color change</li>
+                        <li>• Gas evolution (bubbles)</li>
+                        <li>• Precipitate formation</li>
+                        <li>• Temperature change</li>
+                    </ul>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl mb-2">📊</div>
+                    <h4 class="font-semibold text-lg mb-2">Reaction Types</h4>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• A + B → AB (Combination)</li>
+                        <li>• AB → A + B (Decomposition)</li>
+                        <li>• A + BC → AC + B (Displacement)</li>
+                        <li>• AB + CD → AD + CB (Double)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flowchart Modal -->
+    <div id="flowchart-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 hidden">
+        <div class="bg-white rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white border-b p-6 flex justify-between items-center">
+                <h2 class="text-3xl font-bold text-gray-800">📊 Chemical Reactions Flowchart</h2>
+                <button onclick="closeFlowchart()" class="text-gray-500 hover:text-gray-700 text-3xl">&times;</button>
+            </div>
+            
+            <div class="p-8">
+                <!-- Main Flowchart -->
+                <div class="text-center">
+                    <div class="flowchart-box bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold text-xl">
+                        CHEMICAL REACTIONS
+                    </div>
+                    
+                    <div class="arrow"></div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <!-- Combination -->
+                        <div>
+                            <div class="flowchart-box bg-gradient-to-r from-green-400 to-green-600 text-white font-semibold">
+                                COMBINATION
+                                <div class="text-sm mt-2">A + B → AB</div>
+                            </div>
+                            <div class="arrow"></div>
+                            <div class="bg-green-50 p-3 rounded-lg text-sm">
+                                <div class="font-semibold mb-2">Examples:</div>
+                                <div>2Mg + O₂ → 2MgO</div>
+                                <div>CaO + H₂O → Ca(OH)₂</div>
+                                <div>C + O₂ → CO₂</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Decomposition -->
+                        <div>
+                            <div class="flowchart-box bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-semibold">
+                                DECOMPOSITION
+                                <div class="text-sm mt-2">AB → A + B</div>
+                            </div>
+                            <div class="arrow"></div>
+                            <div class="bg-yellow-50 p-3 rounded-lg text-sm">
+                                <div class="font-semibold mb-2">Types:</div>
+                                <div>🌡️ Thermal: CaCO₃ → CaO + CO₂</div>
+                                <div>⚡ Electrolytic: 2H₂O → 2H₂ + O₂</div>
+                                <div>☀️ Photolytic: 2AgCl → 2Ag + Cl₂</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Displacement -->
+                        <div>
+                            <div class="flowchart-box bg-gradient-to-r from-red-400 to-red-600 text-white font-semibold">
+                                DISPLACEMENT
+                                <div class="text-sm mt-2">A + BC → AC + B</div>
+                            </div>
+                            <div class="arrow"></div>
+                            <div class="bg-red-50 p-3 rounded-lg text-sm">
+                                <div class="font-semibold mb-2">Examples:</div>
+                                <div>Fe + CuSO₄ → FeSO₄ + Cu</div>
+                                <div>Zn + H₂SO₄ → ZnSO₄ + H₂</div>
+                                <div>Mg + 2HCl → MgCl₂ + H₂</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Double Displacement -->
+                        <div>
+                            <div class="flowchart-box bg-gradient-to-r from-blue-400 to-blue-600 text-white font-semibold">
+                                DOUBLE DISPLACEMENT
+                                <div class="text-sm mt-2">AB + CD → AD + CB</div>
+                            </div>
+                            <div class="arrow"></div>
+                            <div class="bg-blue-50 p-3 rounded-lg text-sm">
+                                <div class="font-semibold mb-2">Examples:</div>
+                                <div>AgNO₃ + NaCl → AgCl + NaNO₃</div>
+                                <div>BaCl₂ + Na₂SO₄ → BaSO₄ + 2NaCl</div>
+                                <div>HCl + NaOH → NaCl + H₂O</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Special Categories -->
+                    <div class="bg-gradient-to-r from-indigo-100 to-purple-100 p-6 rounded-xl">
+                        <h3 class="text-xl font-bold mb-4">🎯 Special Categories</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-purple-600 mb-2">🔥 Redox Reactions</h4>
+                                <div class="text-sm">
+                                    <div>Oxidation + Reduction</div>
+                                    <div class="mt-2 text-xs">Fe₂O₃ + 2Al → Al₂O₃ + 2Fe</div>
+                                </div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-blue-600 mb-2">💧 Precipitation</h4>
+                                <div class="text-sm">
+                                    <div>Insoluble product forms</div>
+                                    <div class="mt-2 text-xs">Pb(NO₃)₂ + 2KI → PbI₂↓ + 2KNO₃</div>
+                                </div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-600 mb-2">⚖️ Neutralization</h4>
+                                <div class="text-sm">
+                                    <div>Acid + Base → Salt + Water</div>
+                                    <div class="mt-2 text-xs">HCl + NaOH → NaCl + H₂O</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showFlowchart() {
+            document.getElementById('flowchart-modal').classList.remove('hidden');
+        }
+
+        function closeFlowchart() {
+            document.getElementById('flowchart-modal').classList.add('hidden');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('flowchart-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeFlowchart();
+            }
+        });
+
+        // Add print styles
+        window.addEventListener('beforeprint', function() {
+            document.body.classList.add('print-mode');
+        });
+
+        window.addEventListener('afterprint', function() {
+            document.body.classList.remove('print-mode');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'975c5316c3a90522',t:'MTc1NjMwNTYzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
